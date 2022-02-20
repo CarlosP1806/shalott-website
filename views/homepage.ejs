@@ -28,26 +28,8 @@
       <div class="title__line"></div>
     </div>
     <div class="card-container">
-      <article class="card card--product">
-        <figure class="card__image-container">
-          <img class="card__image" src="/images/Product1.jpg">
-        </figure>
-        <div class="card__body">
-          <div class="card__title">Aretes Bonitos 1</div>
-          <div class="card__price">$500.00</div>
-          <button class="card__btn">Comprar</button>
-        </div>
-      </article>
-      <article class="card card--product">
-        <figure class="card__image-container">
-          <img class="card__image" src="/images/Product2.jpg">
-        </figure>
-        <div class="card__body">
-          <div class="card__title">Aretes Bonitos 2</div>
-          <div class="card__price">$500.00</div>
-          <button class="card__btn">Comprar</button>
-        </div>
-      </article>
+      <%-include("partials/product_card.ejs", { productData: { productImage: "/images/Product1.jpg" ,productName: "Aretes Bonitos 1" , productPrice: "500.00" } }) %>
+      <%-include("partials/product_card.ejs", { productData: { productImage: "/images/Product2.jpg" ,productName: "Aretes Bonitos 2" , productPrice: "500.00" } }) %>
     </div>
   </section>
 
