@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 10px;
+}
+
+:root {
+    --main-color: #e1d3cf;
+    --accent-color: #deaf7c;
+    --secondary-color: #81362f;
+    --text-color: #333;
+    --tiny-font: 1.2rem;
+    --small-font: 1.6rem;
+    --med-font: 1.8rem;
+    --big-font: 2rem;
+    --h-margin: 1.2rem;
+}
+
+/* Layout styles */
+section {
+    width: 100%;
+    position: relative;
+    padding: 1rem var(--h-margin);
+}
+
+.section__title {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.title__image {
+    width: 3rem;
+}
+
+.title__text {
+    font-size: var(--med-font);
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.title__line {
+    background-color: var(--secondary-color);
+    flex: 1;
+    height: 2px;
+    width: 100%;
+}
+
+/* Text styles */
+.text {
+    color: var(--text-color);
+}
+
+/* Button styles */
+
+
+/* Header styles */
+header {
+    padding: 1rem var(--h-margin);
+    background-color: var(--main-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    width: 14rem;
+    height: 5rem;
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+i.menu {
+    cursor: pointer;
+    font-size: 1.8rem;
+    color: var(--text-color);
+}
+
+/* Banner section */
+.section--banner {
+    padding: 0;
+}
+
+.banner__image {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
