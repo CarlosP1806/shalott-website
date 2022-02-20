@@ -10,6 +10,7 @@
     --accent-color: #deaf7c;
     --secondary-color: #81362f;
     --text-color: #333;
+    --text-dark: #111;
     --tiny-font: 1.2rem;
     --small-font: 1.6rem;
     --med-font: 1.8rem;
@@ -21,23 +22,26 @@
 section {
     width: 100%;
     position: relative;
-    padding: 1rem var(--h-margin);
+    padding: 2rem var(--h-margin);
 }
 
 .section__title {
     display: flex;
     width: 100%;
     align-items: center;
+    margin-bottom: 2rem;
 }
 
 .title__image {
     width: 3rem;
+    margin-right: .5em;
 }
 
 .title__text {
-    font-size: var(--med-font);
-    color: var(--accent-color);
+    font-size: var(--big-font);
+    color: var(--secondary-color);
     font-weight: bold;
+    margin-right: .5em;
 }
 
 .title__line {
@@ -54,6 +58,66 @@ section {
 
 /* Button styles */
 
+
+
+
+/* Card styles */
+.card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.card {
+    position: relative;
+    box-shadow: 0 2px 5px 3px rgba(0,0,0,0.1);
+    border-radius: 5px;
+}
+
+.card__image-container {
+    position: relative;
+    width: 100%;
+}
+
+.card__image {
+    border-radius: 5px 5px 0 0;
+    position: relative;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.card__body {
+    padding: 1rem;
+}
+
+.card__title {
+    color: var(--text-dark);
+    font-size: var(--med-font);
+    margin-bottom: .2em;
+}
+
+.card__price {
+    color: var(--text-color);
+    font-size: 1.4rem;
+    margin-bottom: .4em;
+}
+
+.card__btn {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    padding: .5em 1em;
+    border-radius: 5px;
+    background-color: var(--accent-color);
+    color: var(--text-dark);
+    font-size: var(--tiny-font);
+    transition: .2s ease-in-out;
+}
+
+.card__btn:hover {
+    opacity: .8;
+}
 
 /* Header styles */
 header {
