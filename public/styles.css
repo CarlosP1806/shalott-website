@@ -24,6 +24,21 @@
     --h-margin: 2rem;
 }
 
+@media screen and (min-width: 480px) {
+    :root {
+        --small-font: 2rem;
+        --med-font: 2.2rem;
+        --big-font: 2.4rem;
+        --h-margin: 4rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    :root {
+        --h-margin: 8rem;
+    }
+}
+
 /* Layout styles */
 section {
     width: 100%;
@@ -59,6 +74,17 @@ section {
     flex: 1;
     height: 2px;
     width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    section {
+        padding: 4rem 0;
+    }
+
+    .section__content {
+        max-width: 70%;
+        margin: 0 auto;
+    }
 }
 
 /* Text styles */
@@ -140,8 +166,16 @@ section {
     opacity: .8;
 }
 
+@media screen and (min-width: 768px) {
+    .card-container {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 3rem;
+    }
+}
+
 /* Header styles */
 header {
+    width: 100%;
     padding: 1rem var(--h-margin);
     background-color: var(--main-color);
     display: flex;
@@ -168,6 +202,12 @@ i.menu {
     color: var(--text-color);
 }
 
+@media screen and (min-width: 768px) {
+    header {
+        padding: 1rem 15%;
+    }
+}
+
 /* Banner section */
 .section--banner {
     padding: 0;
@@ -179,6 +219,13 @@ i.menu {
     left: 0;
     width: 100%;
     min-height: 40vh;
+}
+
+@media screen and (min-width: 768px) {
+    .banner__image {
+        min-height: 0;
+        height: 600px;
+    }
 }
 
 /* About section */
