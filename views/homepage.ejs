@@ -62,6 +62,22 @@
       </div>
     </div>
   </section>
+  <section class="section--collections">
+    <div class="section__content">
+      <div class="section__title">
+        <img class="title__image" src="/images/ShalottLeaf.png">
+        <div class="title__text">Categorías</div>
+        <div class="title__line"></div>
+      </div>
+      <div class="card-container">
+        <%- include("partials/category_card.ejs", {category: categories[0]}) %>
+        <%- include("partials/category_card.ejs", {category: categories[1]}) %>
+        <%- include("partials/category_card.ejs", {category: categories[2]}) %>
+        <%- include("partials/category_card.ejs", {category: categories[3]}) %>
+      </div>
+
+    </div>
+  </section>
 
 </body>
 
