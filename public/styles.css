@@ -78,7 +78,11 @@ section {
 
 @media screen and (min-width: 768px) {
     section {
-        padding: 4rem 0;
+        padding: 6rem 0;
+    }
+
+    .section__title {
+        margin-bottom: 3rem;
     }
 
     .section__content {
@@ -204,7 +208,16 @@ i.menu {
 
 @media screen and (min-width: 768px) {
     header {
-        padding: 1rem 15%;
+        padding: 2rem 15%;
+    }
+
+    .logo-container {
+        width: 18rem;
+        height: 6rem;
+    }
+
+    i.menu {
+        display: none;
     }
 }
 
@@ -245,4 +258,25 @@ i.menu {
 
 .about__text p {
     margin-bottom: 1.5rem;
+}
+
+.about__col {
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+    .about__col {
+        flex-direction: row;
+        align-items: center;
+        gap: 4rem;
+    }
+
+    .about__text {
+        flex: 1;
+    }
+    
+    .about__image-container {
+        flex: 1;
+    }
 }
