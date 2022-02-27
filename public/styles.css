@@ -307,6 +307,71 @@ i.menu {
 /* Banner section */
 .section--banner {
     padding: 0;
+    width: 100%;
+    height: 40vh;
+    overflow: hidden;
+}
+
+.banner__slides {
+    position: relative;
+    display: flex;
+    width: 500%;
+    height: 100%;
+}
+
+.banner__slides input {
+    display: none;
+}
+
+.navigation-manual {
+    position: absolute;
+    width: 100%;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.manual-btn {
+    position: relative;
+    border: 2px solid var(--secondary-color);
+    padding: 5px;
+    border-radius: 10px;
+    z-index: 10;
+}
+
+#radio1:checked ~ .first {
+    margin-left: 0;
+}
+
+#radio2:checked ~ .first {
+    margin-left: -20%;
+}
+
+#radio3:checked ~ .first {
+    margin-left: -40%;
+}
+
+#radio4:checked ~ .first {
+    margin-left: -60%;
+}
+
+.banner__slide {
+    width: 20%;
+    height: 100%;
+    transition: .5s ease-in-out;
+}
+
+#banner-1 {
+    background: url("/images/ShalottBanner1.png");
+    background-position: center;
+    background-size: cover;
+}
+
+#banner-2 {
+    background: url("/images/ShalottBanner2.png");
+    background-position: center;
+    background-size: cover;
 }
 
 .banner__image {
