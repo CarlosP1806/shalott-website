@@ -346,6 +346,12 @@ i.menu {
     background: var(--secondary-color);
 }
 
+.carousel__item p {
+    text-align: center;
+    font-size: var(--med-font);
+    color: var(--text-color);
+}
+
 /* Footer */
 footer {
     width: 100%;
