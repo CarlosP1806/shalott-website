@@ -79,7 +79,6 @@
         <%- include("partials/category_card.ejs", {category: categories[2]}) %>
         <%- include("partials/category_card.ejs", {category: categories[3]}) %>
       </div>
-
     </div>
   </section>
   <section class="section--collections">
@@ -88,6 +87,35 @@
         <img class="title__image" src="/images/ShalottLeaf2.png" alt="Shalott Leaf">
         <div class="title__text">Colecciones</div>
         <div class="title__line"></div>
+      </div>
+      <div class="collections__carousel">
+        <div class="carousel__container">
+          <button aria-label="Anterior" class="carousel__prev">
+            <i class="fa fa-solid fa-chevron-left"></i>
+          </button>
+          <div class="carousel__list">
+            <div class="carousel__item">
+              <img src="/images/Product1.jpg" alt="Coleccion 1">
+              <p>Colección 1</p>
+            </div>
+            <div class="carousel__item">
+              <img src="/images/Product2.jpg" alt="Coleccion 2">
+              <p>Colección 2</p>
+            </div>
+            <div class="carousel__item">
+              <img src="/images/Product3.jpg" alt="Coleccion 3">
+              <p>Colección 3</p>
+            </div>
+            <div class="carousel__item">
+              <img src="/images/Product4.jpg" alt="Coleccion 4">
+              <p>Colección 4</p>
+            </div>
+          </div>
+          <button aria-label="Siguiente" class="carousel__next">
+            <i class="fa fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+        <div role="tablist" class="carousel__indicators"></div>
       </div>
     </div>
   </section>
@@ -118,6 +146,7 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.js"></script>
+  <script src="/js/glider.js"></script>
 </body>
 
 </html>
