@@ -427,6 +427,20 @@ i.menu {
     background-size: cover;
 }
 
+#banner-3 {
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), 
+    url("/images/ShalottBanner3.png");
+    background-position: center;
+    background-size: cover;
+}
+
+#banner-4 {
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), 
+    url("/images/ShalottBanner4.png");
+    background-position: center;
+    background-size: cover;
+}
+
 @media screen and (min-width: 768px) {
     .section--banner {
         height: 600px;
