@@ -325,8 +325,8 @@ i.menu {
 
 .navigation-manual {
     position: absolute;
-    width: 100%;
-    margin-top: -40px;
+    width: 100vw;
+    bottom: 1rem;
     display: flex;
     justify-content: center;
     gap: 1rem;
@@ -338,22 +338,40 @@ i.menu {
     padding: 5px;
     border-radius: 10px;
     z-index: 10;
+    transition: 1s ease-in-out;
+    cursor: pointer;
 }
 
 #radio1:checked ~ .first {
     margin-left: 0;
 }
 
+#radio1:checked ~ .navigation-manual #btn-1 {
+    background-color: white;
+}
+
 #radio2:checked ~ .first {
     margin-left: -20%;
+}
+
+#radio2:checked ~ .navigation-manual #btn-2 {
+    background-color: white;
 }
 
 #radio3:checked ~ .first {
     margin-left: -40%;
 }
 
+#radio3:checked ~ .navigation-manual #btn-3 {
+    background-color: white;
+}
+
 #radio4:checked ~ .first {
     margin-left: -60%;
+}
+
+#radio4:checked ~ .navigation-manual #btn-4 {
+    background-color: white;
 }
 
 .banner__slide {
@@ -363,28 +381,21 @@ i.menu {
 }
 
 #banner-1 {
-    background: url("/images/ShalottBanner1.png");
+    background: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), 
+    url("/images/ShalottBanner1.png");
     background-position: center;
     background-size: cover;
 }
 
 #banner-2 {
-    background: url("/images/ShalottBanner2.png");
+    background: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), 
+    url("/images/ShalottBanner2.png");
     background-position: center;
     background-size: cover;
 }
 
-.banner__image {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    min-height: 40vh;
-}
-
 @media screen and (min-width: 768px) {
-    .banner__image {
-        min-height: 0;
+    .section--banner {
         height: 600px;
     }
 }
