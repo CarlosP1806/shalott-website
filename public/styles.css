@@ -40,7 +40,7 @@
     }
 }
 
-/* Layout styles */
+/* ======= LAYOUT STYLES ======= */
 section {
     position: relative;
     padding: 2rem var(--h-margin);
@@ -91,16 +91,7 @@ section {
     }
 }
 
-/* Text styles */
-.text {
-    color: var(--text-color);
-}
-
-.text--small {
-    font-size: var(--small-font);
-}
-
-/* Card styles */
+/* ======= CARD STYLES ======= */
 .card-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -164,6 +155,8 @@ section {
     position: relative;
 }
 
+/* Category cards */
+
 .category__image {
     position: relative;
     top: 0;
@@ -199,7 +192,7 @@ section {
     }
 }
 
-/* Header styles */
+/* ======= HEADER STYLES ======= */
 header {
     width: 100%;
     padding: 1rem var(--h-margin);
@@ -365,7 +358,7 @@ i.menu {
 
 }
 
-/* Banner section */
+/* ======= BANNER SECTION ======= */
 .section--banner {
     padding: 0;
     width: 100%;
@@ -517,7 +510,7 @@ i.menu {
     }
 }
 
-/* About section */
+/* ======= ABOUT SECTION ======= */
 .about__image-container {
     width: 100%;
     position: relative;
@@ -534,6 +527,8 @@ i.menu {
 
 .about__text p {
     margin-bottom: 1.5rem;
+    font-size: var(--small-font);
+    color: var(--text-color);
 }
 
 .about__col {
@@ -558,7 +553,7 @@ i.menu {
     }
 }
 
-/* Collections carousel */
+/* ======= COLLECTIONS CAROUSEL ======= */
 .collections__carousel {
     width: calc(100% - 5rem);
     margin: 0 auto;
@@ -620,7 +615,7 @@ i.menu {
     text-align: center;
 }
 
-/* Footer */
+/* ======= FOOTER STYLES ======= */
 footer {
     width: 100%;
     padding: 1rem var(--h-margin);
