@@ -289,6 +289,13 @@ i.menu {
     display: block;
 }
 
+.header__social-media {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
 @media screen and (min-width: 768px) {
     header {
         padding: 2rem 15%;
