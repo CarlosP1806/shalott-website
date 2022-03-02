@@ -86,8 +86,14 @@ section {
     }
 
     .section__content {
-        max-width: 70%;
+        max-width: 80%;
         margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .section__content {
+        max-width: 70%;
     }
 }
 
@@ -295,7 +301,7 @@ i.menu {
 
 @media screen and (min-width: 768px) {
     header {
-        padding: 2rem 15%;
+        padding: 2rem 10%;
     }
 
     .logo-container {
@@ -305,6 +311,10 @@ i.menu {
 }
 
 @media screen and (min-width: 1200px) {
+    header {
+        padding: 2rem 15%;
+    }
+
     i.menu {
         display: none;
     }
@@ -681,7 +691,7 @@ footer {
 
 @media screen and (min-width: 768px) {
     footer {
-        padding: 4rem 15%;
+        padding: 4rem 10%;
     }
 
     .social-icon {
@@ -696,6 +706,10 @@ footer {
 }
 
 @media screen and (min-width: 1200px) {
+    footer {
+        padding: 4rem 15%; 
+    }
+    
     .footer__links {
         gap: 20rem;
     }
