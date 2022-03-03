@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@200;300;400;500;700&display=swap');
 
 * {
     margin: 0;
@@ -22,6 +22,19 @@
     --med-font: 1.8rem;
     --big-font: 2rem;
     --h-margin: 2rem;
+}
+
+html, body {
+    min-height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
 }
 
 @media screen and (min-width: 480px) {
@@ -107,6 +120,13 @@ section {
 .card {
     position: relative;
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.card__body {
+    flex: 1;
 }
 
 .card__image-container {
@@ -151,6 +171,7 @@ section {
     color: var(--text-dark);
     font-size: var(--tiny-font);
     transition: .2s ease-in-out;
+    flex: 0;
 }
 
 .card__btn:hover {
@@ -630,6 +651,7 @@ footer {
     width: 100%;
     padding: 1rem var(--h-margin);
     background-color: var(--main-color);
+    align-self: flex-end;
 }
 
 .footer__links {
@@ -713,4 +735,31 @@ footer {
     .footer__links {
         gap: 20rem;
     }
+}
+
+/* ======= CATALOGUE VIEW ======= */
+.catalogue__header {
+    border-bottom: 2px solid var(--secondary-color);
+    padding: 1rem 0;
+    margin-bottom: 4rem;
+}
+
+.catalogue__title {
+    font-size: var(--big-font);
+    text-align: center;
+    color: var(--secondary-color);
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+}
+
+.catalogue__filters {
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter__label {
+    font-size: var(--tiny-font);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
