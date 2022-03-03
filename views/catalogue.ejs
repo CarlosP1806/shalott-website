@@ -29,6 +29,16 @@
             <label class="filter__label">Ordenar por:</label>
         </div>
       </div>
+      <div class="card-container">
+        <%-include("partials/product_card.ejs", {productData: products[0]}) %>
+        <%-include("partials/product_card.ejs", {productData: products[1]}) %>
+        <%-include("partials/product_card.ejs", {productData: products[2]}) %>
+        <%-include("partials/product_card.ejs", {productData: products[3]}) %>
+        <%-include("partials/product_card.ejs", {productData: products[0]}) %>
+        <%-include("partials/product_card.ejs", {productData: products[1]}) %>
+        <%-include("partials/product_card.ejs", {productData: products[2]}) %>
+        <%-include("partials/product_card.ejs", {productData: products[3]}) %>
+      </div>
     </section>
   </main>
   <%- include("partials/footer.ejs")-%>
