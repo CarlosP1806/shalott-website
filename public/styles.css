@@ -24,6 +24,19 @@
     --h-margin: 2rem;
 }
 
+html, body {
+    min-height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
 @media screen and (min-width: 480px) {
     :root {
         --tiny-font: 1.4rem;
@@ -630,6 +643,7 @@ footer {
     width: 100%;
     padding: 1rem var(--h-margin);
     background-color: var(--main-color);
+    align-self: flex-end;
 }
 
 .footer__links {
@@ -713,4 +727,9 @@ footer {
     .footer__links {
         gap: 20rem;
     }
+}
+
+/* ======= CATALOGUE VIEW ======= */
+.products-container {
+
 }
