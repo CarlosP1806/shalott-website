@@ -19,25 +19,27 @@
   <%- include("partials/navbar.ejs") %>
   <main>
     <section class="section section--catalogue">
-      <div class="catalogue__header">
-        <h2 class="catalogue__title">Aretes</h2>
-        <div class="catalogue__filters">
-          <div class="filter-form">
-            <label class="filter__label">Filtrar por:</label>
+      <div class="section__content">
+        <div class="catalogue__header">
+          <h2 class="catalogue__title">Aretes</h2>
+          <div class="catalogue__filters">
+            <div class="filter-form">
+              <label class="filter__label">Filtrar por:</label>
+            </div>
+            <div class="filter-form"></div>
+              <label class="filter__label">Ordenar por:</label>
           </div>
-          <div class="filter-form"></div>
-            <label class="filter__label">Ordenar por:</label>
         </div>
-      </div>
-      <div class="card-container">
-        <%-include("partials/product_card.ejs", {productData: products[0]}) %>
-        <%-include("partials/product_card.ejs", {productData: products[1]}) %>
-        <%-include("partials/product_card.ejs", {productData: products[2]}) %>
-        <%-include("partials/product_card.ejs", {productData: products[3]}) %>
-        <%-include("partials/product_card.ejs", {productData: products[0]}) %>
-        <%-include("partials/product_card.ejs", {productData: products[1]}) %>
-        <%-include("partials/product_card.ejs", {productData: products[2]}) %>
-        <%-include("partials/product_card.ejs", {productData: products[3]}) %>
+        <div class="card-container">
+          <%-include("partials/product_card.ejs", {productData: products[0]}) %>
+          <%-include("partials/product_card.ejs", {productData: products[1]}) %>
+          <%-include("partials/product_card.ejs", {productData: products[2]}) %>
+          <%-include("partials/product_card.ejs", {productData: products[3]}) %>
+          <%-include("partials/product_card.ejs", {productData: products[0]}) %>
+          <%-include("partials/product_card.ejs", {productData: products[1]}) %>
+          <%-include("partials/product_card.ejs", {productData: products[2]}) %>
+          <%-include("partials/product_card.ejs", {productData: products[3]}) %>
+        </div>
       </div>
     </section>
   </main>
