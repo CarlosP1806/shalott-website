@@ -4,12 +4,17 @@ const db_categories = require('../../db/categories.json');
 
 const Product = require('../../models/Product.js');
 
-router.get('/', (req, res) => {
-    res.render('homepage', { products: db_products, categories: db_categories });
+router.get('/', async (req, res) => {
+  // Get featured products to display 
+  const featuredProducts = await Product.find({ featured: true });
+  res.render('homepage', {
+    products: featuredProducts, 
+    categories: db_categories
+  });
 })
 
 router.get('/catalogue', (req, res) => {
-    res.render('catalogue', { products: db_products });
+  res.render('catalogue', { products: db_products });
 });
 
 module.exports = router;

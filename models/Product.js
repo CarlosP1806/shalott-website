@@ -20,6 +20,10 @@ const productSchema = new Schema({
   productCategory: {
     type: String,
     required: true
+  },
+  featured: {
+    type: Boolean,
+    required: true
   }
 });
 
