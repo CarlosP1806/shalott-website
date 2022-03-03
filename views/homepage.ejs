@@ -46,10 +46,9 @@
         <div class="title__line"></div>
       </div>
       <div class="card-container">
-        <%-include("partials/product_card.ejs", {productData: products[0]}) %>
-        <%-include("partials/product_card.ejs", {productData: products[1]}) %>
-        <%-include("partials/product_card.ejs", {productData: products[2]}) %>
-        <%-include("partials/product_card.ejs", {productData: products[3]}) %>
+        <% for(let i = 0; i < products.length; i++) { %>
+          <%-include("partials/product_card.ejs", {productData: products[i]}) %>
+        <% } %>
       </div>
     </div>
   </section>
