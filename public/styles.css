@@ -37,6 +37,11 @@ main {
     flex: 1;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 @media screen and (min-width: 480px) {
     :root {
         --tiny-font: 1.4rem;
