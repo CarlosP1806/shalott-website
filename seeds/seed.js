@@ -5,7 +5,7 @@ const productSeed =
   [
     {
       "productName": "Aretes Bonitos 1",
-      "productImage": "/images/Product1.jpg",
+      "productImage": "https://drive.google.com/uc?export=view&id=1RZAPEv6cOiXTU8SN3CkRYfqOheAQ4kzP",
       "productPrice": "500.00",
       "productCollection": "Coleccion 1",
       "productCategory": "Aretes",
@@ -13,7 +13,7 @@ const productSeed =
     },
     {
       "productName": "Aretes Bonitos 2",
-      "productImage": "/images/Product2.jpg",
+      "productImage": "https://drive.google.com/uc?export=view&id=1ygWgswszEDIdupyT3sguCRYiLxAPBgz1",
       "productPrice": "500.00",
       "productCollection": "Coleccion 1",
       "productCategory": "Aretes",
@@ -21,7 +21,7 @@ const productSeed =
     },
     {
       "productName": "Aretes Bonitos 3",
-      "productImage": "/images/Product3.jpg",
+      "productImage": "https://drive.google.com/uc?export=view&id=1eMCsjovxBkVjn-F3yMYhUiud8H252sqD",
       "productPrice": "500.00",
       "productCollection": "Coleccion 1",
       "productCategory": "Aretes",
@@ -29,7 +29,7 @@ const productSeed =
     },
     {
       "productName": "Aretes Bonitos 4",
-      "productImage": "/images/Product4.jpg",
+      "productImage": "https://drive.google.com/uc?export=view&id=1ZqB223M8hZHiv1fxPwjgrtnIWbap4KtJ",
       "productPrice": "500.00",
       "productCollection": "Coleccion 1",
       "productCategory": "Aretes",
@@ -37,7 +37,7 @@ const productSeed =
     },
     {
       "productName": "Aretes Bonitos 5",
-      "productImage": "/images/Product1.jpg",
+      "productImage": "https://drive.google.com/uc?export=view&id=1RZAPEv6cOiXTU8SN3CkRYfqOheAQ4kzP",
       "productPrice": "500.00",
       "productCollection": "Coleccion 1",
       "productCategory": "Aretes",
@@ -45,7 +45,7 @@ const productSeed =
     },
     {
       "productName": "Aretes Bonitos 6",
-      "productImage": "/images/Product2.jpg",
+      "productImage": "https://drive.google.com/uc?export=view&id=1ygWgswszEDIdupyT3sguCRYiLxAPBgz1",
       "productPrice": "500.00",
       "productCollection": "Coleccion 1",
       "productCategory": "Aretes",
@@ -53,7 +53,7 @@ const productSeed =
     },
     {
       "productName": "Aretes Bonitos 7",
-      "productImage": "/images/Product3.jpg",
+      "productImage": "https://drive.google.com/uc?export=view&id=1eMCsjovxBkVjn-F3yMYhUiud8H252sqD",
       "productPrice": "500.00",
       "productCollection": "Coleccion 1",
       "productCategory": "Aretes",
@@ -61,7 +61,7 @@ const productSeed =
     },
     {
       "productName": "Aretes Bonitos 8",
-      "productImage": "/images/Product4.jpg",
+      "productImage": "https://drive.google.com/uc?export=view&id=1ZqB223M8hZHiv1fxPwjgrtnIWbap4KtJ",
       "productPrice": "500.00",
       "productCollection": "Coleccion 1",
       "productCategory": "Aretes",
