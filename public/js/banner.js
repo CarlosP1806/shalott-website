@@ -1,6 +1,6 @@
 const bannerBtn = document.querySelector('.banner__btn');
 bannerBtn.addEventListener("click", () => {
-  document.location.replace('/catalogue');
+  document.location.replace('/catalogo');
 })
 
 let counter = 1;

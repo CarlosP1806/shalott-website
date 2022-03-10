@@ -3,6 +3,6 @@ const homeRoutes = require('./home/home_routes');
 const catalogeRoutes = require('./catalogue/catalogue_routes');
 
 router.use('/', homeRoutes);
-router.use('/catalogue', catalogeRoutes);
+router.use('/catalogo', catalogeRoutes);
 
 module.exports = router;

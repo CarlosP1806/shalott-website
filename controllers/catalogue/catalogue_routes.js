@@ -6,4 +6,5 @@ router.get('/', async (req, res) => {
   res.render('catalogue', { products: products });
 });
 
+
 module.exports = router;
