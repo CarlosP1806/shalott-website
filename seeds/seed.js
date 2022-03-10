@@ -1,5 +1,27 @@
 const db = require('../config/connection');
 const Product = require('../models/Product');
+const Category = require('../models/Category');
+
+const categorySeed = 
+[
+  {
+    "name": "Aretes",
+    "image": "/images/Product5.jpg"
+  },
+  {
+    "name": "Collares",
+    "image": "/images/Product6.png"
+  },
+  {
+    "name": "Pulseras",
+    "image": "/images/Product5.jpg"
+  },
+
+  {
+    "name": "Broches",
+    "image": "/images/Product5.jpg"
+  }
+]
 
 const productSeed =
   [
@@ -71,6 +93,14 @@ const productSeed =
 
 Product.deleteMany({})
   .then(() => Product.insertMany(productSeed))
+  .then(() => {
+    console.log('Records inserted');
+    process.exit(0);
+  })
+  .catch(err => console.log(err));
+
+Category.deleteMany({})
+  .then(() => Category.insertMany(categorySeed))
   .then(() => {
     console.log('Records inserted');
     process.exit(0);
