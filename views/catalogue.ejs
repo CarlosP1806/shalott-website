@@ -30,11 +30,20 @@
               <label class="filter__label">Ordenar por:</label>
           </div>
         </div>
-        <div class="card-container">
-          <% for(let i = 0; i < products.length; i++) { %>
-            <%- include("partials/product_card.ejs", { productData: products[i]}) %>
-          <% } %>
-        </div>
+        <% if(categories === false) { %>
+          <div class="card-container">
+            <% for(let i = 0; i < products.length; i++) { %>
+              <%- include("partials/product_card.ejs", { productData: products[i]}) %>
+            <% } %>
+          </div>
+        <% } %>
+        <% if(categories === true) { %>
+          <div class="card-container">
+            <% for(let i = 0; i < products.length; i++) { %>
+              <%- include("partials/category_card.ejs", { category: products[i]}) %>
+            <% } %>
+          </div>
+        <% } %>
       </div>
     </section>
   </main>
