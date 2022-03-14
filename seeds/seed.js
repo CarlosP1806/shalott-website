@@ -23,6 +23,14 @@ const categorySeed =
   }
 ]
 
+const collectionSeed = 
+[
+  {
+    "name": "Coleccion 1",
+    "image": "hola"
+  }
+];
+
 const productSeed =
   [
     {
