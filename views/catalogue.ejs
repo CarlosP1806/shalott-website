@@ -23,20 +23,21 @@
         <div class="catalogue__header">
           <h2 class="catalogue__title"><%= title %></h2>
           <div class="catalogue__filters">
-            <form class="filter-form">
+            <form class="filter-form" id="search-form">
               <label class="filter__label">Buscar por:</label>
-              <select>
+              <select id="search-select">
+                <option value="" selected>--Selecciona filtro--</option>
                 <option value="todo">Todos</option>
                 <optgroup label="Categorias">
                   <% for(let i = 0; i < selectCategories.length; i++) { %>
-                    <option value="<%= selectCategories[i].name %>">
+                    <option value="categoria <%= selectCategories[i].name %>">
                       <%= selectCategories[i].name %>
                     </option>
                   <% } %>
                 </optgroup>
                 <optgroup label="Colecciones">
                   <% for(let i = 0; i < selectCollections.length; i++) { %>
-                    <option value="<%= selectCollections[i].name %>">
+                    <option value="coleccion <%= selectCollections[i].name %>">
                       <%= selectCollections[i].name %>
                     </option>
                   <% } %>
@@ -73,6 +74,7 @@
   <%- include("partials/footer.ejs")-%>
   
   <script src="/js/navbar.js"></script>
+  <script src="/js/catalogue_filters.js"></script>
 </body>
 
 </html>

@@ -6,20 +6,20 @@ const Collection = require('../models/Collection');
 const categorySeed = 
 [
   {
-    "name": "Aretes",
+    "name": "aretes",
     "image": "/images/Product5.jpg"
   },
   {
-    "name": "Collares",
+    "name": "collares",
     "image": "/images/Product6.png"
   },
   {
-    "name": "Pulseras",
+    "name": "pulseras",
     "image": "/images/Product5.jpg"
   },
 
   {
-    "name": "Broches",
+    "name": "broches",
     "image": "/images/Product5.jpg"
   }
 ]

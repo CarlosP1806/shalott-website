@@ -20,25 +20,57 @@ router.get('/', async (req, res) => {
 // GET all categories
 router.get('/categorias', async (req, res) => {
   const categories = await Category.find({});
-  res.render('catalogue', { products: categories, title: "Categorias", groups: true, collections : false});
+  const selectCategories = await Category.find({});
+  const selectCollections = await Collection.find({});
+  res.render('catalogue', { 
+    products: categories, 
+    title: "Categorias", 
+    groups: true, 
+    collections : false,
+    selectCategories,
+    selectCollections });
 });
 
 // GET products from given category
 router.get('/categorias/:categoria', async (req, res) => {
   const products = await Product.find({ productCategory: req.params.categoria });
-  res.render('catalogue', { products: products, title: req.params.categoria, groups: false, collections: false});
+  const selectCategories = await Category.find({});
+  const selectCollections = await Collection.find({});
+  res.render('catalogue', { 
+    products: products, 
+    title: req.params.categoria, 
+    groups: false, 
+    collections: false,
+    selectCategories,
+    selectCollections });
 });
 
 // GET all collections
 router.get('/colecciones', async (req, res) => {
   const collections = await Collection.find({});
-  res.render('catalogue', { products: collections, title: "Colecciones", groups: true, collections: true });
+  const selectCategories = await Category.find({});
+  const selectCollections = await Collection.find({});
+  res.render('catalogue', { 
+    products: collections, 
+    title: "Colecciones", 
+    groups: true, 
+    collections: true,
+    selectCategories,
+    selectCollections });
 });
 
 // GET products from given collection
 router.get('/colecciones/:coleccion', async (req, res) => {
   const products = await Product.find({ productCollection: req.params.coleccion });
-  res.render('catalogue', { products: products, title: req.params.coleccion, groups: false, collections: false});
+  const selectCategories = await Category.find({});
+  const selectCollections = await Collection.find({});
+  res.render('catalogue', { 
+    products: products, 
+    title: req.params.coleccion, 
+    groups: false, 
+    collections: false,
+    selectCategories,
+    selectCollections });
 });
 
 module.exports = router;
