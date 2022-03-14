@@ -29,7 +29,7 @@ router.get('/colecciones', async (req, res) => {
 
 // GET products from given collection
 router.get('/colecciones/:coleccion', async (req, res) => {
-  const products = await Collection.find({ productCollection: req.params.coleccion });
+  const products = await Product.find({ productCollection: req.params.coleccion });
   res.render('catalogue', { products: products, title: req.params.coleccion, categories: false});
 });
 
