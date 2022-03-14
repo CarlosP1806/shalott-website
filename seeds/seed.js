@@ -27,19 +27,19 @@ const categorySeed =
 const collectionSeed = 
 [
   {
-    "name": "Coleccion 1",
+    "name": "coleccion 1",
     "image": "https://drive.google.com/uc?export=view&id=1RZAPEv6cOiXTU8SN3CkRYfqOheAQ4kzP"
   },
   {
-    "name": "Coleccion 2",
+    "name": "coleccion 2",
     "image": "https://drive.google.com/uc?export=view&id=1ygWgswszEDIdupyT3sguCRYiLxAPBgz1"
   },
   {
-    "name": "Coleccion 3",
+    "name": "coleccion 3",
     "image": "https://drive.google.com/uc?export=view&id=1eMCsjovxBkVjn-F3yMYhUiud8H252sqD"
   },
   {
-    "name": "Coleccion 4",
+    "name": "coleccion 4",
     "image": "https://drive.google.com/uc?export=view&id=1ZqB223M8hZHiv1fxPwjgrtnIWbap4KtJ"
   }
 ];
