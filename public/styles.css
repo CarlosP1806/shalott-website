@@ -222,6 +222,10 @@ section {
     letter-spacing: 2px;
 }
 
+.category__name a {
+    display: block;
+}
+
 @media screen and (min-width: 768px) {
     .card-container {
         grid-template-columns: 1fr 1fr 1fr 1fr;
