@@ -6,7 +6,15 @@ const Collection = require('../../models/Collection');
 // GET all products
 router.get('/', async (req, res) => {
   const products = await Product.find({});
-  res.render('catalogue', { products: products, title: "Todos los productos", groups: false, collections: false });
+  const selectCategories = await Category.find({});
+  const selectCollections = await Collection.find({});
+  res.render('catalogue', { 
+    products: products, 
+    title: "Todos los productos", 
+    groups: false, 
+    collections: false,
+    selectCategories,
+    selectCollections });
 });
 
 // GET all categories

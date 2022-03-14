@@ -796,3 +796,9 @@ footer {
     text-transform: uppercase;
     letter-spacing: 1px;
 }
+
+.filter-form {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}

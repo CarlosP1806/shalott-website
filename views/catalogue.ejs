@@ -23,11 +23,29 @@
         <div class="catalogue__header">
           <h2 class="catalogue__title"><%= title %></h2>
           <div class="catalogue__filters">
-            <div class="filter-form">
-              <label class="filter__label">Filtrar por:</label>
-            </div>
-            <div class="filter-form"></div>
+            <form class="filter-form">
+              <label class="filter__label">Buscar por:</label>
+              <select>
+                <option value="todo">Todos</option>
+                <optgroup label="Categorias">
+                  <% for(let i = 0; i < selectCategories.length; i++) { %>
+                    <option value="<%= selectCategories[i].name %>">
+                      <%= selectCategories[i].name %>
+                    </option>
+                  <% } %>
+                </optgroup>
+                <optgroup label="Colecciones">
+                  <% for(let i = 0; i < selectCollections.length; i++) { %>
+                    <option value="<%= selectCollections[i].name %>">
+                      <%= selectCollections[i].name %>
+                    </option>
+                  <% } %>
+                </optgroup>
+              </select>
+            </form>
+            <form class="filter-form">
               <label class="filter__label">Ordenar por:</label>
+            </form>
           </div>
         </div>
         <% if(groups === false) { %>
