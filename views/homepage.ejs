@@ -106,22 +106,9 @@
             <i class="fa fa-solid fa-chevron-left"></i>
           </button>
           <div class="carousel__list">
-            <div class="carousel__item">
-              <img src="/images/Product1.jpg" alt="Coleccion 1">
-              <p>Coleccion 1</p>
-            </div>
-            <div class="carousel__item">
-              <img src="/images/Product2.jpg" alt="Coleccion 2">
-              <p>Colección 2</p>
-            </div>
-            <div class="carousel__item">
-              <img src="/images/Product3.jpg" alt="Coleccion 3">
-              <p>Colección 3</p>
-            </div>
-            <div class="carousel__item">
-              <img src="/images/Product4.jpg" alt="Coleccion 4">
-              <p>Colección 4</p>
-            </div>
+            <% for(let i = 0; i < collections.length; i++) { %>
+              <%- include("partials/collection_carousel.ejs", {collection: collections[i]}) %>
+            <% } %>
           </div>
           <button aria-label="Siguiente" class="carousel__next">
             <i class="fa fa-solid fa-chevron-right"></i>
