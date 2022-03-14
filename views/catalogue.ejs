@@ -30,17 +30,22 @@
               <label class="filter__label">Ordenar por:</label>
           </div>
         </div>
-        <% if(categories === false) { %>
+        <% if(groups === false) { %>
           <div class="card-container">
             <% for(let i = 0; i < products.length; i++) { %>
               <%- include("partials/product_card.ejs", { productData: products[i]}) %>
             <% } %>
           </div>
         <% } %>
-        <% if(categories === true) { %>
+        <% if(groups === true) { %>
           <div class="card-container">
             <% for(let i = 0; i < products.length; i++) { %>
-              <%- include("partials/category_card.ejs", { category: products[i]}) %>
+              <% if(collections === false) { %>
+                <%- include("partials/category_card.ejs", { category: products[i]}) %>
+              <% } %>
+              <% if(collections === true) { %>
+                <%- include("partials/collection_card.ejs", { collection: products[i]} ) %>
+              <% } %>
             <% } %>
           </div>
         <% } %>
