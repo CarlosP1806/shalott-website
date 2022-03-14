@@ -1,6 +1,7 @@
 const db = require('../config/connection');
 const Product = require('../models/Product');
 const Category = require('../models/Category');
+const Collection = require('../models/Collection');
 
 const categorySeed = 
 [
@@ -27,7 +28,19 @@ const collectionSeed =
 [
   {
     "name": "Coleccion 1",
-    "image": "hola"
+    "image": "https://drive.google.com/uc?export=view&id=1RZAPEv6cOiXTU8SN3CkRYfqOheAQ4kzP"
+  },
+  {
+    "name": "Coleccion 2",
+    "image": "https://drive.google.com/uc?export=view&id=1ygWgswszEDIdupyT3sguCRYiLxAPBgz1"
+  },
+  {
+    "name": "Coleccion 3",
+    "image": "https://drive.google.com/uc?export=view&id=1eMCsjovxBkVjn-F3yMYhUiud8H252sqD"
+  },
+  {
+    "name": "Coleccion 4",
+    "image": "https://drive.google.com/uc?export=view&id=1ZqB223M8hZHiv1fxPwjgrtnIWbap4KtJ"
   }
 ];
 
@@ -109,6 +122,14 @@ Product.deleteMany({})
 
 Category.deleteMany({})
   .then(() => Category.insertMany(categorySeed))
+  .then(() => {
+    console.log('Records inserted');
+    process.exit(0);
+  })
+  .catch(err => console.log(err));
+
+Collection.deleteMany({})
+  .then(() => Collection.insertMany(collectionSeed))
   .then(() => {
     console.log('Records inserted');
     process.exit(0);
