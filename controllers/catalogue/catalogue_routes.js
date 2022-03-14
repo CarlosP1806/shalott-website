@@ -73,4 +73,9 @@ router.get('/colecciones/:coleccion', async (req, res) => {
     selectCollections });
 });
 
+// GET given product
+router.get('/producto/:id', async(req, res) => {
+  res.render('product');
+});
+
 module.exports = router;
