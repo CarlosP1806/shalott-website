@@ -25,20 +25,24 @@
           <div class="catalogue__filters">
             <form class="filter-form" id="search-form">
               <label class="filter__label">Buscar por:</label>
-              <select id="search-select">
-                <option value="" selected>--Selecciona filtro--</option>
-                <option value="todo">Todos</option>
-                <optgroup label="Categorias">
+              <select class="filter__select" id="search-select">
+                <option class="filter__option" value="" selected>
+                  -- Selecciona filtro --
+                </option>
+                <option class="filter__option" value="todo">Todos</option>
+                <optgroup class="filter__option" label="Categorias">
                   <% for(let i = 0; i < selectCategories.length; i++) { %>
-                    <option value="categoria <%= selectCategories[i].name %>">
-                      <%= selectCategories[i].name %>
+                    <option class="filter__option" 
+                      value="categoria <%= selectCategories[i].name %>">
+                      <%= selectCategories[i].name.charAt(0).toUpperCase() + selectCategories[i].name.slice(1) %>
                     </option>
                   <% } %>
                 </optgroup>
-                <optgroup label="Colecciones">
+                <optgroup class="filter__option" label="Colecciones">
                   <% for(let i = 0; i < selectCollections.length; i++) { %>
-                    <option value="coleccion <%= selectCollections[i].name %>">
-                      <%= selectCollections[i].name %>
+                    <option class="filter__option" 
+                      value="coleccion <%= selectCollections[i].name %>">
+                      <%= selectCollections[i].name.charAt(0).toUpperCase() + selectCollections[i].name.slice(1) %>
                     </option>
                   <% } %>
                 </optgroup>
