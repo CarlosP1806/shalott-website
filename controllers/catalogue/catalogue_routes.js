@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const Product = require('../../models/Product');
 const Category = require('../../models/Category');
+const Collection = require('../../models/Collection');
 
 router.get('/', async (req, res) => {
   const products = await Product.find({});
