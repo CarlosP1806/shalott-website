@@ -18,7 +18,16 @@
 <body>
   <%- include("partials/navbar.ejs") %>
   <main>
-
+    <section class="section section--display">
+      <div class="section__content">
+        <figure class="display__image-container">
+          <img class="display__image" src="<%= product.productImage %>">
+        </figure>
+        <article class="display__content">
+          <h2 class="display__title"><%= product.productName %></h2>
+        </article>
+      </div>
+    </section>
   </main>
   <%- include("partials/footer.ejs") %>
   <script src="/js/navbar.js"></script>

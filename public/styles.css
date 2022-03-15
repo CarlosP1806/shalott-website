@@ -816,3 +816,17 @@ footer {
 .filter__option {
     font-size: var(--tiny-font);
 }
+
+/* ======= DISPLAY PRODUCT VIEW ======= */
+.display__image-container {
+    width: 100%;
+    position: relative;
+}
+
+.display__image {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center;
+}
+
