@@ -131,6 +131,10 @@ section {
     align-items: flex-start;
 }
 
+.card--product {
+    cursor: pointer;
+}
+
 .card__body {
     flex: 1;
 }
@@ -177,7 +181,6 @@ section {
     padding: .5em 1em;
     border-radius: 5px;
     background-color: var(--accent-color);
-    color: var(--text-color);
     font-size: var(--tiny-font);
     transition: .2s ease-in-out;
     flex: 0;
