@@ -975,6 +975,7 @@ footer {
 
 .login__form input {
     font-size: var(--tiny-font);
+    padding: .4rem;
     border: 1px solid var(--secondary-color);
 }
 
