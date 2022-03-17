@@ -12,8 +12,12 @@ const PORT = process.env.PORT || 3001;
 // Setup admin session
 const oneDay = 1000 * 60 * 60 * 24;
 app.use(sessions({
-    secret:
-}))
+    secret: process.env.SECRET,
+    saveUninitialized: true,
+    cookie: { maxAge: oneDay },
+    resave: false
+}));
+app.use(cookieParser());
 
 app.use(express.static('public'));
 app.use(express.json());
