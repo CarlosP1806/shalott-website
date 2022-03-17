@@ -21,5 +21,6 @@ searchForm.addEventListener('submit', event => {
       const priceElement = document.querySelector('#admin__card-price');
       priceElement.textContent = `$${product.productPrice}`;
     });
-
-})
+    
+    document.querySelector('#search-id').value = "";
+});

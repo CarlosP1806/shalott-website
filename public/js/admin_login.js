@@ -21,6 +21,10 @@ loginForm.addEventListener('submit', event => {
     body: JSON.stringify(data)
   })
     .then(response => {
-      if(response.ok) document.location.reload();
+      if(response.ok) { 
+        userInputElement.value = "";
+        passwordInputElement.value = "";
+        document.location.reload();
+      }
     });
 });
