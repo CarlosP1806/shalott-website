@@ -20,6 +20,7 @@ loginForm.addEventListener('submit', event => {
     },
     body: JSON.stringify(data)
   })
-    .then(response => response.json())
-    .then(response => console.log(response));
+    .then(response => {
+      if(response.ok) document.location.reload();
+    });
 });
