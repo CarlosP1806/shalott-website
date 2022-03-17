@@ -28,10 +28,18 @@
           <button>Buscar</button>
         </form>
 
-        <% if(locals.product) { %>
-          <%- include('partials/product_card.ejs', { productData: product }) %>
-        <% } %>
-
+        <div class="card-container">
+          <article class="admin__card">
+            <figure>
+              <img src="" id="admin__card-figure">
+            </figure>
+            <div class="admin__card-content">
+              <h3 id="admin__card-name"></h3>
+              <p id="admin__card-price"></p>
+            </div>
+          </article>
+        </div>
+        
       </div>
     </section>
     <section class="admin__create">

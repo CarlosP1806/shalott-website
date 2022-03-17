@@ -7,5 +7,19 @@ searchForm.addEventListener('submit', event => {
   
   fetch(`/admin/search/${productId}`)
     .then(response => response.json())
-    .then(product => console.log(product));
+    .then(product => {
+      const adminCard = document.querySelector('.admin__card');
+      if(product ===  "Not found") {
+        adminCard.style.display = "none";
+        return;
+      }; 
+      adminCard.style.display = "block"; 
+      const imageElement = document.querySelector('#admin__card-figure');
+      imageElement.src = product.productImage;
+      const nameElement = document.querySelector('#admin__card-name');
+      nameElement.textContent = product.productName;
+      const priceElement = document.querySelector('#admin__card-price');
+      priceElement.textContent = `$${product.productPrice}`;
+    });
+
 })

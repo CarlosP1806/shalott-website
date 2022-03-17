@@ -1004,3 +1004,17 @@ footer {
     font-size: var(--med-font);
     color: var(--secondary-color);
 }
+
+.admin__card {
+    display: none;
+    width: 300px;
+}
+
+.admin__card figure {
+    width: 100%;
+}
+
+#admin__card-figure {
+    width: 100%;
+    aspect-ratio: 1/1;
+}
