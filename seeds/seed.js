@@ -2,6 +2,15 @@ const db = require('../config/connection');
 const Product = require('../models/Product');
 const Category = require('../models/Category');
 const Collection = require('../models/Collection');
+const Admin = require('../models/Admin');
+
+const adminSeed = 
+[
+  {
+    "username": "testAdmin",
+    "password": "123"
+  }
+]
 
 const categorySeed = 
 [
@@ -112,11 +121,17 @@ const productSeed =
     }
   ];
 
+Admin.deleteMany({})
+  .then(() => Admin.insertMany(adminSeed))
+  .then(() => {
+    console.log('Records inserted');
+  })
+  .catch(err => console.log(err));
+
 Product.deleteMany({})
   .then(() => Product.insertMany(productSeed))
   .then(() => {
     console.log('Records inserted');
-    process.exit(0);
   })
   .catch(err => console.log(err));
 
@@ -124,7 +139,6 @@ Category.deleteMany({})
   .then(() => Category.insertMany(categorySeed))
   .then(() => {
     console.log('Records inserted');
-    process.exit(0);
   })
   .catch(err => console.log(err));
 
@@ -132,6 +146,5 @@ Collection.deleteMany({})
   .then(() => Collection.insertMany(collectionSeed))
   .then(() => {
     console.log('Records inserted');
-    process.exit(0);
   })
   .catch(err => console.log(err));
