@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const Admin = require('../../models/Admin');
 
 router.get('/', (req, res) => {
   if(req.session.userId) {
@@ -8,8 +9,12 @@ router.get('/', (req, res) => {
   }
 });
 
-router.post('/login', (req, res) => {
-  if (req.body.username === user && req.body.password === password) {
+router.post('/login', async (req, res) => {
+
+  const admins = await Admin.find({});
+  const admin = admins[0];
+
+  if (req.body.username === admin.username && req.body.password === admin.password) {
     let session = req.session;
     session.userId = req.body.username;
     res.status(200).json('Logged');
