@@ -997,3 +997,10 @@ footer {
 .login__submit:hover {
     opacity: .8;
 }
+
+/* ======= ADMIN DASHBOARD VIEW ======= */
+
+.admin__title {
+    font-size: var(--med-font);
+    color: var(--secondary-color);
+}

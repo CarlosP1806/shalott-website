@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const Admin = require('../../models/Admin');
+const Product = require('../../models/Product');
 
 router.get('/', (req, res) => {
   if (req.session.userId) {
@@ -24,6 +25,15 @@ router.post('/login', async (req, res) => {
   } else {
     res.status(500).json('Invalid credentials');
   }
+});
+
+router.get('/search/:id', async (req, res) => {
+  const product = await Product.find({ productId: req.parmams.id });
+  if(!product) {
+    res.json('Error');
+    return;
+  }
+  res.json(product);
 });
 
 module.exports = router;

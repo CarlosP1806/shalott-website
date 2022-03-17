@@ -18,7 +18,37 @@
 <body>
   <%- include("partials/navbar.ejs") %>
   <main>
-    Welcome Admin!
+    <section class="admin__search">
+      <div class="section__content">
+        <h2 class="admin__title">Buscar Producto</h2>
+
+        <form class="admin__search">
+          <label for="search-id">Introduce id de producto:</label>
+          <input type="text" id="search-id">
+          <button>Buscar</button>
+        </form>
+
+        <% if(locals.product) { %>
+          <%- include('partials/product_card.ejs', { productData: product }) %>
+        <% } %>
+
+      </div>
+    </section>
+    <section class="admin__create">
+      <div class="section__content">
+        <h2 class="admin__title">Crear Producto</h2>
+      </div>
+    </section>
+    <section class="admin__update">
+      <div class="section__content">
+        <h2 class="admin__title">Editar Producto</h2>
+      </div>
+    </section>
+    <section class="admin__delete">
+      <div class="section__content">
+        <h2 class="admin__title">Eliminar Producto</h2>
+      </div>
+    </section>
   </main>
   <%- include("partials/footer.ejs") %>
 
