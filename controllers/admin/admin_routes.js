@@ -1,8 +1,5 @@
 const router = require('express').Router();
 
-const user = "user";
-const password = "123";
-
 router.get('/', (req, res) => {
   if(req.session.userId) {
     res.render('admin_dashboard');
