@@ -2,7 +2,7 @@ const router = require('express').Router();
 const Admin = require('../../models/Admin');
 
 router.get('/', (req, res) => {
-  if(req.session.userId) {
+  if (req.session.userId) {
     res.render('admin_dashboard');
   } else {
     res.render('admin_login');
@@ -11,10 +11,13 @@ router.get('/', (req, res) => {
 
 router.post('/login', async (req, res) => {
 
-  const admins = await Admin.find({});
-  const admin = admins[0];
+  const admin = await Admin.findOne({ username: req.body.username });
+  if (!admin) {
+    res.status(500).json('Invalid username');
+    return;
+  }
 
-  if (req.body.username === admin.username && req.body.password === admin.password) {
+  if (req.body.password === admin.password) {
     let session = req.session;
     session.userId = req.body.username;
     res.status(200).json('Logged');
