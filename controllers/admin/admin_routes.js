@@ -28,9 +28,9 @@ router.post('/login', async (req, res) => {
 });
 
 router.get('/search/:id', async (req, res) => {
-  const product = await Product.find({ productId: req.parmams.id });
+  const product = await Product.findOne({ productId: req.params.id });
   if(!product) {
-    res.json('Error');
+    res.json('Not found');
     return;
   }
   res.json(product);
