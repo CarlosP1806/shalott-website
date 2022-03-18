@@ -21,31 +21,65 @@
     <section class="section section--catalogue">
       <div class="section__content">
         <div class="catalogue__header">
-          <h2 class="catalogue__title">Aretes</h2>
+          <h2 class="catalogue__title"><%= title %></h2>
           <div class="catalogue__filters">
-            <div class="filter-form">
-              <label class="filter__label">Filtrar por:</label>
-            </div>
-            <div class="filter-form"></div>
+            <form class="filter-form" id="search-form">
+              <label class="filter__label">Buscar por:</label>
+              <select class="filter__select" id="search-select">
+                <option class="filter__option" value="" selected>
+                  -- Selecciona filtro --
+                </option>
+                <option class="filter__option" value="todo">Todos</option>
+                <optgroup class="filter__option" label="Categorias">
+                  <% for(let i = 0; i < selectCategories.length; i++) { %>
+                    <option class="filter__option" 
+                      value="categoria <%= selectCategories[i].name %>">
+                      <%= selectCategories[i].name.charAt(0).toUpperCase() + selectCategories[i].name.slice(1) %>
+                    </option>
+                  <% } %>
+                </optgroup>
+                <optgroup class="filter__option" label="Colecciones">
+                  <% for(let i = 0; i < selectCollections.length; i++) { %>
+                    <option class="filter__option" 
+                      value="coleccion <%= selectCollections[i].name %>">
+                      <%= selectCollections[i].name.charAt(0).toUpperCase() + selectCollections[i].name.slice(1) %>
+                    </option>
+                  <% } %>
+                </optgroup>
+              </select>
+            </form>
+            <form class="filter-form">
               <label class="filter__label">Ordenar por:</label>
+            </form>
           </div>
         </div>
-        <div class="card-container">
-          <%-include("partials/product_card.ejs", {productData: products[0]}) %>
-          <%-include("partials/product_card.ejs", {productData: products[1]}) %>
-          <%-include("partials/product_card.ejs", {productData: products[2]}) %>
-          <%-include("partials/product_card.ejs", {productData: products[3]}) %>
-          <%-include("partials/product_card.ejs", {productData: products[0]}) %>
-          <%-include("partials/product_card.ejs", {productData: products[1]}) %>
-          <%-include("partials/product_card.ejs", {productData: products[2]}) %>
-          <%-include("partials/product_card.ejs", {productData: products[3]}) %>
-        </div>
+        <% if(groups === false) { %>
+          <div class="card-container">
+            <% for(let i = 0; i < products.length; i++) { %>
+              <%- include("partials/product_card.ejs", { productData: products[i]}) %>
+            <% } %>
+          </div>
+        <% } %>
+        <% if(groups === true) { %>
+          <div class="card-container">
+            <% for(let i = 0; i < products.length; i++) { %>
+              <% if(collections === false) { %>
+                <%- include("partials/category_card.ejs", { category: products[i]}) %>
+              <% } %>
+              <% if(collections === true) { %>
+                <%- include("partials/collection_card.ejs", { collection: products[i]} ) %>
+              <% } %>
+            <% } %>
+          </div>
+        <% } %>
       </div>
     </section>
   </main>
   <%- include("partials/footer.ejs")-%>
   
   <script src="/js/navbar.js"></script>
+  <script src="/js/catalogue_filters.js"></script>
+  <script src="/js/product_card.js"></script>
 </body>
 
 </html>

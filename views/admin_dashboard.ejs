@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shalott</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <!-- Font awesome link-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Box icons -->
+  <link href='https://unpkg.com/boxicons@2.0.8/css/boxicons.min.css' rel='stylesheet'>
+  <!-- Glider css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.css">
+</head>
+
+<body>
+  <%- include("partials/navbar.ejs") %>
+  <main>
+    <section class="admin__search">
+      <div class="section__content">
+        <h2 class="admin__title">Buscar Producto</h2>
+
+        <form class="admin__search">
+          <label for="search-id">Introduce id de producto:</label>
+          <input type="text" id="search-id">
+          <button>Buscar</button>
+        </form>
+
+        <div class="card-container">
+          <article class="admin__card">
+            <figure>
+              <img src="" id="admin__card-figure">
+            </figure>
+            <div class="admin__card-content">
+              <h3 id="admin__card-name"></h3>
+              <p id="admin__card-price"></p>
+            </div>
+          </article>
+        </div>
+        
+      </div>
+    </section>
+    <section class="admin__create">
+      <div class="section__content">
+        <h2 class="admin__title">Crear Producto</h2>
+      </div>
+    </section>
+    <section class="admin__update">
+      <div class="section__content">
+        <h2 class="admin__title">Editar Producto</h2>
+      </div>
+    </section>
+    <section class="admin__delete">
+      <div class="section__content">
+        <h2 class="admin__title">Eliminar Producto</h2>
+      </div>
+    </section>
+  </main>
+  <%- include("partials/footer.ejs") %>
+
+  <script src="/js/navbar.js"></script>
+  <script src="/js/admin.js"></script>
+</body>

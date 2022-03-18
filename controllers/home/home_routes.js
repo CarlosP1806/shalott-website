@@ -1,13 +1,19 @@
 const router = require('express').Router();
-const db_products = require('../../db/products.json');
-const db_categories = require('../../db/categories.json');
 
-router.get('/', (req, res) => {
-    res.render('homepage', { products: db_products, categories: db_categories });
-})
+const Product = require('../../models/Product.js');
+const Category = require('../../models/Category.js');
+const Collection = require('../../models/Collection.js');
 
-router.get('/catalogue', (req, res) => {
-    res.render('catalogue', { products: db_products });
+router.get('/', async (req, res) => {
+  const featuredProducts = await Product.find({ featured: true });
+  const categories = await Category.find({});
+  const collections = await Collection.find({});
+
+  res.render('homepage', {
+    products: featuredProducts, 
+    categories: categories,
+    collections: collections
+  });
 });
 
 module.exports = router;
