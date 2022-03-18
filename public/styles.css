@@ -1000,9 +1000,25 @@ footer {
 
 /* ======= ADMIN DASHBOARD VIEW ======= */
 
+.admin__dashboard {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 1rem var(--h-margin);
+    gap: 2rem;
+}
+
+.admin__dashboard section {
+    padding: 0;
+}
+
+.admin__dashboard .section__content {
+    margin: 0;
+}
+
 .admin__title {
     font-size: var(--med-font);
     color: var(--secondary-color);
+    margin-bottom: 1.5rem;
 }
 
 .admin__card {
@@ -1017,4 +1033,54 @@ footer {
 #admin__card-figure {
     width: 100%;
     aspect-ratio: 1/1;
+}
+
+.admin__search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.admin__search label {
+    font-size: var(--small-font);
+}
+
+.admin__search input {
+    font-size: var(--tiny-font);
+}
+
+.admin__search button {
+    background-color: var(--complementary-color);
+    border: none;
+    border-radius: 5px;
+    padding: 1rem 2rem;
+    font-size: var(--tiny-font);
+    cursor: pointer;
+}
+
+#admin__card-name {
+    font-size: var(--med-font);
+    font-weight: 500;
+}
+
+#admin__card-price {
+    font-size: var(--small-font);
+    color: var(--text-color);
+}
+
+@media screen and (min-width: 768px) {
+    .admin__dashboard {
+        width: 80%;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .admin__dashboard {
+        padding: 2rem 0;
+        width: 70%;
+        margin: 0 auto;
+    }
+
 }
