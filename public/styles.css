@@ -1047,7 +1047,7 @@ footer {
 }
 
 .admin__search input {
-    font-size: var(--tiny-font);
+    font-size: var(--small-font);
 }
 
 .admin__search button {
@@ -1067,6 +1067,34 @@ footer {
 #admin__card-price {
     font-size: var(--small-font);
     color: var(--text-color);
+}
+
+.admin__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.admin__form-row {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.admin__form label {
+    font-size: var(--small-font);
+}
+
+.admin__form input {
+    font-size: var(--small-font);
+}
+
+.admin__form-button {
+    padding: 1rem 2rem;
+    background-color: var(--complementary-color);
+    font-size: var(--tiny-font);
+    border: none;
+    border-radius: 5px;
 }
 
 @media screen and (min-width: 768px) {

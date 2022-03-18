@@ -17,6 +17,7 @@
 
 <body>
   <%- include("partials/navbar.ejs") %>
+
   <main class="admin__dashboard">
     <section class="admin__search">
       <div class="section__content">
@@ -42,22 +43,55 @@
         
       </div>
     </section>
+
     <section class="admin__create">
       <div class="section__content">
         <h2 class="admin__title">Crear Producto</h2>
+
+        <form class="admin__form" id="create-form">
+          <div class="admin__form-row">
+            <label for="create__name">Nombre de producto:</label>
+            <input type="text" id="create__name">
+          </div>
+          <div class="admin__form-row">
+            <label for="create__id">Id de producto:</label>
+            <input type="text" id="create__id">
+          </div>
+          <div class="admin__form-row">
+            <label for="create__price">Precio de producto:</label>
+            <input type="text" id="create__price">
+          </div>
+          <div class="admin__form-row">
+            <label for="create__category">Tipo de producto:</label>
+            <input type="text" id="create__category">
+          </div>
+          <div class="admin__form-row">
+            <label for="create__collection">Colección del producto:</label>
+            <input type="text" id="create__collection">
+          </div>
+          <div class="admin__form-row">
+            <label for="create__image">Imagen del producto:</label>
+            <input type="text" id="create__image">
+          </div>
+          <button class="admin__form-button">Crear</button>
+        </form>
+
       </div>
     </section>
+
     <section class="admin__update">
       <div class="section__content">
         <h2 class="admin__title">Editar Producto</h2>
       </div>
     </section>
+
     <section class="admin__delete">
       <div class="section__content">
         <h2 class="admin__title">Eliminar Producto</h2>
       </div>
     </section>
   </main>
+
   <%- include("partials/footer.ejs") %>
 
   <script src="/js/navbar.js"></script>
