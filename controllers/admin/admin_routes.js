@@ -29,11 +29,20 @@ router.post('/login', async (req, res) => {
 
 router.get('/search/:id', async (req, res) => {
   const product = await Product.findOne({ productId: req.params.id });
-  if(!product) {
+  if (!product) {
     res.json('Not found');
     return;
   }
   res.json(product);
+});
+
+router.post('/create/', async (req, res) => {
+  try {
+    const product = await Product.create(req.body);
+    res.json(product);
+  } catch (err) {
+    res.json(err);
+  }
 });
 
 module.exports = router;
