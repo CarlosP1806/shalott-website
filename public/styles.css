@@ -1095,6 +1095,12 @@ footer {
     font-size: var(--tiny-font);
     border: none;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+.admin__form-button.btn--danger {
+    background-color: rgb(207, 17, 17);
+    color: white;
 }
 
 @media screen and (min-width: 768px) {
