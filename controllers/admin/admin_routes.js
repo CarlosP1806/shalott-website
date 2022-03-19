@@ -45,4 +45,17 @@ router.post('/create/', async (req, res) => {
   }
 });
 
+router.delete('/delete/', async (req, res) => {
+  try {
+    const product = await Product.findOneAndDelete({ productId: req.body.id });
+    if(!product) {
+      res.json("No product found");
+      return;
+    }
+    res.json(product);
+  } catch(err) {
+    res.json(err);
+  }
+});
+
 module.exports = router;

@@ -1,19 +1,19 @@
 // Handle admin search
-const searchForm = document.querySelector('.admin__search');
+const searchForm = document.querySelector('.admin__search-form');
 searchForm.addEventListener('submit', event => {
   event.preventDefault();
 
   const productId = document.querySelector('#search-id').value;
-  
+
   fetch(`/admin/search/${productId}`)
     .then(response => response.json())
     .then(product => {
       const adminCard = document.querySelector('.admin__card');
-      if(product ===  "Not found") {
+      if (product === "Not found") {
         adminCard.style.display = "none";
         return;
-      }; 
-      adminCard.style.display = "block"; 
+      };
+      adminCard.style.display = "block";
       const imageElement = document.querySelector('#admin__card-figure');
       imageElement.src = product.productImage;
       const nameElement = document.querySelector('#admin__card-name');
@@ -21,12 +21,12 @@ searchForm.addEventListener('submit', event => {
       const priceElement = document.querySelector('#admin__card-price');
       priceElement.textContent = `$${product.productPrice}`;
     });
-    
-    document.querySelector('#search-id').value = "";
+
+  document.querySelector('#search-id').value = "";
 });
 
 // Handle admin create
-const createForm = document.querySelector('.admin__create');
+const createForm = document.querySelector('#create-form');
 createForm.addEventListener("submit", event => {
   event.preventDefault();
 
@@ -57,9 +57,30 @@ createForm.addEventListener("submit", event => {
     .catch(error => console.log(error));
 
   nameInputElement.value = "";
-  idInputElement.value = ""; 
+  idInputElement.value = "";
   priceInputElement.value = "";
   categoryInputElement.value = "";
   collectionInputElement.value = "";
-  imageInputElement.value = ""; 
+  imageInputElement.value = "";
 });
+
+// Handle admin delete
+const deleteForm = document.querySelector('#delete-form');
+deleteForm.addEventListener("submit", event => {
+  event.preventDefault();
+
+  const idInputElement = document.querySelector('#delete__id');
+
+  fetch("admin/delete", {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ id: idInputElement.value })
+  })
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(error => console.log(error));
+
+  idInputElement.value = "";
+})
