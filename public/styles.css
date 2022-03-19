@@ -902,7 +902,7 @@ footer {
 .display__form-row select,
 .display__form-row option {
     padding: .4rem;
-    font-size: var(--tiny-font);
+    font-size: var(--small-font);
 }
 
 .display__form-row input,
