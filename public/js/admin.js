@@ -36,6 +36,7 @@ function fillEditForm(product) {
   const categoryInputElement = document.querySelector('#edit-product__category');
   const collectionInputElement = document.querySelector('#edit-product__collection');
   const imageInputElement = document.querySelector('#edit-product__image');
+  const checkedInputElement = document.querySelector('#edit-product__highlight');
 
   nameInputElement.value = product.productName;
   idInputElement.value = product.productId;
@@ -43,6 +44,7 @@ function fillEditForm(product) {
   categoryInputElement.value = product.productCategory;
   collectionInputElement.value = product.productCollection;
   imageInputElement.value = product.productImage;
+  checkedInputElement.checked = product.featured;
 }
 
 // Handle admin create product
@@ -116,6 +118,7 @@ editForm.addEventListener('submit', event => {
   const categoryInputElement = document.querySelector('#edit-product__category');
   const collectionInputElement = document.querySelector('#edit-product__collection');
   const imageInputElement = document.querySelector('#edit-product__image');
+  const checkedInputElement = document.querySelector('#edit-product__highlight');
 
   fetch('/admin/update', {
     method: 'PUT',
@@ -128,7 +131,8 @@ editForm.addEventListener('submit', event => {
       productImage: imageInputElement.value,
       productPrice: priceInputElement.value,
       productCollection: collectionInputElement.value,
-      productCategory: categoryInputElement.value
+      productCategory: categoryInputElement.value,
+      featured: checkedInputElement.checked
     })
   })
     .then(response => response.json())
@@ -141,4 +145,5 @@ editForm.addEventListener('submit', event => {
   categoryInputElement.value = "";
   collectionInputElement.value = "";
   imageInputElement.value = "";
+  checkedInputElement.value = "";
 });
