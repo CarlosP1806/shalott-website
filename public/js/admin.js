@@ -185,6 +185,8 @@ deleteCollectionForm.addEventListener('submit', event => {
   event.preventDefault();
   const nameInputElement = document.querySelector('#delete-collection__name');
 
+  if(!nameInputElement.value) return;
+
   fetch("/admin/delete/collection", {
     method: "DELETE",
     headers: {
@@ -196,7 +198,6 @@ deleteCollectionForm.addEventListener('submit', event => {
     .then(response => {
       console.log(response);
       nameInputElement.value = "";
-      window.location.reload();
     })
     .catch(error => console.log(error));
 });

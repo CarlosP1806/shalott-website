@@ -35,21 +35,21 @@ router.get('/search/:id', async (req, res) => {
   try {
     const product = await Product.findOne({ productId: req.params.id });
     if (!product) {
-      res.json('Not found');
+      res.status(404).json('Not found');
       return;
     }
-    res.json(product);
+    res.status(200).json(product);
   } catch(err) {
-    res.json(err);
+    res.status(500).json(err);
   }
 });
 
 router.post('/create/', async (req, res) => {
   try {
     const product = await Product.create(req.body);
-    res.json(product);
+    res.status(200).json(product);
   } catch (err) {
-    res.json(err);
+    res.status(500).json(err);
   }
 });
 
@@ -57,12 +57,12 @@ router.delete('/delete/', async (req, res) => {
   try {
     const product = await Product.findOneAndDelete({ productId: req.body.id });
     if(!product) {
-      res.json("No product found");
+      res.status(404).json("No product found");
       return;
     }
-    res.json(product);
+    res.status(200).json(product);
   } catch(err) {
-    res.json(err);
+    res.status(500).json(err);
   }
 });
 
@@ -70,21 +70,21 @@ router.put('/update/', async (req, res) => {
   try {
     const product = await Product.findOneAndUpdate({ productId: req.body.id }, req.body )
     if(!product) {
-      res.json("No product found");
+      res.status(404).json("No product found");
       return;
     }
-    res.json(product);
+    res.status(200).json(product);
   } catch(err) {
-    res.json(err);
+    res.status(500).json(err);
   }
 });
 
 router.post('/create/collection/', async (req, res) => {
   try {
     const collection = await Collection.create(req.body);
-    res.json(collection);
+    res.status(200).json(collection);
   } catch(err) {
-    res.json(err);
+    res.status(500).json(err);
   } 
 });
 
@@ -92,12 +92,12 @@ router.delete('/delete/collection/', async (req, res) => {
   try {
     const collection = await Collection.findOneAndDelete({ name: req.body.name });
     if(!Collection) {
-      res.json("No collection found");
+      res.status(404).json("No collection found");
       return;
     }
-    res.json(collection);
+    res.status(200).json(collection);
   } catch(err) {
-    res.json(err);
+    res.status(500).json(err);
   }
 });
 
