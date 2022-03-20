@@ -136,6 +136,7 @@ editForm.addEventListener('submit', event => {
     .catch(error => console.log(error));
 
   nameInputElement.value = "";
+  idInputElement.value = "";
   priceInputElement.value = "";
   categoryInputElement.value = "";
   collectionInputElement.value = "";
