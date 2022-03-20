@@ -63,11 +63,26 @@
           </div>
           <div class="admin__form-row">
             <label for="create-product__category">Tipo de producto:</label>
-            <input type="text" id="create-product__category">
+            <select id="create-product__category">
+              <% for(let i = 0; i < categories.length; i++) { %>
+                <option class="filter__option" 
+                  value="<%= categories[i].name %>">
+                  <%= categories[i].name.charAt(0).toUpperCase() + categories[i].name.slice(1) %>
+                </option>
+              <% } %>
+            </select>
           </div>
           <div class="admin__form-row">
             <label for="create-product__collection">Colección del producto:</label>
-            <input type="text" id="create-product__collection">
+            <select id="create-product__collection">
+              <% for(let i = 0; i < categories.length; i++) { %>
+                <option class="filter__option" 
+                  value="<%= collections[i].name %>">
+                  <%= collections[i].name.charAt(0).toUpperCase() + collections[i].name.slice(1) %>
+                </option>
+              <% } %>
+            </select>
+
           </div>
           <div class="admin__form-row">
             <label for="create-product__image">Imagen del producto:</label>

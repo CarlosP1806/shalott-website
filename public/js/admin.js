@@ -25,7 +25,7 @@ searchForm.addEventListener('submit', event => {
   document.querySelector('#search-id').value = "";
 });
 
-// Handle admin create
+// Handle admin create product
 const createForm = document.querySelector('#create-product-form');
 createForm.addEventListener("submit", event => {
   event.preventDefault();
@@ -64,7 +64,7 @@ createForm.addEventListener("submit", event => {
   imageInputElement.value = "";
 });
 
-// Handle admin delete
+// Handle admin delete product
 const deleteForm = document.querySelector('#delete-product-form');
 deleteForm.addEventListener("submit", event => {
   event.preventDefault();

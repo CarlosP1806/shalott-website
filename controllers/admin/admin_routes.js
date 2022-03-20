@@ -1,10 +1,14 @@
 const router = require('express').Router();
 const Admin = require('../../models/Admin');
 const Product = require('../../models/Product');
+const Category = require('../../models/Category');
+const Collection = require('../../models/Collection');
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   if (req.session.userId) {
-    res.render('admin_dashboard');
+    const categories = await Category.find({});
+    const collections = await Collection.find({});
+    res.render('admin_dashboard', { categories, collections });
   } else {
     res.render('admin_login');
   }
