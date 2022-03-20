@@ -91,11 +91,33 @@ router.post('/create/collection/', async (req, res) => {
 router.delete('/delete/collection/', async (req, res) => {
   try {
     const collection = await Collection.findOneAndDelete({ name: req.body.name });
-    if(!Collection) {
+    if(!collection) {
       res.status(404).json("No collection found");
       return;
     }
     res.status(200).json(collection);
+  } catch(err) {
+    res.status(500).json(err);
+  }
+});
+
+router.post('/create/category/', async (req, res) => {
+  try {
+    const category = await Category.create(req.body);
+    res.status(200).json(category);
+  } catch(err) {
+    res.status(500).json(err);
+  } 
+});
+
+router.delete('/delete/category/', async (req, res) => {
+  try {
+    const category = await Category.findOneAndDelete({ name: req.body.name });
+    if(!category) {
+      res.status(404).json("No collection found");
+      return;
+    }
+    res.status(200).json(category);
   } catch(err) {
     res.status(500).json(err);
   }

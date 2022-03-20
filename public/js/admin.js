@@ -204,3 +204,57 @@ deleteCollectionForm.addEventListener('submit', event => {
     })
     .catch(error => console.log(error));
 });
+
+// Handle admin create category
+const createCategoryForm = document.querySelector('#create-category-form');
+createCategoryForm.addEventListener('submit', event => {
+  event.preventDefault();
+
+  const nameInputElement = document.querySelector('#create-category__name');
+  const imageInputElement = document.querySelector('#create-category__image');
+
+  const category = {
+    name: nameInputElement.value.toLowerCase(),
+    image: imageInputElement.value
+  }
+
+  fetch('/admin/create/category', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(category)
+  })
+    .then(response => response.json())
+    .then(response => {
+      console.log(response)
+      nameInputElement.value = "";
+      imageInputElement.value = "";
+      window.location.reload();
+    })
+    .catch(error => console.log(error));
+});
+
+// Handle admin delete collection 
+const deleteCategoryForm = document.querySelector('#delete-category-form');
+deleteCategoryForm.addEventListener('submit', event => {
+  event.preventDefault();
+  const nameInputElement = document.querySelector('#delete-category__name');
+
+  if(!nameInputElement.value) return;
+
+  fetch("/admin/delete/category", {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ name: nameInputElement.value })
+  })
+    .then(response => response.json())
+    .then(response => {
+      console.log(response);
+      nameInputElement.value = "";
+      window.location.reload();
+    })
+    .catch(error => console.log(error));
+});

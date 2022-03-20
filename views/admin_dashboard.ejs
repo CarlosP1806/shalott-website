@@ -119,7 +119,7 @@
           </div>
           <div class="admin__form-row">
             <label for="edit-product__id">Id de producto:</label>
-            <input type="text" id="edit-product__id" required>
+            <input type="text" id="edit-product__id" required readonly>
           </div>
           <div class="admin__form-row">
             <label for="edit-product__price">Precio de producto:</label>
@@ -193,6 +193,46 @@
                 <option class="filter__option" 
                   value="<%= collections[i].name %>">
                   <%= collections[i].name.charAt(0).toUpperCase() + collections[i].name.slice(1) %>
+                </option>
+              <% } %>
+            </select>
+          </div>
+          <button class="admin__form-button btn--danger">Eliminar</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="admin__create-category">
+      <div class="section__content">
+        <h2 class="admin__title">Crear categoría</h2>
+
+        <form class="admin__form" id="create-category-form">
+          <div class="admin__form-row">
+            <label for="create-category__name">Nombre de categoría:</label>
+            <input type="text" id="create-category__name" required>
+          </div>
+          <div class="admin__form-row">
+            <label for="create-category__image">Imagen de categoría:</label>
+            <input type="text" id="create-category__image" required>
+          </div>
+          <button class="admin__form-button">Crear</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="admin__delete-collection">
+      <div class="section__content">
+        <h2 class="admin__title">Eliminar categoría</h2>
+
+        <form class="admin__form" id="delete-category-form">
+          <div class="admin__form-row">
+            <label for="delete-category__name">Nombre de categoría:</label>
+            <select id="delete-category__name" required>
+              <option value="" selected></option>
+              <% for(let i = 0; i < categories.length; i++) { %>
+                <option class="filter__option" 
+                  value="<%= categories[i].name %>">
+                  <%= categories[i].name.charAt(0).toUpperCase() + categories[i].name.slice(1) %>
                 </option>
               <% } %>
             </select>
