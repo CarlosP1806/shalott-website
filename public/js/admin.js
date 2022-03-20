@@ -22,7 +22,8 @@ searchForm.addEventListener('submit', event => {
       priceElement.textContent = `$${product.productPrice}`;
 
       fillEditForm(product);
-    });
+    })
+    .catch(err => console.log(err));
 
   document.querySelector('#search-id').value = "";
 
@@ -93,7 +94,7 @@ deleteForm.addEventListener("submit", event => {
 
   const idInputElement = document.querySelector('#delete-product__id');
 
-  fetch("admin/delete", {
+  fetch("/admin/delete", {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json"
@@ -169,11 +170,33 @@ createCollectionForm.addEventListener('submit', event => {
     body: JSON.stringify(collection)
   })
     .then(response => response.json())
-    .then(response => console.log(response))
+    .then(response => {
+      console.log(response)
+      nameInputElement.value = "";
+      imageInputElement.value = "";
+      window.location.reload();
+    })
     .catch(error => console.log(error));
+});
 
-  nameInputElement.value = "";
-  imageInputElement.value = "";
+// Handle admin delete collection 
+const deleteCollectionForm = document.querySelector('#delete-collection-form');
+deleteCollectionForm.addEventListener('submit', event => {
+  event.preventDefault();
+  const nameInputElement = document.querySelector('#delete-collection__name');
 
-  window.location.reload;
+  fetch("/admin/delete/collection", {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ name: nameInputElement.value })
+  })
+    .then(response => response.json())
+    .then(response => {
+      console.log(response);
+      nameInputElement.value = "";
+      window.location.reload();
+    })
+    .catch(error => console.log(error));
 });

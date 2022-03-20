@@ -32,12 +32,16 @@ router.post('/login', async (req, res) => {
 });
 
 router.get('/search/:id', async (req, res) => {
-  const product = await Product.findOne({ productId: req.params.id });
-  if (!product) {
-    res.json('Not found');
-    return;
+  try {
+    const product = await Product.findOne({ productId: req.params.id });
+    if (!product) {
+      res.json('Not found');
+      return;
+    }
+    res.json(product);
+  } catch(err) {
+    res.json(err);
   }
-  res.json(product);
 });
 
 router.post('/create/', async (req, res) => {
@@ -82,6 +86,19 @@ router.post('/create/collection/', async (req, res) => {
   } catch(err) {
     res.json(err);
   } 
+});
+
+router.delete('/delete/collection/', async (req, res) => {
+  try {
+    const collection = await Collection.findOneAndDelete({ name: req.body.name });
+    if(!Collection) {
+      res.json("No collection found");
+      return;
+    }
+    res.json(collection);
+  } catch(err) {
+    res.json(err);
+  }
 });
 
 module.exports = router;

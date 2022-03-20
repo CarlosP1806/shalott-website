@@ -180,6 +180,28 @@
       </div>
     </section>
 
+    <section class="admin__delete-collection">
+      <div class="section__content">
+        <h2 class="admin__title">Eliminar colección</h2>
+
+        <form class="admin__form" id="delete-collection-form">
+          <div class="admin__form-row">
+            <label for="delete-collection__name">Nombre de colección:</label>
+            <select id="delete-collection__name">
+              <option value="" selected></option>
+              <% for(let i = 0; i < collections.length; i++) { %>
+                <option class="filter__option" 
+                  value="<%= collections[i].name %>">
+                  <%= collections[i].name.charAt(0).toUpperCase() + collections[i].name.slice(1) %>
+                </option>
+              <% } %>
+            </select>
+          </div>
+          <button class="admin__form-button btn--danger">Eliminar</button>
+        </form>
+      </div>
+    </section>
+
   </main>
 
   <%- include("partials/footer.ejs") %>
