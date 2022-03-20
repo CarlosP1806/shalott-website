@@ -26,7 +26,7 @@
         <form class="admin__search-form admin__form">
           <div class="admin__form-row">
             <label for="search-id">Introduce id de producto:</label>
-            <input type="text" id="search-id">
+            <input type="text" id="search-id" required>
           </div>
           <button>Buscar</button>
         </form>
@@ -52,7 +52,7 @@
         <form class="admin__form" id="delete-product-form">
           <div class="admin__form-row">
             <label for="delete-product__id">Introduce id de producto:</label>
-            <input type="text" id="delete-product__id">
+            <input type="text" id="delete-product__id" required>
           </div>
           <button class="admin__form-button btn--danger">Eliminar</button>
         </form>
@@ -66,19 +66,19 @@
         <form class="admin__form" id="create-product-form">
           <div class="admin__form-row">
             <label for="create-product__name">Nombre de producto:</label>
-            <input type="text" id="create-product__name">
+            <input type="text" id="create-product__name" required>
           </div>
           <div class="admin__form-row">
             <label for="create-product__id">Id de producto:</label>
-            <input type="text" id="create-product__id">
+            <input type="text" id="create-product__id" required>
           </div>
           <div class="admin__form-row">
             <label for="create-product__price">Precio de producto:</label>
-            <input type="text" id="create-product__price">
+            <input type="text" id="create-product__price" required>
           </div>
           <div class="admin__form-row">
             <label for="create-product__category">Tipo de producto:</label>
-            <select id="create-product__category">
+            <select id="create-product__category" required>
               <% for(let i = 0; i < categories.length; i++) { %>
                 <option class="filter__option" 
                   value="<%= categories[i].name %>">
@@ -89,7 +89,7 @@
           </div>
           <div class="admin__form-row">
             <label for="create-product__collection">Colección del producto:</label>
-            <select id="create-product__collection">
+            <select id="create-product__collection" required>
               <% for(let i = 0; i < categories.length; i++) { %>
                 <option class="filter__option" 
                   value="<%= collections[i].name %>">
@@ -100,7 +100,7 @@
           </div>
           <div class="admin__form-row">
             <label for="create-product__image">Imagen del producto:</label>
-            <input type="text" id="create-product__image">
+            <input type="text" id="create-product__image" required>
           </div>
           <button class="admin__form-button">Crear</button>
         </form>
@@ -115,19 +115,19 @@
         <form class="admin__form" id="edit-product-form">
           <div class="admin__form-row">
             <label for="edit-product__name">Nombre de producto:</label>
-            <input type="text" id="edit-product__name">
+            <input type="text" id="edit-product__name" required>
           </div>
           <div class="admin__form-row">
             <label for="edit-product__id">Id de producto:</label>
-            <input type="text" id="edit-product__id">
+            <input type="text" id="edit-product__id" required>
           </div>
           <div class="admin__form-row">
             <label for="edit-product__price">Precio de producto:</label>
-            <input type="text" id="edit-product__price">
+            <input type="text" id="edit-product__price" required>
           </div>
           <div class="admin__form-row">
             <label for="edit-product__category">Tipo de producto:</label>
-            <select id="edit-product__category">
+            <select id="edit-product__category" required>
               <option value="" selected></option>
               <% for(let i = 0; i < categories.length; i++) { %>
                 <option class="filter__option" 
@@ -139,7 +139,7 @@
           </div>
           <div class="admin__form-row">
             <label for="edit-product__collection">Colección del producto:</label>
-            <select id="edit-product__collection">
+            <select id="edit-product__collection" required>
               <option value="" selected></option>
               <% for(let i = 0; i < categories.length; i++) { %>
                 <option class="filter__option" 
@@ -151,7 +151,7 @@
           </div>
           <div class="admin__form-row">
             <label for="edit-product__image">Imagen del producto:</label>
-            <input type="text" id="edit-product__image">
+            <input type="text" id="edit-product__image" required>
           </div>
           <div>
             <label for="edit-product__highlight">Destacado:</label>
@@ -169,11 +169,11 @@
         <form class="admin__form" id="create-collection-form">
           <div class="admin__form-row">
             <label for="create-collection__name">Nombre de colección:</label>
-            <input type="text" id="create-collection__name">
+            <input type="text" id="create-collection__name" required>
           </div>
           <div class="admin__form-row">
             <label for="create-collection__image">Imagen de colección:</label>
-            <input type="text" id="create-collection__image">
+            <input type="text" id="create-collection__image" required>
           </div>
           <button class="admin__form-button">Crear</button>
         </form>
@@ -187,7 +187,7 @@
         <form class="admin__form" id="delete-collection-form">
           <div class="admin__form-row">
             <label for="delete-collection__name">Nombre de colección:</label>
-            <select id="delete-collection__name">
+            <select id="delete-collection__name" required>
               <option value="" selected></option>
               <% for(let i = 0; i < collections.length; i++) { %>
                 <option class="filter__option" 
