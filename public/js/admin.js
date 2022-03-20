@@ -20,10 +20,30 @@ searchForm.addEventListener('submit', event => {
       nameElement.textContent = product.productName;
       const priceElement = document.querySelector('#admin__card-price');
       priceElement.textContent = `$${product.productPrice}`;
+
+      fillEditForm(product);
     });
 
   document.querySelector('#search-id').value = "";
+
 });
+
+// Fill product details on search
+function fillEditForm(product) {
+  const nameInputElement = document.querySelector('#edit-product__name');
+  const idInputElement = document.querySelector('#edit-product__id');
+  const priceInputElement = document.querySelector('#edit-product__price');
+  const categoryInputElement = document.querySelector('#edit-product__category');
+  const collectionInputElement = document.querySelector('#edit-product__collection');
+  const imageInputElement = document.querySelector('#edit-product__image');
+
+  nameInputElement.value = product.productName;
+  idInputElement.value = product.productId;
+  priceInputElement.value = product.productPrice;
+  categoryInputElement.value = product.productCategory;
+  collectionInputElement.value = product.productCollection;
+  imageInputElement.value = product.productImage;
+}
 
 // Handle admin create product
 const createForm = document.querySelector('#create-product-form');
@@ -83,4 +103,41 @@ deleteForm.addEventListener("submit", event => {
     .catch(error => console.log(error));
 
   idInputElement.value = "";
-})
+});
+
+// Handle admin edit product
+const editForm = document.querySelector('#edit-product-form');
+editForm.addEventListener('submit', event => {
+  event.preventDefault();
+  
+  const nameInputElement = document.querySelector('#edit-product__name');
+  const idInputElement = document.querySelector('#edit-product__id');
+  const priceInputElement = document.querySelector('#edit-product__price');
+  const categoryInputElement = document.querySelector('#edit-product__category');
+  const collectionInputElement = document.querySelector('#edit-product__collection');
+  const imageInputElement = document.querySelector('#edit-product__image');
+
+  fetch('/admin/update', {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      id: idInputElement.value,
+      productName: nameInputElement.value,
+      productImage: imageInputElement.value,
+      productPrice: priceInputElement.value,
+      productCollection: collectionInputElement.value,
+      productCategory: categoryInputElement.value
+    })
+  })
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(error => console.log(error));
+
+  nameInputElement.value = "";
+  priceInputElement.value = "";
+  categoryInputElement.value = "";
+  collectionInputElement.value = "";
+  imageInputElement.value = "";
+});

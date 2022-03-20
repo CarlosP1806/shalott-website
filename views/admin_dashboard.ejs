@@ -23,9 +23,11 @@
       <div class="section__content">
         <h2 class="admin__title">Buscar Producto</h2>
 
-        <form class="admin__search-form">
-          <label for="search-id">Introduce id de producto:</label>
-          <input type="text" id="search-id">
+        <form class="admin__search-form admin__form">
+          <div class="admin__form-row">
+            <label for="search-id">Introduce id de producto:</label>
+            <input type="text" id="search-id">
+          </div>
           <button>Buscar</button>
         </form>
 
@@ -41,6 +43,19 @@
           </article>
         </div>
         
+      </div>
+    </section>
+    
+    <section class="admin__delete-product">
+      <div class="section__content">
+        <h2 class="admin__title">Eliminar Producto</h2>
+        <form class="admin__form" id="delete-product-form">
+          <div class="admin__form-row">
+            <label for="delete-product__id">Introduce id de producto:</label>
+            <input type="text" id="delete-product__id">
+          </div>
+          <button class="admin__form-button btn--danger">Eliminar</button>
+        </form>
       </div>
     </section>
 
@@ -82,7 +97,6 @@
                 </option>
               <% } %>
             </select>
-
           </div>
           <div class="admin__form-row">
             <label for="create-product__image">Imagen del producto:</label>
@@ -97,21 +111,54 @@
     <section class="admin__update">
       <div class="section__content">
         <h2 class="admin__title">Editar Producto</h2>
+
+        <form class="admin__form" id="edit-product-form">
+          <div class="admin__form-row">
+            <label for="edit-product__name">Nombre de producto:</label>
+            <input type="text" id="edit-product__name">
+          </div>
+          <div class="admin__form-row">
+            <label for="edit-product__id">Id de producto:</label>
+            <input type="text" id="edit-product__id">
+          </div>
+          <div class="admin__form-row">
+            <label for="edit-product__price">Precio de producto:</label>
+            <input type="text" id="edit-product__price">
+          </div>
+          <div class="admin__form-row">
+            <label for="edit-product__category">Tipo de producto:</label>
+            <select id="edit-product__category">
+              <option value="" selected></option>
+              <% for(let i = 0; i < categories.length; i++) { %>
+                <option class="filter__option" 
+                  value="<%= categories[i].name %>">
+                  <%= categories[i].name.charAt(0).toUpperCase() + categories[i].name.slice(1) %>
+                </option>
+              <% } %>
+            </select>
+          </div>
+          <div class="admin__form-row">
+            <label for="edit-product__collection">Colección del producto:</label>
+            <select id="edit-product__collection">
+              <option value="" selected></option>
+              <% for(let i = 0; i < categories.length; i++) { %>
+                <option class="filter__option" 
+                  value="<%= collections[i].name %>">
+                  <%= collections[i].name.charAt(0).toUpperCase() + collections[i].name.slice(1) %>
+                </option>
+              <% } %>
+            </select>
+          </div>
+          <div class="admin__form-row">
+            <label for="edit-product__image">Imagen del producto:</label>
+            <input type="text" id="edit-product__image">
+          </div>
+          <button class="admin__form-button">Actualizar</button>
+        </form>
+
       </div>
     </section>
 
-    <section class="admin__delete-product">
-      <div class="section__content">
-        <h2 class="admin__title">Eliminar Producto</h2>
-        <form class="admin__form" id="delete-product-form">
-          <div class="admin__form-row">
-            <label for="delete-product__id">Introduce id de producto:</label>
-            <input type="text" id="delete-product__id">
-          </div>
-          <button class="admin__form-button btn--danger">Eliminar</button>
-        </form>
-      </div>
-    </section>
   </main>
 
   <%- include("partials/footer.ejs") %>

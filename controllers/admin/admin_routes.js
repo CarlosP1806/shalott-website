@@ -62,4 +62,17 @@ router.delete('/delete/', async (req, res) => {
   }
 });
 
+router.put('/update/', async (req, res) => {
+  try {
+    const product = await Product.findOneAndUpdate({ productId: req.body.id }, req.body )
+    if(!product) {
+      res.json("No product found");
+      return;
+    }
+    res.json(product);
+  } catch(err) {
+    res.json(err);
+  }
+});
+
 module.exports = router;
