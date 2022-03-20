@@ -26,16 +26,16 @@ searchForm.addEventListener('submit', event => {
 });
 
 // Handle admin create
-const createForm = document.querySelector('#create-form');
+const createForm = document.querySelector('#create-product-form');
 createForm.addEventListener("submit", event => {
   event.preventDefault();
 
-  const nameInputElement = document.querySelector('#create__name');
-  const idInputElement = document.querySelector('#create__id');
-  const priceInputElement = document.querySelector('#create__price');
-  const categoryInputElement = document.querySelector('#create__category');
-  const collectionInputElement = document.querySelector('#create__collection');
-  const imageInputElement = document.querySelector('#create__image');
+  const nameInputElement = document.querySelector('#create-product__name');
+  const idInputElement = document.querySelector('#create-product__id');
+  const priceInputElement = document.querySelector('#create-product__price');
+  const categoryInputElement = document.querySelector('#create-product__category');
+  const collectionInputElement = document.querySelector('#create-product__collection');
+  const imageInputElement = document.querySelector('#create-product__image');
 
   fetch('/admin/create', {
     method: 'POST',
@@ -65,11 +65,11 @@ createForm.addEventListener("submit", event => {
 });
 
 // Handle admin delete
-const deleteForm = document.querySelector('#delete-form');
+const deleteForm = document.querySelector('#delete-product-form');
 deleteForm.addEventListener("submit", event => {
   event.preventDefault();
 
-  const idInputElement = document.querySelector('#delete__id');
+  const idInputElement = document.querySelector('#delete-product__id');
 
   fetch("admin/delete", {
     method: "DELETE",
