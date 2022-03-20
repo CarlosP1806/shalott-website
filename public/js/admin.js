@@ -5,6 +5,8 @@ searchForm.addEventListener('submit', event => {
 
   const productId = document.querySelector('#search-id').value;
 
+  if(!productId) return;
+
   fetch(`/admin/search/${productId}`)
     .then(response => response.json())
     .then(product => {
