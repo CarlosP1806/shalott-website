@@ -147,3 +147,33 @@ editForm.addEventListener('submit', event => {
   imageInputElement.value = "";
   checkedInputElement.value = "";
 });
+
+// Handle admin create collection
+const createCollectionForm = document.querySelector('#create-collection-form');
+createCollectionForm.addEventListener('submit', event => {
+  event.preventDefault();
+
+  const nameInputElement = document.querySelector('#create-collection__name');
+  const imageInputElement = document.querySelector('#create-collection__image');
+
+  const collection = {
+    name: nameInputElement.value.toLowerCase(),
+    image: imageInputElement.value
+  }
+
+  fetch('/admin/create/collection', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(collection)
+  })
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(error => console.log(error));
+
+  nameInputElement.value = "";
+  imageInputElement.value = "";
+
+  window.location.reload;
+});

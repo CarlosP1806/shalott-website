@@ -75,4 +75,13 @@ router.put('/update/', async (req, res) => {
   }
 });
 
+router.post('/create/collection/', async (req, res) => {
+  try {
+    const collection = await Collection.create(req.body);
+    res.json(collection);
+  } catch(err) {
+    res.json(err);
+  } 
+});
+
 module.exports = router;
