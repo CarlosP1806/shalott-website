@@ -90,7 +90,7 @@
           <div class="admin__form-row">
             <label for="create-product__collection">Colección del producto:</label>
             <select id="create-product__collection" required>
-              <% for(let i = 0; i < categories.length; i++) { %>
+              <% for(let i = 0; i < collections.length; i++) { %>
                 <option class="filter__option" 
                   value="<%= collections[i].name %>">
                   <%= collections[i].name.charAt(0).toUpperCase() + collections[i].name.slice(1) %>
@@ -141,7 +141,7 @@
             <label for="edit-product__collection">Colección del producto:</label>
             <select id="edit-product__collection" required>
               <option value="" selected></option>
-              <% for(let i = 0; i < categories.length; i++) { %>
+              <% for(let i = 0; i < collections.length; i++) { %>
                 <option class="filter__option" 
                   value="<%= collections[i].name %>">
                   <%= collections[i].name.charAt(0).toUpperCase() + collections[i].name.slice(1) %>

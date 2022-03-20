@@ -200,6 +200,7 @@ deleteCollectionForm.addEventListener('submit', event => {
     .then(response => {
       console.log(response);
       nameInputElement.value = "";
+      window.location.reload();
     })
     .catch(error => console.log(error));
 });
