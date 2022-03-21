@@ -23,108 +23,109 @@
 
 <body>
   <%- include("partials/navbar.ejs") %>
-  <section class="section section--banner">
-    <div class="banner__slides">
-      <h1 class="banner__text">Joyería artesanal hecha con el corazón</h1>
-      <btn class="banner__btn"><a href="/catalogo">Catálogo</a></btn>
-      <input type="radio" name="radio-btn" id="radio1">
-      <input type="radio" name="radio-btn" id="radio2">
-      <input type="radio" name="radio-btn" id="radio3">
-      <input type="radio" name="radio-btn" id="radio4">
-      <div class="banner__slide first" id="banner-1"></div>
-      <div class="banner__slide" id="banner-2"></div>
-      <div class="banner__slide" id="banner-3"></div>
-      <div class="banner__slide" id="banner-4"></div>
-      <div class="navigation-manual">
-        <label for="radio1" class="manual-btn" id="btn-1"></label>
-        <label for="radio2" class="manual-btn" id="btn-2"></label>
-        <label for="radio3" class="manual-btn" id="btn-3"></label>
-        <label for="radio4" class="manual-btn" id="btn-4"></label>
-      </div>
-    </div>
-
-  </section>
-  <section class="section section--products">
-    <div class="section__content">
-      <header class="section__title">
-        <img class="title__image" src="/images/ShalottFlower.png" alt="Shalott flower image">
-        <h2 class="title__text">Destacados</h2>
-        <div class="title__line"></div>
-      </header>
-      <div class="card-container">
-        <% for(let i = 0; i < products.length; i++) { %>
-          <%-include("partials/product_card.ejs", {productData: products[i]}) %>
-        <% } %>
-      </div>
-    </div>
-  </section>
-  <section class="section section--about section--dark">
-    <div class="section__content">
-      <header class="section__title">
-        <img class="title__image" src="/images/ShalottButterfly.png" alt="Shalott Butterfly">
-        <h2 class="title__text">Sobre Nosotros</h2>
-        <div class="title__line"></div>
-      </header>
-      <div class="about__col">
-        <article class="about__text">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi hic odit dignissimos labore blanditiis
-            perspiciatis molestias illo deserunt nesciunt soluta voluptatum nostrum dolor, laboriosam, quod cumque
-            reprehenderit modi dicta velit?
-          </p>
-          <p>
-            Minima obcaecati cumque similique, dicta reprehenderit tempore tenetur quos deleniti asperiores reiciendis
-            facere, necessitatibus repellat ut velit minus saepe. Assumenda velit et tenetur esse quaerat quos beatae qui
-            eos maxime.
-          </p>
-        </article>
-        <figure class="about__image-container">
-          <img class="about__image" src="/images/AboutPhoto.webp" alt="Joyería de arcilla polimérica">
-        </figure>
-      </div>
-    </div>
-  </section>
-  <section class="section section--categories">
-    <div class="section__content">
-      <header class="section__title">
-        <img class="title__image" src="/images/ShalottLeaf.png" alt="Shalott Leaf">
-        <h2 class="title__text">Categorías</h2>
-        <div class="title__line"></div>
-      </header>
-      <div class="card-container">
-        <%- include("partials/category_card.ejs", {category: categories[0]}) %>
-        <%- include("partials/category_card.ejs", {category: categories[1]}) %>
-        <%- include("partials/category_card.ejs", {category: categories[2]}) %>
-        <%- include("partials/category_card.ejs", {category: categories[3]}) %>
-      </div>
-    </div>
-  </section>
-  <section class="section section--collections">
-    <div class="section__content">
-      <header class="section__title">
-        <img class="title__image" src="/images/ShalottLeaf2.png" alt="Shalott Leaf">
-        <h2 class="title__text">Colecciones</h2>
-        <div class="title__line"></div>
-      </header>
-      <div class="collections__carousel">
-        <div class="carousel__container">
-          <button aria-label="Anterior" class="carousel__prev">
-            <i class="fa fa-solid fa-chevron-left"></i>
-          </button>
-          <div class="carousel__list">
-            <% for(let i = 0; i < collections.length; i++) { %>
-              <%- include("partials/collection_carousel.ejs", {collection: collections[i]}) %>
-            <% } %>
-          </div>
-          <button aria-label="Siguiente" class="carousel__next">
-            <i class="fa fa-solid fa-chevron-right"></i>
-          </button>
+  <main>
+    <section class="section section--banner">
+      <div class="banner__slides">
+        <h1 class="banner__text">Joyería artesanal hecha con el corazón</h1>
+        <btn class="banner__btn"><a href="/catalogo">Catálogo</a></btn>
+        <input type="radio" name="radio-btn" id="radio1">
+        <input type="radio" name="radio-btn" id="radio2">
+        <input type="radio" name="radio-btn" id="radio3">
+        <input type="radio" name="radio-btn" id="radio4">
+        <div class="banner__slide first" id="banner-1"></div>
+        <div class="banner__slide" id="banner-2"></div>
+        <div class="banner__slide" id="banner-3"></div>
+        <div class="banner__slide" id="banner-4"></div>
+        <div class="navigation-manual">
+          <label for="radio1" class="manual-btn" id="btn-1"></label>
+          <label for="radio2" class="manual-btn" id="btn-2"></label>
+          <label for="radio3" class="manual-btn" id="btn-3"></label>
+          <label for="radio4" class="manual-btn" id="btn-4"></label>
         </div>
-        <div role="tablist" class="carousel__indicators"></div>
       </div>
-    </div>
-  </section>
 
+    </section>
+    <section class="section section--products">
+      <div class="section__content">
+        <header class="section__title">
+          <img class="title__image" src="/images/ShalottFlower.png" alt="Shalott flower image">
+          <h2 class="title__text">Destacados</h2>
+          <div class="title__line"></div>
+        </header>
+        <div class="card-container">
+          <% for(let i = 0; i < products.length; i++) { %>
+            <%-include("partials/product_card.ejs", {productData: products[i]}) %>
+          <% } %>
+        </div>
+      </div>
+    </section>
+    <section class="section section--about section--dark">
+      <div class="section__content">
+        <header class="section__title">
+          <img class="title__image" src="/images/ShalottButterfly.png" alt="Shalott Butterfly">
+          <h2 class="title__text">Sobre Nosotros</h2>
+          <div class="title__line"></div>
+        </header>
+        <div class="about__col">
+          <article class="about__text">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi hic odit dignissimos labore blanditiis
+              perspiciatis molestias illo deserunt nesciunt soluta voluptatum nostrum dolor, laboriosam, quod cumque
+              reprehenderit modi dicta velit?
+            </p>
+            <p>
+              Minima obcaecati cumque similique, dicta reprehenderit tempore tenetur quos deleniti asperiores reiciendis
+              facere, necessitatibus repellat ut velit minus saepe. Assumenda velit et tenetur esse quaerat quos beatae qui
+              eos maxime.
+            </p>
+          </article>
+          <figure class="about__image-container">
+            <img class="about__image" src="/images/AboutPhoto.webp" alt="Joyería de arcilla polimérica">
+          </figure>
+        </div>
+      </div>
+    </section>
+    <section class="section section--categories">
+      <div class="section__content">
+        <header class="section__title">
+          <img class="title__image" src="/images/ShalottLeaf.png" alt="Shalott Leaf">
+          <h2 class="title__text">Categorías</h2>
+          <div class="title__line"></div>
+        </header>
+        <div class="card-container">
+          <%- include("partials/category_card.ejs", {category: categories[0]}) %>
+          <%- include("partials/category_card.ejs", {category: categories[1]}) %>
+          <%- include("partials/category_card.ejs", {category: categories[2]}) %>
+          <%- include("partials/category_card.ejs", {category: categories[3]}) %>
+        </div>
+      </div>
+    </section>
+    <section class="section section--collections">
+      <div class="section__content">
+        <header class="section__title">
+          <img class="title__image" src="/images/ShalottLeaf2.png" alt="Shalott Leaf">
+          <h2 class="title__text">Colecciones</h2>
+          <div class="title__line"></div>
+        </header>
+        <div class="collections__carousel">
+          <div class="carousel__container">
+            <button aria-label="Anterior" class="carousel__prev">
+              <i class="fa fa-solid fa-chevron-left"></i>
+            </button>
+            <div class="carousel__list">
+              <% for(let i = 0; i < collections.length; i++) { %>
+                <%- include("partials/collection_carousel.ejs", {collection: collections[i]}) %>
+              <% } %>
+            </div>
+            <button aria-label="Siguiente" class="carousel__next">
+              <i class="fa fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+          <div role="tablist" class="carousel__indicators"></div>
+        </div>
+      </div>
+    </section>
+  </main>
   <%- include("partials/footer.ejs")%>
 
   <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.js"></script>
