@@ -156,7 +156,7 @@ section {
 }
 
 .card__description {
-    color: var(--text-light);
+    color: var(--text-color);
     font-style: italic;
     font-size: var(--tiny-font);
     margin-bottom: .1rem;
@@ -741,7 +741,7 @@ footer {
 
 .footer__copyright {
     font-size: 12px;
-    color: var(--text-light);
+    color: var(--text-color);
     margin-top: .5rem;
     text-align: center;
 }
