@@ -58,7 +58,7 @@ const productSeed =
     {
       "productId": "0001",
       "productName": "Aretes Bonitos 1",
-      "productImage": "https://drive.google.com/uc?export=view&id=1RZAPEv6cOiXTU8SN3CkRYfqOheAQ4kzP",
+      "productImage": "https://res.cloudinary.com/df816mhgy/image/upload/v1647901163/shalott/Product1_d0webg.webp",
       "productPrice": "500.00",
       "productCollection": "coleccion 1",
       "productCategory": "aretes",
@@ -67,7 +67,7 @@ const productSeed =
     {
       "productId": "0002",
       "productName": "Aretes Bonitos 2",
-      "productImage": "https://drive.google.com/uc?export=view&id=1ygWgswszEDIdupyT3sguCRYiLxAPBgz1",
+      "productImage": "https://res.cloudinary.com/df816mhgy/image/upload/v1647901163/shalott/Product2_tuvt8q.webp",
       "productPrice": "500.00",
       "productCollection": "coleccion 2",
       "productCategory": "aretes",
@@ -76,7 +76,7 @@ const productSeed =
     {
       "productId": "0003",
       "productName": "Aretes Bonitos 3",
-      "productImage": "https://drive.google.com/uc?export=view&id=1eMCsjovxBkVjn-F3yMYhUiud8H252sqD",
+      "productImage": "https://res.cloudinary.com/df816mhgy/image/upload/v1647901163/shalott/Product3_nx8qu4.webp",
       "productPrice": "500.00",
       "productCollection": "coleccion 1",
       "productCategory": "aretes",
@@ -85,7 +85,7 @@ const productSeed =
     {
       "productId": "0004",
       "productName": "Aretes Bonitos 4",
-      "productImage": "https://drive.google.com/uc?export=view&id=1ZqB223M8hZHiv1fxPwjgrtnIWbap4KtJ",
+      "productImage": "https://res.cloudinary.com/df816mhgy/image/upload/v1647901244/shalott/Product4_djhjxp.webp",
       "productPrice": "500.00",
       "productCollection": "coleccion 2",
       "productCategory": "aretes",
@@ -94,7 +94,7 @@ const productSeed =
     {
       "productId": "0005",
       "productName": "Aretes Bonitos 5",
-      "productImage": "https://drive.google.com/uc?export=view&id=1DqGCR1lrYTI9-GpRJLRIdBOPUgKPyBxs",
+      "productImage": "https://res.cloudinary.com/df816mhgy/image/upload/v1647901244/shalott/Product5_uhyqic.webp",
       "productPrice": "500.00",
       "productCollection": "coleccion 1",
       "productCategory": "aretes",
@@ -103,7 +103,7 @@ const productSeed =
     {
       "productId": "0006",
       "productName": "Aretes Bonitos 6",
-      "productImage": "https://drive.google.com/uc?export=view&id=1i24fHksWmQCCZ-dfgPQ-dqEGKRuSoOw-",
+      "productImage": "https://res.cloudinary.com/df816mhgy/image/upload/v1647901244/shalott/Product6_loijca.webp",
       "productPrice": "500.00",
       "productCollection": "coleccion 1",
       "productCategory": "aretes",
@@ -112,7 +112,7 @@ const productSeed =
     {
       "productId": "0007",
       "productName": "Aretes Bonitos 7",
-      "productImage": "https://drive.google.com/uc?export=view&id=1mB1Gbt5Q64wMJUkiDlcD4bs5tF5jQJ3d",
+      "productImage": "https://res.cloudinary.com/df816mhgy/image/upload/v1647901313/shalott/Product7_aw9kat.webp",
       "productPrice": "500.00",
       "productCollection": "coleccion 2",
       "productCategory": "aretes",
@@ -121,7 +121,7 @@ const productSeed =
     {
       "productId": "0009",
       "productName": "Aretes Bonitos 8",
-      "productImage": "https://drive.google.com/uc?export=view&id=1LVnz473jeQNGH6g6N-K_XOTNDIr4AkS1",
+      "productImage": "https://res.cloudinary.com/df816mhgy/image/upload/v1647901313/shalott/Product8_o3k5iq.webp",
       "productPrice": "500.00",
       "productCollection": "coleccion 2",
       "productCategory": "aretes",
