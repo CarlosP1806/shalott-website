@@ -15,7 +15,7 @@ const productSchema = new Schema({
     required: true
   },
   productPrice: {
-    type: String, // TODO: Implement formater and change to number
+    type: Number,
     required: true
   },
   productCollection: {

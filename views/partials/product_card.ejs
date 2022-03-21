@@ -11,7 +11,7 @@
       <%= productData.productName %>
     </div>
     <div class="card__price">
-      $<%= productData.productPrice %>
+      $<%= productData.productPrice.toFixed(2) %>
     </div>
   </div>
   <a class="card__btn" href="/catalogo/producto/<%= productData.slug %>">Ver más</a>
