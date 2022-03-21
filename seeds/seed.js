@@ -16,20 +16,20 @@ const categorySeed =
 [
   {
     "name": "aretes",
-    "image": "/images/Product5.jpg"
+    "image": "https://res.cloudinary.com/df816mhgy/image/upload/v1647901163/shalott/Product1_d0webg.webp"
   },
   {
     "name": "collares",
-    "image": "/images/Product6.png"
+    "image": "https://res.cloudinary.com/df816mhgy/image/upload/v1647901163/shalott/Product2_tuvt8q.webp"
   },
   {
     "name": "pulseras",
-    "image": "/images/Product5.jpg"
+    "image": "https://res.cloudinary.com/df816mhgy/image/upload/v1647901163/shalott/Product3_nx8qu4.webp"
   },
 
   {
     "name": "broches",
-    "image": "/images/Product5.jpg"
+    "image": "https://res.cloudinary.com/df816mhgy/image/upload/v1647901244/shalott/Product4_djhjxp.webp"
   }
 ]
 
@@ -37,19 +37,19 @@ const collectionSeed =
 [
   {
     "name": "coleccion 1",
-    "image": "https://drive.google.com/uc?export=view&id=1RZAPEv6cOiXTU8SN3CkRYfqOheAQ4kzP"
+    "image": "https://res.cloudinary.com/df816mhgy/image/upload/v1647901244/shalott/Product5_uhyqic.webp"
   },
   {
     "name": "coleccion 2",
-    "image": "https://drive.google.com/uc?export=view&id=1ygWgswszEDIdupyT3sguCRYiLxAPBgz1"
+    "image": "https://res.cloudinary.com/df816mhgy/image/upload/v1647901244/shalott/Product6_loijca.webp"
   },
   {
     "name": "coleccion 3",
-    "image": "https://drive.google.com/uc?export=view&id=1eMCsjovxBkVjn-F3yMYhUiud8H252sqD"
+    "image": "https://res.cloudinary.com/df816mhgy/image/upload/v1647901313/shalott/Product7_aw9kat.webp"
   },
   {
     "name": "coleccion 4",
-    "image": "https://drive.google.com/uc?export=view&id=1ZqB223M8hZHiv1fxPwjgrtnIWbap4KtJ"
+    "image": "https://res.cloudinary.com/df816mhgy/image/upload/v1647901313/shalott/Product9_k1f7da.webp"
   }
 ];
 
