@@ -1,4 +1,4 @@
-<article class="card card--product" id="<%= productData._id %>">
+<article class="card card--product" id="<%= productData.slug %>">
   <figure class="card__image-container">
     <img class="card__image" loading="lazy" src="<%= productData.productImage %>"
       alt="<%= productData.productName %>">
@@ -14,5 +14,5 @@
       $<%= productData.productPrice %>
     </div>
   </div>
-  <a class="card__btn" href="/catalogo/producto/<%= productData._id %>">Ver más</a>
+  <a class="card__btn" href="/catalogo/producto/<%= productData.slug %>">Ver más</a>
 </article>

@@ -27,6 +27,7 @@
     "express": "^4.17.3",
     "express-session": "^1.17.2",
     "mongoose": "^5.9.10",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "slugify": "^1.6.5"
   }
 }

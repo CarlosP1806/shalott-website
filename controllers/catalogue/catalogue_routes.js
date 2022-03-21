@@ -74,8 +74,8 @@ router.get('/colecciones/:coleccion', async (req, res) => {
 });
 
 // GET given product
-router.get('/producto/:id', async (req, res) => {
-  const product = await Product.findOne({ _id: req.params.id });
+router.get('/producto/:slug', async (req, res) => {
+  const product = await Product.findOne({ slug: req.params.slug });
   res.render('product', { product: product });
 });
 
