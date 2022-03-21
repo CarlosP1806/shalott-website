@@ -44,11 +44,11 @@
   </section>
   <section class="section section--products">
     <div class="section__content">
-      <div class="section__title">
-        <img class="title__image" src="/images/ShalottFlower.png" alt="Shalott Flower">
-        <div class="title__text">Destacados</div>
+      <header class="section__title">
+        <img class="title__image" src="/images/ShalottFlower.png" alt="Shalott flower image">
+        <h2 class="title__text">Destacados</h2>
         <div class="title__line"></div>
-      </div>
+      </header>
       <div class="card-container">
         <% for(let i = 0; i < products.length; i++) { %>
           <%-include("partials/product_card.ejs", {productData: products[i]}) %>
@@ -58,13 +58,13 @@
   </section>
   <section class="section section--about section--dark">
     <div class="section__content">
-      <div class="section__title">
+      <header class="section__title">
         <img class="title__image" src="/images/ShalottButterfly.png" alt="Shalott Butterfly">
-        <div class="title__text">Sobre Nosotros</div>
+        <h2 class="title__text">Sobre Nosotros</h2>
         <div class="title__line"></div>
-      </div>
+      </header>
       <div class="about__col">
-        <div class="about__text">
+        <article class="about__text">
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi hic odit dignissimos labore blanditiis
             perspiciatis molestias illo deserunt nesciunt soluta voluptatum nostrum dolor, laboriosam, quod cumque
@@ -75,20 +75,20 @@
             facere, necessitatibus repellat ut velit minus saepe. Assumenda velit et tenetur esse quaerat quos beatae qui
             eos maxime.
           </p>
-        </div>
+        </article>
         <figure class="about__image-container">
-          <img class="about__image" src="/images/AboutPhoto.jpg" alt="About us Photo">
+          <img class="about__image" src="/images/AboutPhoto.jpg" alt="Joyería de arcilla polimérica">
         </figure>
       </div>
     </div>
   </section>
   <section class="section section--categories">
     <div class="section__content">
-      <div class="section__title">
+      <header class="section__title">
         <img class="title__image" src="/images/ShalottLeaf.png" alt="Shalott Leaf">
-        <div class="title__text">Categorías</div>
+        <h2 class="title__text">Categorías</h2>
         <div class="title__line"></div>
-      </div>
+      </header>
       <div class="card-container">
         <%- include("partials/category_card.ejs", {category: categories[0]}) %>
         <%- include("partials/category_card.ejs", {category: categories[1]}) %>
@@ -99,11 +99,11 @@
   </section>
   <section class="section section--collections">
     <div class="section__content">
-      <div class="section__title">
+      <header class="section__title">
         <img class="title__image" src="/images/ShalottLeaf2.png" alt="Shalott Leaf">
-        <div class="title__text">Colecciones</div>
+        <h2 class="title__text">Colecciones</h2>
         <div class="title__line"></div>
-      </div>
+      </header>
       <div class="collections__carousel">
         <div class="carousel__container">
           <button aria-label="Anterior" class="carousel__prev">

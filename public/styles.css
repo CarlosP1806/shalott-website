@@ -237,7 +237,7 @@ section {
 }
 
 /* ======= HEADER STYLES ======= */
-header {
+.header {
     width: 100%;
     padding: 1rem var(--h-margin);
     background-color: var(--main-color);
@@ -338,7 +338,7 @@ i.menu {
 }
 
 @media screen and (min-width: 768px) {
-    header {
+    .header {
         padding: 2rem 10%;
     }
 
@@ -349,7 +349,7 @@ i.menu {
 }
 
 @media screen and (min-width: 1200px) {
-    header {
+    .header {
         padding: 2rem 15%;
     }
 
