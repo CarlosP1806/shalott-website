@@ -44,6 +44,24 @@ function createItem() {
   saveCart();
 }
 
-createItem();
-
-renderItems();
+const url = window.location.href;
+if (url.split('/')[url.split('/').length - 1] === 'carrito') {
+  renderItems();
+} else {
+  const addToCartForm = document.querySelector('.display__form');
+  const addToCartBtn = document.querySelector('.display__btn');
+  addToCartForm.addEventListener('submit', event => {
+    event.preventDefault();
+    const itemQuantity = document.querySelector('#product-amount').value;
+    const newItem = {
+      productId: addToCartBtn.dataset.productId,
+      productName: addToCartBtn.dataset.productName,
+      productImage: addToCartBtn.dataset.productImage,
+      productPrice: addToCartBtn.dataset.productPrice,
+      productQuantity: itemQuantity,
+      productSubtotal: itemQuantity * addToCartBtn.dataset.productPrice
+    }
+    cartItems.push(newItem);
+    saveCart();
+  });
+}
