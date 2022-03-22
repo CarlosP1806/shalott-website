@@ -1163,3 +1163,72 @@ footer {
     }
 
 }
+
+/* ======== SHOPPING CART VIEW ======= */
+
+.cart__container {
+    width: 100%;
+    position: relative;
+}
+
+.cart-card {
+    width: 100%;
+    display: flex;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--secondary-color);
+    gap: 2rem;
+}
+
+.cart-card:last-child {
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+.cart__figure {
+    flex: 1;
+}
+
+.cart__image {
+    width: 100%;
+    aspect-ratio: 1/1;
+}
+
+.cart__info {
+    flex: 2;
+}
+
+.cart__name {
+    font-size: var(--med-font);
+    color: var(--text-color);
+    font-weight: normal;
+}
+
+.cart__price {
+    font-size: var(--tiny-font);
+    color: var(--text-light);
+}
+
+.cart__price::before {
+    content: "$";
+}
+
+.cart__price::after {
+    content: " c/u"
+}
+
+.cart__quantity {
+    font-size: var(--small-font);
+    color: var(--text-color);
+}
+
+.cart__quantity::before {
+    content: "Cantidad: "
+}
+
+.cart__subtotal {
+    font-size: var(--small-font);
+    color: var(--text-dark);
+}
+
+.cart__subtotal::before {
+    content: "Subtotal: $"
+}
