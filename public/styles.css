@@ -682,6 +682,10 @@ i.menu {
     z-index: 10;
 }
 
+.carousel__name {
+    text-transform: capitalize;
+}
+
 /* ======= FOOTER STYLES ======= */
 footer {
     width: 100%;
