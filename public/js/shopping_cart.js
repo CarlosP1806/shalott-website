@@ -24,7 +24,7 @@ function renderItems() {
     cartQuantity.textContent = item.productQuantity;
 
     const cartSubtotal = cartItem.querySelector('.cart__subtotal');
-    cartSubtotal.textContent = item.productSubtotal;
+    cartSubtotal.textContent = item.productQuantity * item.productPrice;
 
     cardContainer.append(cartItem);
   });

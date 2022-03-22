@@ -9,15 +9,29 @@ const addToCartForm = document.querySelector('.display__form');
 const addToCartBtn = document.querySelector('.display__btn');
 addToCartForm.addEventListener('submit', event => {
   event.preventDefault();
+
+  const productId = addToCartBtn.dataset.productId;
   const itemQuantity = document.querySelector('#product-amount').value;
-  const newItem = {
-    productId: addToCartBtn.dataset.productId,
-    productName: addToCartBtn.dataset.productName,
-    productImage: addToCartBtn.dataset.productImage,
-    productPrice: addToCartBtn.dataset.productPrice,
-    productQuantity: itemQuantity,
-    productSubtotal: itemQuantity * addToCartBtn.dataset.productPrice
+
+  let duplicate = false;
+  cartItems.forEach(item => {
+    if (item.productId === productId) duplicate = true;
+  })
+
+  if (!duplicate) {
+    const newItem = {
+      productId: addToCartBtn.dataset.productId,
+      productName: addToCartBtn.dataset.productName,
+      productImage: addToCartBtn.dataset.productImage,
+      productPrice: addToCartBtn.dataset.productPrice,
+      productQuantity: itemQuantity,
+    }
+    cartItems.push(newItem);
+  } else {
+    const cartItemIndex = cartItems.findIndex(item => item.productId === productId);
+    cartItems[cartItemIndex].productQuantity = 
+      parseInt(cartItems[cartItemIndex].productQuantity) + parseInt(itemQuantity);
   }
-  cartItems.push(newItem);
+
   saveCart();
 });
