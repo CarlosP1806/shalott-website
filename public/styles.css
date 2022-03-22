@@ -960,6 +960,74 @@ footer {
     outline: none;
 }
 
+.add-cart-modal {
+    width: 80%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background-color: white;
+    padding: 3rem;
+    z-index: 10;
+    border-radius: 8px;
+    max-width: 600px;
+    transition: .2s ease-in-out;
+}
+
+.add-cart-modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal__text {
+    font-size: var(--med-font);
+    color: var(--text-color)
+}
+
+.modal__buttons {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.modal__btn {
+    padding: .8rem 1rem;
+    cursor: pointer;
+    font-size: var(--tiny-font);
+    border-radius: 5px;
+    transition: .2s ease-in-out;
+}
+
+.btn--outline {
+    border: 1px solid var(--secondary-color);
+}
+
+.btn--outline:hover {
+    background-color: var(--complementary-color);
+    border: 1px solid var(--complementary-color);
+}
+
+.btn--primary {
+    background-color: var(--complementary-color);
+}
+
+.btn--primary:hover {
+    opacity: .8;
+}
+
+.modal__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.3);
+    cursor: pointer;
+    display: none;
+}
+
+.modal__overlay.active {
+    display: block;
+}
 
 @media screen and (min-width: 768px) {
     .display__row {

@@ -35,4 +35,15 @@ addToCartForm.addEventListener('submit', event => {
   }
 
   saveCart();
+
+  const successModal = document.querySelector('.add-cart-modal');
+  const modalOverlay = document.querySelector('.modal__overlay');
+  
+  successModal.classList.add('active');
+  modalOverlay.classList.add('active');
+  modalOverlay.addEventListener('click', () => {
+    successModal.classList.remove('active');
+    modalOverlay.classList.remove('active');
+  })
+  
 });
