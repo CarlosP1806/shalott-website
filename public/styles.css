@@ -970,7 +970,7 @@ footer {
     padding: 3rem;
     z-index: 10;
     border-radius: 8px;
-    max-width: 600px;
+    max-width: 400px;
     transition: .2s ease-in-out;
 }
 
