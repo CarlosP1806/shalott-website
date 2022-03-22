@@ -160,6 +160,7 @@ section {
     font-style: italic;
     font-size: var(--tiny-font);
     margin-bottom: .1rem;
+    text-transform: capitalize;
 }
 
 .card__title {
