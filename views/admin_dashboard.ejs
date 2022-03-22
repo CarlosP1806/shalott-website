@@ -6,6 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shalott</title>
+
+  <meta name="robots" name="noindex">
+
   <link rel="stylesheet" href="/styles.css" />
   <!-- Font awesome link-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -17,14 +20,17 @@
 
 <body>
   <%- include("partials/navbar.ejs") %>
-  <main>
+
+  <main class="admin__dashboard">
     <section class="admin__search">
       <div class="section__content">
         <h2 class="admin__title">Buscar Producto</h2>
 
-        <form class="admin__search">
-          <label for="search-id">Introduce id de producto:</label>
-          <input type="text" id="search-id">
+        <form class="admin__search-form admin__form">
+          <div class="admin__form-row">
+            <label for="search-id">Introduce id de producto:</label>
+            <input type="text" id="search-id" required>
+          </div>
           <button>Buscar</button>
         </form>
 
@@ -42,22 +48,205 @@
         
       </div>
     </section>
-    <section class="admin__create">
+    
+    <section class="admin__delete-product">
       <div class="section__content">
-        <h2 class="admin__title">Crear Producto</h2>
+        <h2 class="admin__title">Eliminar Producto</h2>
+        <form class="admin__form" id="delete-product-form">
+          <div class="admin__form-row">
+            <label for="delete-product__id">Introduce id de producto:</label>
+            <input type="text" id="delete-product__id" required>
+          </div>
+          <button class="admin__form-button btn--danger">Eliminar</button>
+        </form>
       </div>
     </section>
+
+    <section class="admin__create-product">
+      <div class="section__content">
+        <h2 class="admin__title">Crear Producto</h2>
+
+        <form class="admin__form" id="create-product-form">
+          <div class="admin__form-row">
+            <label for="create-product__name">Nombre de producto:</label>
+            <input type="text" id="create-product__name" required>
+          </div>
+          <div class="admin__form-row">
+            <label for="create-product__id">Id de producto:</label>
+            <input type="text" id="create-product__id" required>
+          </div>
+          <div class="admin__form-row">
+            <label for="create-product__price">Precio de producto:</label>
+            <input type="text" id="create-product__price" required>
+          </div>
+          <div class="admin__form-row">
+            <label for="create-product__category">Tipo de producto:</label>
+            <select id="create-product__category" required>
+              <% for(let i = 0; i < categories.length; i++) { %>
+                <option class="filter__option" 
+                  value="<%= categories[i].name %>">
+                  <%= categories[i].name.charAt(0).toUpperCase() + categories[i].name.slice(1) %>
+                </option>
+              <% } %>
+            </select>
+          </div>
+          <div class="admin__form-row">
+            <label for="create-product__collection">Colección del producto:</label>
+            <select id="create-product__collection" required>
+              <% for(let i = 0; i < collections.length; i++) { %>
+                <option class="filter__option" 
+                  value="<%= collections[i].name %>">
+                  <%= collections[i].name.charAt(0).toUpperCase() + collections[i].name.slice(1) %>
+                </option>
+              <% } %>
+            </select>
+          </div>
+          <div class="admin__form-row">
+            <label for="create-product__image">Imagen del producto:</label>
+            <input type="text" id="create-product__image" required>
+          </div>
+          <button class="admin__form-button">Crear</button>
+        </form>
+
+      </div>
+    </section>
+
     <section class="admin__update">
       <div class="section__content">
         <h2 class="admin__title">Editar Producto</h2>
+
+        <form class="admin__form" id="edit-product-form">
+          <div class="admin__form-row">
+            <label for="edit-product__name">Nombre de producto:</label>
+            <input type="text" id="edit-product__name" required>
+          </div>
+          <div class="admin__form-row">
+            <label for="edit-product__id">Id de producto:</label>
+            <input type="text" id="edit-product__id" required readonly>
+          </div>
+          <div class="admin__form-row">
+            <label for="edit-product__price">Precio de producto:</label>
+            <input type="text" id="edit-product__price" required>
+          </div>
+          <div class="admin__form-row">
+            <label for="edit-product__category">Tipo de producto:</label>
+            <select id="edit-product__category" required>
+              <option value="" selected></option>
+              <% for(let i = 0; i < categories.length; i++) { %>
+                <option class="filter__option" 
+                  value="<%= categories[i].name %>">
+                  <%= categories[i].name.charAt(0).toUpperCase() + categories[i].name.slice(1) %>
+                </option>
+              <% } %>
+            </select>
+          </div>
+          <div class="admin__form-row">
+            <label for="edit-product__collection">Colección del producto:</label>
+            <select id="edit-product__collection" required>
+              <option value="" selected></option>
+              <% for(let i = 0; i < collections.length; i++) { %>
+                <option class="filter__option" 
+                  value="<%= collections[i].name %>">
+                  <%= collections[i].name.charAt(0).toUpperCase() + collections[i].name.slice(1) %>
+                </option>
+              <% } %>
+            </select>
+          </div>
+          <div class="admin__form-row">
+            <label for="edit-product__image">Imagen del producto:</label>
+            <input type="text" id="edit-product__image" required>
+          </div>
+          <div>
+            <label for="edit-product__highlight">Destacado:</label>
+            <input type="checkbox" id="edit-product__highlight">
+          </div>
+          <button class="admin__form-button">Actualizar</button>
+        </form>
       </div>
     </section>
-    <section class="admin__delete">
+
+    <section class="admin__create-collection">
       <div class="section__content">
-        <h2 class="admin__title">Eliminar Producto</h2>
+        <h2 class="admin__title">Crear colección</h2>
+
+        <form class="admin__form" id="create-collection-form">
+          <div class="admin__form-row">
+            <label for="create-collection__name">Nombre de colección:</label>
+            <input type="text" id="create-collection__name" required>
+          </div>
+          <div class="admin__form-row">
+            <label for="create-collection__image">Imagen de colección:</label>
+            <input type="text" id="create-collection__image" required>
+          </div>
+          <button class="admin__form-button">Crear</button>
+        </form>
       </div>
     </section>
+
+    <section class="admin__delete-collection">
+      <div class="section__content">
+        <h2 class="admin__title">Eliminar colección</h2>
+
+        <form class="admin__form" id="delete-collection-form">
+          <div class="admin__form-row">
+            <label for="delete-collection__name">Nombre de colección:</label>
+            <select id="delete-collection__name" required>
+              <option value="" selected></option>
+              <% for(let i = 0; i < collections.length; i++) { %>
+                <option class="filter__option" 
+                  value="<%= collections[i].name %>">
+                  <%= collections[i].name.charAt(0).toUpperCase() + collections[i].name.slice(1) %>
+                </option>
+              <% } %>
+            </select>
+          </div>
+          <button class="admin__form-button btn--danger">Eliminar</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="admin__create-category">
+      <div class="section__content">
+        <h2 class="admin__title">Crear categoría</h2>
+
+        <form class="admin__form" id="create-category-form">
+          <div class="admin__form-row">
+            <label for="create-category__name">Nombre de categoría:</label>
+            <input type="text" id="create-category__name" required>
+          </div>
+          <div class="admin__form-row">
+            <label for="create-category__image">Imagen de categoría:</label>
+            <input type="text" id="create-category__image" required>
+          </div>
+          <button class="admin__form-button">Crear</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="admin__delete-collection">
+      <div class="section__content">
+        <h2 class="admin__title">Eliminar categoría</h2>
+
+        <form class="admin__form" id="delete-category-form">
+          <div class="admin__form-row">
+            <label for="delete-category__name">Nombre de categoría:</label>
+            <select id="delete-category__name" required>
+              <option value="" selected></option>
+              <% for(let i = 0; i < categories.length; i++) { %>
+                <option class="filter__option" 
+                  value="<%= categories[i].name %>">
+                  <%= categories[i].name.charAt(0).toUpperCase() + categories[i].name.slice(1) %>
+                </option>
+              <% } %>
+            </select>
+          </div>
+          <button class="admin__form-button btn--danger">Eliminar</button>
+        </form>
+      </div>
+    </section>
+
   </main>
+
   <%- include("partials/footer.ejs") %>
 
   <script src="/js/navbar.js"></script>

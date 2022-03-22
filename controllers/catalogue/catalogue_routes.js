@@ -5,10 +5,17 @@ const Collection = require('../../models/Collection');
 
 // GET all products
 router.get('/', async (req, res) => {
-  const products = await Product.find({});
+  const sorted = req.query.sort; // TODO: ADD VALIDATION TO SORT
+  let products;
+  if(!sorted) products = await Product.find({});
+  else products = await Product.find({}).sort({ productPrice: sorted });
+
   const selectCategories = await Category.find({});
   const selectCollections = await Collection.find({});
+  const page = req.query.page; // TODO: ADD VALIDATION TO PAGES
+
   res.render('catalogue', { 
+    page: page ? page : 1,
     products: products, 
     title: "Todos los productos", 
     groups: false, 
@@ -22,7 +29,11 @@ router.get('/categorias', async (req, res) => {
   const categories = await Category.find({});
   const selectCategories = await Category.find({});
   const selectCollections = await Collection.find({});
+
+  const page = req.query.page;
+
   res.render('catalogue', { 
+    page: page ? page : 1,
     products: categories, 
     title: "Categorias", 
     groups: true, 
@@ -33,10 +44,18 @@ router.get('/categorias', async (req, res) => {
 
 // GET products from given category
 router.get('/categorias/:categoria', async (req, res) => {
-  const products = await Product.find({ productCategory: req.params.categoria });
+  const sorted = req.query.sort;
+  let products;
+  if(!sorted) products = await Product.find({ productCategory: req.params.categoria });
+  else products = 
+    await Product.find({ productCategory: req.params.categoria}).sort({ productPrice: sorted });
+  
   const selectCategories = await Category.find({});
   const selectCollections = await Collection.find({});
+  const page = req.query.page;
+
   res.render('catalogue', { 
+    page: page ? page : 1,
     products: products, 
     title: req.params.categoria, 
     groups: false, 
@@ -50,7 +69,10 @@ router.get('/colecciones', async (req, res) => {
   const collections = await Collection.find({});
   const selectCategories = await Category.find({});
   const selectCollections = await Collection.find({});
-  res.render('catalogue', { 
+  const page = req.query.page;
+
+  res.render('catalogue', {
+    page: page ? page : 1,
     products: collections, 
     title: "Colecciones", 
     groups: true, 
@@ -61,10 +83,18 @@ router.get('/colecciones', async (req, res) => {
 
 // GET products from given collection
 router.get('/colecciones/:coleccion', async (req, res) => {
-  const products = await Product.find({ productCollection: req.params.coleccion });
+  const sorted = req.query.sort;
+  let products;
+  if(!sorted) products = await Product.find({ productCollection: req.params.coleccion });
+  else products = 
+    await Product.find({ productCollection: req.params.coleccion}).sort({ productPrice: sorted });
+  
   const selectCategories = await Category.find({});
   const selectCollections = await Collection.find({});
+  const page = req.query.page;  
+
   res.render('catalogue', { 
+    page: page ? page : 1,
     products: products, 
     title: req.params.coleccion, 
     groups: false, 
@@ -74,8 +104,8 @@ router.get('/colecciones/:coleccion', async (req, res) => {
 });
 
 // GET given product
-router.get('/producto/:id', async (req, res) => {
-  const product = await Product.findOne({ _id: req.params.id });
+router.get('/producto/:slug', async (req, res) => {
+  const product = await Product.findOne({ slug: req.params.slug });
   res.render('product', { product: product });
 });
 

@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shalott</title>
+  <title>Shalott | Vista de Producto</title>
+
   <link rel="stylesheet" href="/styles.css" />
   <!-- Font awesome link-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -22,14 +23,15 @@
         <div class="section__content">
           <div class="display__row">
             <figure class="display__image-container">
-              <img class="display__image" src="<%= product.productImage %>">
+              <img class="display__image" src="<%= product.productImage %>"
+                alt="Producto <%= product.productName%> de arcilla polimérica">
             </figure>
             <article class="display__content">
               <h2 class="display__title">
                 <%= product.productName %>
               </h2>
               <p class="display__price">
-                $<%= product.productPrice %>
+                $<%= product.productPrice.toFixed(2) %>
               </p>
               <div class="display__description">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate porro eveniet tempora ipsa autem

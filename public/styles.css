@@ -7,6 +7,7 @@
     font-size: 10px;
     font-family: "Arimo", sans-serif;
     line-height: 1.6;
+    scroll-behavior: smooth;
 }
 
 :root {
@@ -156,10 +157,11 @@ section {
 }
 
 .card__description {
-    color: var(--text-light);
+    color: var(--text-color);
     font-style: italic;
     font-size: var(--tiny-font);
     margin-bottom: .1rem;
+    text-transform: capitalize;
 }
 
 .card__title {
@@ -237,7 +239,7 @@ section {
 }
 
 /* ======= HEADER STYLES ======= */
-header {
+.header {
     width: 100%;
     padding: 1rem var(--h-margin);
     background-color: var(--main-color);
@@ -338,7 +340,7 @@ i.menu {
 }
 
 @media screen and (min-width: 768px) {
-    header {
+    .header {
         padding: 2rem 10%;
     }
 
@@ -349,7 +351,7 @@ i.menu {
 }
 
 @media screen and (min-width: 1200px) {
-    header {
+    .header {
         padding: 2rem 15%;
     }
 
@@ -517,28 +519,28 @@ i.menu {
 
 #banner-1 {
     background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), 
-    url("/images/ShalottBanner1.png");
+    url("/images/ShalottBanner1.webp");
     background-position: center;
     background-size: cover;
 }
 
 #banner-2 {
     background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), 
-    url("/images/ShalottBanner2.png");
+    url("/images/ShalottBanner2.webp");
     background-position: center;
     background-size: cover;
 }
 
 #banner-3 {
     background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), 
-    url("/images/ShalottBanner3.png");
+    url("/images/ShalottBanner3.webp");
     background-position: center;
     background-size: cover;
 }
 
 #banner-4 {
     background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), 
-    url("/images/ShalottBanner4.png");
+    url("/images/ShalottBanner4.webp");
     background-position: center;
     background-size: cover;
 }
@@ -681,6 +683,10 @@ i.menu {
     z-index: 10;
 }
 
+.carousel__name {
+    text-transform: capitalize;
+}
+
 /* ======= FOOTER STYLES ======= */
 footer {
     width: 100%;
@@ -741,7 +747,7 @@ footer {
 
 .footer__copyright {
     font-size: 12px;
-    color: var(--text-light);
+    color: var(--text-color);
     margin-top: .5rem;
     text-align: center;
 }
@@ -789,6 +795,24 @@ footer {
     text-transform: capitalize;
 }
 
+.catalogue__nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    gap: 1.5rem;
+}
+
+.catalogue__arrow {
+    font-size: 3rem;
+    color: var(--secondary-color);
+    cursor: pointer;
+}
+
+.catalogue__arrow.inactive {
+    color: var(--main-color);
+    cursor: inherit;
+}
+
 .catalogue__filters {
     display: flex;
     justify-content: space-between;
@@ -798,6 +822,10 @@ footer {
     font-size: var(--tiny-font);
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+.filter__label--right {
+    text-align: end;
 }
 
 .filter-form {
@@ -818,6 +846,16 @@ footer {
 
 .filter__option {
     font-size: var(--tiny-font);
+}
+
+@media screen and (min-width: 768px) {
+    .catalogue__nav {
+        margin-top: 5rem;
+    }
+
+    .catalogue__arrow {
+        font-size: 4rem;
+    }
 }
 
 /* ======= DISPLAY PRODUCT VIEW ======= */
@@ -902,7 +940,7 @@ footer {
 .display__form-row select,
 .display__form-row option {
     padding: .4rem;
-    font-size: var(--tiny-font);
+    font-size: var(--small-font);
 }
 
 .display__form-row input,
@@ -1000,9 +1038,25 @@ footer {
 
 /* ======= ADMIN DASHBOARD VIEW ======= */
 
+.admin__dashboard {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 1rem var(--h-margin);
+    gap: 2rem;
+}
+
+.admin__dashboard section {
+    padding: 0;
+}
+
+.admin__dashboard .section__content {
+    margin: 0;
+}
+
 .admin__title {
     font-size: var(--med-font);
     color: var(--secondary-color);
+    margin-bottom: 1.5rem;
 }
 
 .admin__card {
@@ -1017,4 +1071,95 @@ footer {
 #admin__card-figure {
     width: 100%;
     aspect-ratio: 1/1;
+}
+
+.admin__search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.admin__search label {
+    font-size: var(--small-font);
+}
+
+.admin__search input {
+    font-size: var(--small-font);
+}
+
+.admin__search button {
+    background-color: var(--complementary-color);
+    border: none;
+    border-radius: 5px;
+    padding: 1rem 2rem;
+    font-size: var(--tiny-font);
+    cursor: pointer;
+}
+
+#admin__card-name {
+    font-size: var(--med-font);
+    font-weight: 500;
+}
+
+#admin__card-price {
+    font-size: var(--small-font);
+    color: var(--text-color);
+}
+
+.admin__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.admin__form-row {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.admin__form label {
+    font-size: var(--small-font);
+}
+
+.admin__form input {
+    font-size: var(--small-font);
+}
+
+.admin__form select {
+    font-size: var(--small-font);
+    background: none;
+    border: 1px solid rgb(51, 51, 51);
+    padding: .5rem 0;
+}
+
+.admin__form-button {
+    padding: 1rem 2rem;
+    background-color: var(--complementary-color);
+    font-size: var(--tiny-font);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.admin__form-button.btn--danger {
+    background-color: rgb(207, 17, 17);
+    color: white;
+}
+
+@media screen and (min-width: 768px) {
+    .admin__dashboard {
+        width: 80%;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .admin__dashboard {
+        padding: 2rem 0;
+        width: 70%;
+        margin: 0 auto;
+    }
+
 }

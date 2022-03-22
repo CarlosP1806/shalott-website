@@ -5,7 +5,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shalott</title>
+  <title>Shalott | Catálogo de Joyería</title>
+  <meta name="description" 
+    content="Nuestro catálogo cuenta con una variedad de aretes, collares, pulseras y
+     broches hechos a mano con arcilla polimérica">
   <link rel="stylesheet" href="/styles.css" />
   <!-- Font awesome link-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -21,7 +24,7 @@
     <section class="section section--catalogue">
       <div class="section__content">
         <div class="catalogue__header">
-          <h2 class="catalogue__title"><%= title %></h2>
+          <h1 class="catalogue__title"><%= title %></h1>
           <div class="catalogue__filters">
             <form class="filter-form" id="search-form">
               <label class="filter__label">Buscar por:</label>
@@ -48,21 +51,28 @@
                 </optgroup>
               </select>
             </form>
-            <form class="filter-form">
-              <label class="filter__label">Ordenar por:</label>
+            <% if(groups === false) { %>
+            <form class="filter-form" id="sort-form">
+              <label class="filter__label filter__label--right">Ordenar por:</label>
+              <select class="filter__select" id="sort-select">
+                <option class="filter__option" value="" selected>-- Selecciona orden --</option>
+                <option class="filter__option" value="asc">Precio - Ascendente</option>
+                <option class="filter__option" value="desc">Precio - Descendente</option>
+              </select>
             </form>
+            <% } %>
           </div>
         </div>
         <% if(groups === false) { %>
           <div class="card-container">
-            <% for(let i = 0; i < products.length; i++) { %>
+            <% for(let i = 4*(page-1); i < products.length && i < 4*page; i++) { %>
               <%- include("partials/product_card.ejs", { productData: products[i]}) %>
             <% } %>
           </div>
         <% } %>
         <% if(groups === true) { %>
           <div class="card-container">
-            <% for(let i = 0; i < products.length; i++) { %>
+            <% for(let i = 4*(page-1); i < products.length && i < 4*page; i++) { %>
               <% if(collections === false) { %>
                 <%- include("partials/category_card.ejs", { category: products[i]}) %>
               <% } %>
@@ -72,7 +82,15 @@
             <% } %>
           </div>
         <% } %>
+
+        <div class="catalogue__nav">
+          <i class='bx bxs-left-arrow catalogue__arrow <%= page <= 1 ? "inactive" : "" %>' 
+            id="prev-page"></i>
+          <i class='bx bxs-right-arrow catalogue__arrow <%= page>=products.length / 4 ? "inactive" : "" %>' 
+            id="next-page"></i>
+        </div>
       </div>
+
     </section>
   </main>
   <%- include("partials/footer.ejs")-%>

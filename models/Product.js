@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const slugify = require('slugify');
 
 const productSchema = new Schema({
   productId: {
@@ -14,7 +15,7 @@ const productSchema = new Schema({
     required: true
   },
   productPrice: {
-    type: String, // TODO: Implement formater and change to number
+    type: Number,
     required: true
   },
   productCollection: {
@@ -28,6 +29,20 @@ const productSchema = new Schema({
   featured: {
     type: Boolean,
     required: true
+  },
+  slug: {
+    type: String,
+    required: true,
+    unique: true
+  }
+});
+
+productSchema.pre('validate', function() {
+  if(this.productName) {
+    this.slug = slugify(this.productName, {
+      lower: true,
+      strict: true
+    });
   }
 });
 
