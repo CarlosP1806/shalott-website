@@ -1178,6 +1178,28 @@ footer {
     gap: 3rem;
 }
 
+.cart-empty-message {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.cart-empty-message p {
+    color: var(--text-color);
+    font-size: var(--med-font);
+}
+
+.empty-message__btn {
+    background-color: var(--complementary-color);
+    padding: 1rem 2rem;
+    text-align: center;
+    margin-top: 1rem;
+    border-radius: 5px;
+    font-size: var(--tiny-font);
+}
+
 .cart-card {
     width: 100%;
     display: flex;

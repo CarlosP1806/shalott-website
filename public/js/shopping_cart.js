@@ -8,8 +8,11 @@ function saveCart() {
 const cardContainer = document.querySelector('.cart__container');
 function renderItems() {
   cardContainer.innerHTML = "";
-
   const cartCardTemplate = document.querySelector('#cart-card-template');
+
+  let totalProducts = 0;
+  let totalPrice = 0;
+
   cartItems.forEach(item => {
     const cartItem = document.importNode(cartCardTemplate.content, true);
 
@@ -32,7 +35,32 @@ function renderItems() {
     cartSubtotal.textContent = item.productQuantity * item.productPrice;
 
     cardContainer.append(cartItem);
+
+    totalProducts += parseInt(item.productQuantity);
+    totalPrice += item.productQuantity * item.productPrice;
   });
+
+  if(totalProducts == 0) {
+    const cartWrapper = document.querySelector('.cart-wrapper');
+    cartWrapper.innerHTML = "";
+
+    // Show cart empty message
+    const emptyMessageContainer = document.createElement('div');
+    emptyMessageContainer.classList.add('cart-empty-message');
+    const message = document.createElement('p');
+    message.textContent = 'El carrito está vacío' ;
+    emptyMessageContainer.appendChild(message);
+    const button = document.createElement('a');
+    button.classList.add('empty-message__btn');
+    button.textContent = "Ir a tienda";
+    button.href = "/catalogo";
+    emptyMessageContainer.appendChild(button);
+
+    cartWrapper.appendChild(emptyMessageContainer);
+  }
+
+  document.querySelector('#total-products').textContent = totalProducts;
+  document.querySelector('#total-price').textContent = totalPrice;
 }
 
 cardContainer.addEventListener('click', event => {
