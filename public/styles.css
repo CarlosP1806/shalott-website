@@ -1232,3 +1232,15 @@ footer {
 .cart__subtotal::before {
     content: "Subtotal: $"
 }
+
+.cart__buttons {
+    display: flex;
+    gap: .5rem;
+    align-items: flex-start;
+}
+
+#cart__add, #cart__remove {
+    font-size: var(--big-font);
+    color: var(--secondary-color);
+    cursor: pointer;
+}
