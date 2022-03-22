@@ -58,14 +58,14 @@
         </div>
         <% if(groups === false) { %>
           <div class="card-container">
-            <% for(let i = 0; i < products.length; i++) { %>
+            <% for(let i = 4*(page-1); i < products.length && i < 4*page; i++) { %>
               <%- include("partials/product_card.ejs", { productData: products[i]}) %>
             <% } %>
           </div>
         <% } %>
         <% if(groups === true) { %>
           <div class="card-container">
-            <% for(let i = 0; i < products.length; i++) { %>
+            <% for(let i = 4*(page-1); i < products.length && i < 4*page; i++) { %>
               <% if(collections === false) { %>
                 <%- include("partials/category_card.ejs", { category: products[i]}) %>
               <% } %>
@@ -75,7 +75,15 @@
             <% } %>
           </div>
         <% } %>
+
+        <div class="catalogue__nav">
+          <i class='bx bxs-left-arrow catalogue__arrow <%= page <= 1 ? "inactive" : "" %>' 
+            id="prev-page"></i>
+          <i class='bx bxs-right-arrow catalogue__arrow <%= page>=products.length / 4 ? "inactive" : "" %>' 
+            id="next-page"></i>
+        </div>
       </div>
+
     </section>
   </main>
   <%- include("partials/footer.ejs")-%>
