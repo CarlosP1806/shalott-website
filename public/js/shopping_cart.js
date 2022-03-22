@@ -26,13 +26,14 @@ function renderItems() {
     cartName.textContent = item.productName;
 
     const cartPrice = cartItem.querySelector('.cart__price');
-    cartPrice.textContent = item.productPrice;
+    cartPrice.textContent = parseFloat(item.productPrice).toFixed(2);
 
     const cartQuantity = cartItem.querySelector('.cart__quantity');
     cartQuantity.textContent = item.productQuantity;
 
     const cartSubtotal = cartItem.querySelector('.cart__subtotal');
-    cartSubtotal.textContent = item.productQuantity * item.productPrice;
+    cartSubtotal.textContent = 
+      parseFloat(item.productQuantity * item.productPrice).toFixed(2);
 
     cardContainer.append(cartItem);
 
@@ -60,7 +61,7 @@ function renderItems() {
   }
 
   document.querySelector('#total-products').textContent = totalProducts;
-  document.querySelector('#total-price').textContent = totalPrice;
+  document.querySelector('#total-price').textContent = totalPrice.toFixed(2);
 }
 
 cardContainer.addEventListener('click', event => {
