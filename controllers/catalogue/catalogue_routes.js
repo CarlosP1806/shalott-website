@@ -5,7 +5,7 @@ const Collection = require('../../models/Collection');
 
 // GET all products
 router.get('/', async (req, res) => {
-  const sorted = req.query.sort;
+  const sorted = req.query.sort; // TODO: ADD VALIDATION TO SORT
   let products;
   if(!sorted) products = await Product.find({});
   else products = await Product.find({}).sort({ productPrice: sorted });
