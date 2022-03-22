@@ -793,11 +793,11 @@ footer {
     display: flex;
     justify-content: center;
     margin-top: 3rem;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 .catalogue__arrow {
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: var(--secondary-color);
     cursor: pointer;
 }
@@ -844,7 +844,7 @@ footer {
     }
 
     .catalogue__arrow {
-        font-size: 3rem;
+        font-size: 4rem;
     }
 }
 
