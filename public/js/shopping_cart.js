@@ -35,7 +35,7 @@ function renderItems() {
     cartQuantity.textContent = item.productQuantity;
 
     const cartSubtotal = cartItem.querySelector('.cart__subtotal');
-    cartSubtotal.textContent = 
+    cartSubtotal.textContent =
       parseFloat(item.productQuantity * item.productPrice).toFixed(2);
 
     cardContainer.append(cartItem);
@@ -44,7 +44,7 @@ function renderItems() {
     totalPrice += item.productQuantity * item.productPrice;
   });
 
-  if(totalProducts == 0) {
+  if (totalProducts == 0) {
     const cartWrapper = document.querySelector('.cart-wrapper');
     cartWrapper.innerHTML = "";
 
@@ -52,7 +52,7 @@ function renderItems() {
     const emptyMessageContainer = document.createElement('div');
     emptyMessageContainer.classList.add('cart-empty-message');
     const message = document.createElement('p');
-    message.textContent = 'El carrito está vacío' ;
+    message.textContent = 'El carrito está vacío';
     emptyMessageContainer.appendChild(message);
     const button = document.createElement('a');
     button.classList.add('empty-message__btn');
@@ -73,8 +73,10 @@ cardContainer.addEventListener('click', event => {
 
     const itemIndex = cartItems.findIndex(item => item.productId === card.id);
     if (event.target.id === 'cart__add') {
-      cartItems[itemIndex].productQuantity =
-        parseInt(cartItems[itemIndex].productQuantity) + 1;
+      if (cartItems[itemIndex].productQuantity < 5) {
+        cartItems[itemIndex].productQuantity =
+          parseInt(cartItems[itemIndex].productQuantity) + 1;
+      }
     } else {
       if (cartItems[itemIndex].productQuantity == 1) {
         cartItems.splice(itemIndex, 1);
