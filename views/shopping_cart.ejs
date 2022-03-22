@@ -19,10 +19,37 @@
   <main>
     <section class="section section--cart">
       <div class="section__content">
-        
+        <header class="section__title">
+          <h1 class="title__text">Carrito de Compras</h1>
+          <div class="title__line"></div>
+        </header>
+        <div class="cart__container">
+          <!-- Cart items go here -->
+        </div>
       </div>
     </section>
   </main>
   <%- include("partials/footer.ejs") %>
+
+  <template id="cart-card-template">
+    <article class="cart-card">
+      <figure class="cart__figure">
+        <img class="cart__image">
+      </figure>
+      <div class="cart__info">
+        <div class="cart__product">
+          <h3 class="cart__name"></h3>
+          <p class="cart__price"></p>
+        </div>
+        <div class="cart__details">
+          <p class="cart__quantity"></p> 
+          <p class="cart__subtotal"></p>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <script src="/js/shopping_cart.js"></script>
 </body>
+
 </html>
