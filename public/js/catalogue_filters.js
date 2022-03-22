@@ -1,6 +1,5 @@
 const searchForm = document.querySelector('#search-form');
 const searchSelect = document.querySelector('#search-select');
-
 searchForm.addEventListener('change', (event) => {
   event.preventDefault();
 
@@ -15,7 +14,19 @@ searchForm.addEventListener('change', (event) => {
     window.location.href =
       `/catalogo/colecciones/${searchSelect.value.substring(searchSelect.value.indexOf(" ")).trim()}`;
   }
+});
 
+const sortForm = document.querySelector('#sort-form');
+const sortSelect = document.querySelector('#sort-select');
+sortForm.addEventListener('change', (event) => {
+  event.preventDefault();
+
+  if (sortSelect.value === "") return;
+  else {
+    let url = new URL(window.location.href);
+    url.searchParams.set('sort', sortSelect.value);
+    window.location.href=url;
+  }
 });
 
 const nextPageArrow = document.querySelector('#next-page');

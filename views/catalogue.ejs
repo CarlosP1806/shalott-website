@@ -51,9 +51,16 @@
                 </optgroup>
               </select>
             </form>
-            <form class="filter-form">
-              <label class="filter__label">Ordenar por:</label>
+            <% if(groups === false) { %>
+            <form class="filter-form" id="sort-form">
+              <label class="filter__label filter__label--right">Ordenar por:</label>
+              <select class="filter__select" id="sort-select">
+                <option class="filter__option" value="" selected>-- Selecciona orden --</option>
+                <option class="filter__option" value="asc">Precio - Ascendente</option>
+                <option class="filter__option" value="desc">Precio - Descendente</option>
+              </select>
             </form>
+            <% } %>
           </div>
         </div>
         <% if(groups === false) { %>

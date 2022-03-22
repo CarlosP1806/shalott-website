@@ -5,10 +5,14 @@ const Collection = require('../../models/Collection');
 
 // GET all products
 router.get('/', async (req, res) => {
-  const products = await Product.find({});
+  const sorted = req.query.sort;
+  let products;
+  if(!sorted) products = await Product.find({});
+  else products = await Product.find({}).sort({ productPrice: sorted });
+
   const selectCategories = await Category.find({});
   const selectCollections = await Collection.find({});
-  const page = req.query.page;
+  const page = req.query.page; // TODO: ADD VALIDATION TO PAGES
 
   res.render('catalogue', { 
     page: page ? page : 1,
@@ -40,7 +44,12 @@ router.get('/categorias', async (req, res) => {
 
 // GET products from given category
 router.get('/categorias/:categoria', async (req, res) => {
-  const products = await Product.find({ productCategory: req.params.categoria });
+  const sorted = req.query.sort;
+  let products;
+  if(!sorted) products = await Product.find({ productCategory: req.params.categoria });
+  else products = 
+    await Product.find({ productCategory: req.params.categoria}).sort({ productPrice: sorted });
+  
   const selectCategories = await Category.find({});
   const selectCollections = await Collection.find({});
   const page = req.query.page;
@@ -74,7 +83,12 @@ router.get('/colecciones', async (req, res) => {
 
 // GET products from given collection
 router.get('/colecciones/:coleccion', async (req, res) => {
-  const products = await Product.find({ productCollection: req.params.coleccion });
+  const sorted = req.query.sort;
+  let products;
+  if(!sorted) products = await Product.find({ productCollection: req.params.coleccion });
+  else products = 
+    await Product.find({ productCollection: req.params.coleccion}).sort({ productPrice: sorted });
+  
   const selectCategories = await Category.find({});
   const selectCollections = await Collection.find({});
   const page = req.query.page;  
