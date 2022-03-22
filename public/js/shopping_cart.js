@@ -22,6 +22,9 @@ function renderItems() {
     const cartImage = cartItem.querySelector('.cart__image');
     cartImage.src = item.productImage;
 
+    const cartLink = cartItem.querySelector('.cart__link');
+    cartLink.href = `/catalogo/producto/${item.productSlug}`;
+
     const cartName = cartItem.querySelector('.cart__name');
     cartName.textContent = item.productName;
 

@@ -25,6 +25,7 @@ addToCartForm.addEventListener('submit', event => {
       productImage: addToCartBtn.dataset.productImage,
       productPrice: addToCartBtn.dataset.productPrice,
       productQuantity: itemQuantity,
+      productSlug: addToCartBtn.dataset.productSlug
     }
     cartItems.push(newItem);
   } else {
