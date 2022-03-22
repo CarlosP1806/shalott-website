@@ -30,20 +30,6 @@ function renderItems() {
   });
 }
 
-function createItem() {
-  const item = {
-    productId: "eeee",
-    productName: "Aretes Bonitos 1",
-    productImage: "https://res.cloudinary.com/df816mhgy/image/upload/v1647901313/shalott/Product8_o3k5iq.webp",
-    productPrice: 250.00,
-    productQuantity: 2,
-    productSubtotal: 250 * 2
-  };
-
-  cartItems.push(item);
-  saveCart();
-}
-
 const url = window.location.href;
 if (url.split('/')[url.split('/').length - 1] === 'carrito') {
   renderItems();
