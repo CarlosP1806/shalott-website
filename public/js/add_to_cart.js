@@ -45,5 +45,4 @@ addToCartForm.addEventListener('submit', event => {
     successModal.classList.remove('active');
     modalOverlay.classList.remove('active');
   })
-  
 });
