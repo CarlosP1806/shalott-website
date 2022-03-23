@@ -19,6 +19,7 @@
     --text-dark: #111;
     --text-light: #777;
     --tiny-font: 1.2rem;
+    --btn-font: 1.4rem;
     --small-font: 1.6rem;
     --med-font: 1.8rem;
     --big-font: 2rem;
@@ -47,6 +48,7 @@ a {
 @media screen and (min-width: 480px) {
     :root {
         --tiny-font: 1.4rem;
+        --btn-font: 1.6rem;
         --small-font: 1.7rem;
         --med-font: 2rem;
         --big-font: 2.2rem;
@@ -132,7 +134,7 @@ a {
     padding: 1rem 3rem;
     border-radius: 5px;
     cursor: pointer;
-    font-size: var(--small-font);
+    font-size: var(--btn-font);
     transition: .2s ease-in-out;
     text-align: center;
     color: var(--text-dark);
@@ -148,7 +150,7 @@ a {
 }
 
 .btn--small {
-    padding: .5rem 1rem;
+    padding: .5rem 1.5rem;
 }
 
 /* ======= LAYOUT STYLES ======= */
