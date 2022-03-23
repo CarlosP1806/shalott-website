@@ -53,9 +53,12 @@ function renderItems() {
     emptyMessageContainer.classList.add('cart-empty-message');
     const message = document.createElement('p');
     message.textContent = 'El carrito está vacío';
+    message.classList.add('text');
+    message.classList.add('text--med');
     emptyMessageContainer.appendChild(message);
     const button = document.createElement('a');
-    button.classList.add('empty-message__btn');
+    button.classList.add('btn');
+    button.classList.add('mt-1');
     button.textContent = "Ir a tienda";
     button.href = "/catalogo";
     emptyMessageContainer.appendChild(button);

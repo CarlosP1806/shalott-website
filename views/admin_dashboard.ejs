@@ -26,12 +26,12 @@
       <div class="section__content">
         <h2 class="admin__title">Buscar Producto</h2>
 
-        <form class="admin__search-form admin__form">
-          <div class="admin__form-row">
+        <form class="admin__search-form form">
+          <div class="form-row">
             <label for="search-id">Introduce id de producto:</label>
             <input type="text" id="search-id" required>
           </div>
-          <button>Buscar</button>
+          <button class="btn">Buscar</button>
         </form>
 
         <div class="card-container">
@@ -52,12 +52,12 @@
     <section class="admin__delete-product">
       <div class="section__content">
         <h2 class="admin__title">Eliminar Producto</h2>
-        <form class="admin__form" id="delete-product-form">
-          <div class="admin__form-row">
+        <form class="form" id="delete-product-form">
+          <div class="form-row">
             <label for="delete-product__id">Introduce id de producto:</label>
             <input type="text" id="delete-product__id" required>
           </div>
-          <button class="admin__form-button btn--danger">Eliminar</button>
+          <button class="btn btn--danger">Eliminar</button>
         </form>
       </div>
     </section>
@@ -66,20 +66,20 @@
       <div class="section__content">
         <h2 class="admin__title">Crear Producto</h2>
 
-        <form class="admin__form" id="create-product-form">
-          <div class="admin__form-row">
+        <form class="form" id="create-product-form">
+          <div class="form-row">
             <label for="create-product__name">Nombre de producto:</label>
             <input type="text" id="create-product__name" required>
           </div>
-          <div class="admin__form-row">
+          <div class="form-row">
             <label for="create-product__id">Id de producto:</label>
             <input type="text" id="create-product__id" required>
           </div>
-          <div class="admin__form-row">
+          <div class="form-row">
             <label for="create-product__price">Precio de producto:</label>
             <input type="text" id="create-product__price" required>
           </div>
-          <div class="admin__form-row">
+          <div class="form-row">
             <label for="create-product__category">Tipo de producto:</label>
             <select id="create-product__category" required>
               <% for(let i = 0; i < categories.length; i++) { %>
@@ -90,7 +90,7 @@
               <% } %>
             </select>
           </div>
-          <div class="admin__form-row">
+          <div class="form-row">
             <label for="create-product__collection">Colección del producto:</label>
             <select id="create-product__collection" required>
               <% for(let i = 0; i < collections.length; i++) { %>
@@ -101,11 +101,11 @@
               <% } %>
             </select>
           </div>
-          <div class="admin__form-row">
+          <div class="form-row">
             <label for="create-product__image">Imagen del producto:</label>
             <input type="text" id="create-product__image" required>
           </div>
-          <button class="admin__form-button">Crear</button>
+          <button class="btn">Crear</button>
         </form>
 
       </div>
@@ -115,20 +115,20 @@
       <div class="section__content">
         <h2 class="admin__title">Editar Producto</h2>
 
-        <form class="admin__form" id="edit-product-form">
-          <div class="admin__form-row">
+        <form class="form" id="edit-product-form">
+          <div class="form-row">
             <label for="edit-product__name">Nombre de producto:</label>
             <input type="text" id="edit-product__name" required>
           </div>
-          <div class="admin__form-row">
+          <div class="form-row">
             <label for="edit-product__id">Id de producto:</label>
             <input type="text" id="edit-product__id" required readonly>
           </div>
-          <div class="admin__form-row">
+          <div class="form-row">
             <label for="edit-product__price">Precio de producto:</label>
             <input type="text" id="edit-product__price" required>
           </div>
-          <div class="admin__form-row">
+          <div class="form-row">
             <label for="edit-product__category">Tipo de producto:</label>
             <select id="edit-product__category" required>
               <option value="" selected></option>
@@ -140,7 +140,7 @@
               <% } %>
             </select>
           </div>
-          <div class="admin__form-row">
+          <div class="form-row">
             <label for="edit-product__collection">Colección del producto:</label>
             <select id="edit-product__collection" required>
               <option value="" selected></option>
@@ -152,7 +152,7 @@
               <% } %>
             </select>
           </div>
-          <div class="admin__form-row">
+          <div class="form-row">
             <label for="edit-product__image">Imagen del producto:</label>
             <input type="text" id="edit-product__image" required>
           </div>
@@ -160,7 +160,7 @@
             <label for="edit-product__highlight">Destacado:</label>
             <input type="checkbox" id="edit-product__highlight">
           </div>
-          <button class="admin__form-button">Actualizar</button>
+          <button class="btn">Actualizar</button>
         </form>
       </div>
     </section>
@@ -169,16 +169,16 @@
       <div class="section__content">
         <h2 class="admin__title">Crear colección</h2>
 
-        <form class="admin__form" id="create-collection-form">
-          <div class="admin__form-row">
+        <form class="form" id="create-collection-form">
+          <div class="form-row">
             <label for="create-collection__name">Nombre de colección:</label>
             <input type="text" id="create-collection__name" required>
           </div>
-          <div class="admin__form-row">
+          <div class="form-row">
             <label for="create-collection__image">Imagen de colección:</label>
             <input type="text" id="create-collection__image" required>
           </div>
-          <button class="admin__form-button">Crear</button>
+          <button class="btn">Crear</button>
         </form>
       </div>
     </section>
@@ -187,8 +187,8 @@
       <div class="section__content">
         <h2 class="admin__title">Eliminar colección</h2>
 
-        <form class="admin__form" id="delete-collection-form">
-          <div class="admin__form-row">
+        <form class="form" id="delete-collection-form">
+          <div class="form-row">
             <label for="delete-collection__name">Nombre de colección:</label>
             <select id="delete-collection__name" required>
               <option value="" selected></option>
@@ -200,7 +200,7 @@
               <% } %>
             </select>
           </div>
-          <button class="admin__form-button btn--danger">Eliminar</button>
+          <button class="btn btn--danger">Eliminar</button>
         </form>
       </div>
     </section>
@@ -209,16 +209,16 @@
       <div class="section__content">
         <h2 class="admin__title">Crear categoría</h2>
 
-        <form class="admin__form" id="create-category-form">
-          <div class="admin__form-row">
+        <form class="form" id="create-category-form">
+          <div class="form-row">
             <label for="create-category__name">Nombre de categoría:</label>
             <input type="text" id="create-category__name" required>
           </div>
-          <div class="admin__form-row">
+          <div class="form-row">
             <label for="create-category__image">Imagen de categoría:</label>
             <input type="text" id="create-category__image" required>
           </div>
-          <button class="admin__form-button">Crear</button>
+          <button class="btn">Crear</button>
         </form>
       </div>
     </section>
@@ -227,8 +227,8 @@
       <div class="section__content">
         <h2 class="admin__title">Eliminar categoría</h2>
 
-        <form class="admin__form" id="delete-category-form">
-          <div class="admin__form-row">
+        <form class="form" id="delete-category-form">
+          <div class="form-row">
             <label for="delete-category__name">Nombre de categoría:</label>
             <select id="delete-category__name" required>
               <option value="" selected></option>
@@ -240,7 +240,7 @@
               <% } %>
             </select>
           </div>
-          <button class="admin__form-button btn--danger">Eliminar</button>
+          <button class="btn btn--danger">Eliminar</button>
         </form>
       </div>
     </section>

@@ -23,27 +23,27 @@
         <div class="section__content">
           <div class="display__row">
             <figure class="display__image-container">
-              <img class="display__image" src="<%= product.productImage %>"
+              <img class="image image--square" src="<%= product.productImage %>"
                 alt="Producto <%= product.productName%> de arcilla polimérica">
             </figure>
             <article class="display__content">
-              <h2 class="display__title">
+              <h2 class="display__title text text--big mt-1">
                 <%= product.productName %>
               </h2>
-              <p class="display__price">
+              <p class="text text text--med">
                 $<%= product.productPrice.toFixed(2) %>
               </p>
-              <div class="display__description">
+              <div class="display__description text text--small">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate porro eveniet tempora ipsa autem
                 repudiandae neque itaque iure fugiat excepturi pariatur cupiditate, eius quidem officia inventore
                 doloribus! Commodi, officiis odio?
               </div>
-              <form class="display__form">
-                <div class="display__form-row">
+              <form class="display__form form">
+                <div class="form-row">
                   <label for="product-amount">Cantidad:</label>
-                  <input type="number" id="product-amount" min="0" max="5" value="1">
+                  <input type="number" id="product-amount" min="1" max="5" value="1">
                 </div>
-                <div class="display__form-row">
+                <div class="form-row">
                   <label for="product-variant">Variante:</label>
                   <select name="product-variant" id="product-variant">
                     <option>Color 1</option>
@@ -56,14 +56,14 @@
                   data-product-image="<%= product.productImage %>"
                   data-product-price="<%= product.productPrice %>"
                   data-product-slug="<%= product.slug %>"
-                  class="display__btn">
+                  class="display__btn btn mt-1">
                     Agregar al carrito
                 </button>
               </form>
             </article>
           </div>
           <div class="display__row">
-            <article class="display__info">
+            <article class="display__info text text--small">
               <div class="section__title section__title--display">
                 <div class="title__text">Información Adicional</div>
                 <div class="title__line"></div>

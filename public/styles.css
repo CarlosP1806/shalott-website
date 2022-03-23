@@ -60,6 +60,92 @@ a {
     }
 }
 
+/* ======= TEXT STYLES ======= */
+.text {
+    color: var(--text-color);
+    font-weight: normal;
+}
+
+.text--tiny {
+    font-size: var(--tiny-font);
+}
+
+.text--small {
+    font-size: var(--small-font);
+}
+
+.text--med {
+    font-size: var(--med-font);
+}
+
+.text--big {
+    font-size: var(--big-font);
+}
+
+.text--light {
+    color: var(--text-light);
+}
+
+.text--dark {
+    color: var(--text-dark);
+}
+
+.text--semi-bold {
+    font-weight: 500;
+}
+
+/* ======= IMAGE STYLES ======= */
+.image {
+    width: 100%;
+    object-fit: cover;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.image--square {
+    aspect-ratio: 1/1;
+}
+
+/* ======= MARGINS ======= */
+.mt-1 {
+    margin-top: 1rem;
+}
+
+.mt-1-5 {
+    margin-top: 1.5rem;
+}
+
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+.mb-1-5 {
+    margin-bottom: 1.5rem;
+}
+
+/* ======= BUTTON STYLES ======= */
+.btn {
+    outline: none;
+    border: none;
+    background: var(--complementary-color);
+    padding: 1rem 3rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: var(--tiny-font);
+    transition: .2s ease-in-out;
+    text-align: center;
+}
+
+.btn:hover {
+    opacity: .8;
+}
+
+.btn--danger {
+    background-color: red;
+    color: white;
+}
+
 /* ======= LAYOUT STYLES ======= */
 section {
     position: relative;
@@ -115,6 +201,47 @@ section {
     .section__content {
         max-width: 70%;
     }
+}
+
+/* ======== FORM STYLES ======= */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.form-row label {
+    color: var(--text-color);
+    font-size: var(--small-font);
+}
+
+.form-row input,
+.form-row select,
+.form-row option {
+    padding: .4rem;
+    font-size: var(--small-font);
+}
+
+.form-row input,
+.form-row select {
+    background: none;
+    border: 1px solid var(--secondary-color);
+}
+
+.form-row select {
+    padding: .6rem 0;
+}
+
+.form-row select:focus,
+.form-row input:focus {
+    border: 2px solid var(--secondary-color);
+    outline: none;
 }
 
 /* ======= CARD STYLES ======= */
@@ -568,20 +695,6 @@ i.menu {
     margin-top: 2rem;
 }
 
-.about__image {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    aspect-ratio: 1/1;
-}
-
-.about__text p {
-    margin-bottom: 1.5rem;
-    font-size: var(--small-font);
-    color: var(--text-color);
-}
-
 .about__col {
     display: flex;
     flex-direction: column;
@@ -791,7 +904,7 @@ footer {
     text-align: center;
     color: var(--secondary-color);
     font-weight: 500;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     margin-bottom: 1.5rem;
     text-transform: capitalize;
 }
@@ -865,101 +978,24 @@ footer {
     position: relative;
 }
 
-.display__image {
-    width: 100%;
-    aspect-ratio: 1/1;
-    object-fit: cover;
-    object-position: center;
-}
-
 .display__content {
     display: flex;
     flex-direction: column;
 }
 
 .display__title {
-    color: var(--text-color);
     font-weight: 500;
-    font-size: var(--big-font);
-    margin-top: 1rem;
-}
-
-.display__price {
-    color: var(--text-color);
-    font-size: var(--med-font);
 }
 
 .display__description {
-    color: var(--text-color);
-    font-size: var(--small-font);
     margin: 1rem 0;
-}
-
-.display__btn {
-    outline: none;
-    border: none;
-    background: var(--complementary-color);
-    padding: 1rem 3rem;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: var(--tiny-font);
-    transition: .2s ease-in-out;
-    margin-top: 1rem;
-}
-
-.display__btn:hover {
-    opacity: .8;
 }
 
 .section__title--display {
     margin: 2rem 0 1rem;
 }
 
-.display__info {
-    color: var(--text-color);
-    font-size: var(--small-font);
-}
-
-.display__form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.display__form-row {
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-}
-
-.display__form-row label {
-    color: var(--text-color);
-    font-size: var(--small-font);
-}
-
-.display__form-row input,
-.display__form-row select,
-.display__form-row option {
-    padding: .4rem;
-    font-size: var(--small-font);
-}
-
-.display__form-row input,
-.display__form-row select {
-    background: none;
-    border: 1px solid var(--secondary-color);
-}
-
-.display__form-row select {
-    padding: .6rem 0;
-}
-
-.display__form-row select:focus,
-.display__form-row input:focus {
-    border: 2px solid var(--secondary-color);
-    outline: none;
-}
-
+/* ======= FORM STYLES ======= */
 .add-cart-modal {
     width: 80%;
     position: fixed;
@@ -1047,10 +1083,6 @@ footer {
     .display__content {
         flex: 3;
     }
-
-    .display__form label {
-        font-size: var(--tiny-font);
-    }
 }
 
 /* ======= ADMIN LOGIN VIEW ======= */
@@ -1062,47 +1094,9 @@ footer {
 .login__form {
     position: absolute;
     width: 300px;
-    display: flex;
-    flex-direction: column;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    gap: 1.5rem;
-}
-
-.login__form-row {
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-}
-
-.login__form-row label {
-    font-size: var(--small-font);
-}
-
-.login__form input {
-    font-size: var(--tiny-font);
-    padding: .4rem;
-    border: 1px solid var(--secondary-color);
-}
-
-.login__form input:focus {
-    border: 2px solid var(--secondary-color);
-    outline: none;
-}
-
-.login__submit {
-    background: var(--complementary-color);
-    border: none;
-    border-radius: 5px;
-    padding: 1rem 2rem;
-    font-size: var(--tiny-font);
-    cursor: pointer;
-    transition: .5s ease-in-out;
-}
-
-.login__submit:hover {
-    opacity: .8;
 }
 
 /* ======= ADMIN DASHBOARD VIEW ======= */
@@ -1143,27 +1137,7 @@ footer {
 }
 
 .admin__search-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
     margin-bottom: 3rem;
-}
-
-.admin__search label {
-    font-size: var(--small-font);
-}
-
-.admin__search input {
-    font-size: var(--small-font);
-}
-
-.admin__search button {
-    background-color: var(--complementary-color);
-    border: none;
-    border-radius: 5px;
-    padding: 1rem 2rem;
-    font-size: var(--tiny-font);
-    cursor: pointer;
 }
 
 #admin__card-name {
@@ -1174,47 +1148,6 @@ footer {
 #admin__card-price {
     font-size: var(--small-font);
     color: var(--text-color);
-}
-
-.admin__form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.admin__form-row {
-    display: flex;
-    flex-direction: column;
-    
-}
-
-.admin__form label {
-    font-size: var(--small-font);
-}
-
-.admin__form input {
-    font-size: var(--small-font);
-}
-
-.admin__form select {
-    font-size: var(--small-font);
-    background: none;
-    border: 1px solid rgb(51, 51, 51);
-    padding: .5rem 0;
-}
-
-.admin__form-button {
-    padding: 1rem 2rem;
-    background-color: var(--complementary-color);
-    font-size: var(--tiny-font);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.admin__form-button.btn--danger {
-    background-color: rgb(207, 17, 17);
-    color: white;
 }
 
 @media screen and (min-width: 768px) {
@@ -1252,20 +1185,6 @@ footer {
     flex-direction: column;
     left: 50%;
     transform: translateX(-50%);
-}
-
-.cart-empty-message p {
-    color: var(--text-color);
-    font-size: var(--med-font);
-}
-
-.empty-message__btn {
-    background-color: var(--complementary-color);
-    padding: 1rem 2rem;
-    text-align: center;
-    margin-top: 1rem;
-    border-radius: 5px;
-    font-size: var(--tiny-font);
 }
 
 .cart-card {
