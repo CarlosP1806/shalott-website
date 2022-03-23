@@ -132,10 +132,10 @@ a {
     padding: 1rem 3rem;
     border-radius: 5px;
     cursor: pointer;
-    font-size: var(--tiny-font);
+    font-size: var(--small-font);
     transition: .2s ease-in-out;
     text-align: center;
-    color: var(--text-color);
+    color: var(--text-dark);
 }
 
 .btn:hover {
