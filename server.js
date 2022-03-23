@@ -26,6 +26,10 @@ app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.use(routes);
 
+app.get('*', (req, res) => {
+    res.render('404');
+});
+
 db.once('open', () => {
     app.listen(PORT);
 });
