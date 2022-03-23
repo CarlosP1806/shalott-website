@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@200;300;400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 10px;
+    font-family: "Arimo", sans-serif;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --main-color: #e1d3cf;
+    --accent-color: #deaf7c;
+    --secondary-color: #81362f;
+    --complementary-color: #d7b7aa;
+    --text-color: #333;
+    --text-dark: #111;
+    --text-light: #777;
+    --tiny-font: 1.2rem;
+    --small-font: 1.6rem;
+    --med-font: 1.8rem;
+    --big-font: 2rem;
+    --h-margin: 2rem;
+}
+
+html, body {
+    min-height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    font-size: inherit;
+}
+
+@media screen and (min-width: 480px) {
+    :root {
+        --tiny-font: 1.4rem;
+        --small-font: 1.7rem;
+        --med-font: 2rem;
+        --big-font: 2.2rem;
+        --h-margin: 4rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    :root {
+        --h-margin: 8rem;
+    }
+}
+
+/* ======= TEXT STYLES ======= */
+.text {
+    color: var(--text-color);
+    font-weight: normal;
+}
+
+.text--tiny {
+    font-size: var(--tiny-font);
+}
+
+.text--small {
+    font-size: var(--small-font);
+}
+
+.text--med {
+    font-size: var(--med-font);
+}
+
+.text--big {
+    font-size: var(--big-font);
+}
+
+.text--light {
+    color: var(--text-light);
+}
+
+.text--dark {
+    color: var(--text-dark);
+}
+
+.text--semi-bold {
+    font-weight: 500;
+}
+
+/* ======= IMAGE STYLES ======= */
+.image {
+    width: 100%;
+    object-fit: cover;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.image--square {
+    aspect-ratio: 1/1;
+}
+
+/* ======= MARGINS ======= */
+.mt-1 {
+    margin-top: 1rem;
+}
+
+.mt-1-5 {
+    margin-top: 1.5rem;
+}
+
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+.mb-1-5 {
+    margin-bottom: 1.5rem;
+}
+
+/* ======= BUTTON STYLES ======= */
+.btn {
+    outline: none;
+    border: none;
+    background: var(--complementary-color);
+    padding: 1rem 3rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: var(--tiny-font);
+    transition: .2s ease-in-out;
+    text-align: center;
+}
+
+.btn:hover {
+    opacity: .8;
+}
+
+.btn--danger {
+    background-color: red;
+    color: white;
+}
+
+.btn--small {
+    padding: .5rem 1rem;
+}
+
+/* ======= LAYOUT STYLES ======= */
+section {
+    position: relative;
+    padding: 2rem var(--h-margin);
+}
+
+.section--dark {
+    background-color: var(--complementary-color);
+}
+
+.section__title {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.title__image {
+    width: 3.4rem;
+    margin-right: .5em;
+}
+
+.title__text {
+    font-size: var(--big-font);
+    color: var(--secondary-color);
+    font-weight: bold;
+    margin-right: .5em;
+}
+
+.title__line {
+    background-color: var(--secondary-color);
+    flex: 1;
+    height: 2px;
+    width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    section {
+        padding: 6rem 0;
+    }
+
+    .section__title {
+        margin-bottom: 3rem;
+    }
+
+    .section__content {
+        max-width: 80%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .section__content {
+        max-width: 70%;
+    }
+}
+
+/* ======== FORM STYLES ======= */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.form-row label {
+    color: var(--text-color);
+    font-size: var(--small-font);
+}
+
+.form-row input,
+.form-row select,
+.form-row option {
+    padding: .4rem;
+    font-size: var(--small-font);
+}
+
+.form-row input,
+.form-row select {
+    background: none;
+    border: 1px solid var(--secondary-color);
+}
+
+.form-row select {
+    padding: .6rem 0;
+}
+
+.form-row select:focus,
+.form-row input:focus {
+    border: 2px solid var(--secondary-color);
+    outline: none;
+}
+
+/* ======= CARD STYLES ======= */
+.card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.card {
+    position: relative;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.card--product {
+    cursor: pointer;
+}
+
+.card__body {
+    flex: 1;
+}
+
+.card__image-container {
+    position: relative;
+    width: 100%;
+}
+
+.card__image {
+    border-radius: 5px 5px 0 0;
+}
+
+.card__description {
+    font-style: italic;
+    margin-bottom: .1rem;
+    text-transform: capitalize;
+}
+
+.card__title {
+    margin-bottom: .1rem;
+}
+
+.card__price {
+    color: var(--text-color);
+    font-size: 1.6rem;
+    margin-bottom: .4rem;
+}
+
+.category {
+    position: relative;
+}
+
+.category__image {
+    height: 100%;
+}
+
+.category__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.4);
+}
+
+.category__name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: var(--big-font);
+    color: whitesmoke;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.category__name a {
+    display: block;
+}
+
+@media screen and (min-width: 768px) {
+    .card-container {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 3rem;
+    }
+}

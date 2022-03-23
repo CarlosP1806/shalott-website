@@ -1,0 +1,147 @@
+/* ======== SHOPPING CART VIEW ======= */
+
+.cart__container {
+    width: 100%;
+    position: relative;
+}
+
+.cart-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.cart-empty-message {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.cart-card {
+    width: 100%;
+    display: flex;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--secondary-color);
+    gap: 2rem;
+}
+
+.cart-card:last-child {
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+.cart__figure {
+    flex: 1;
+}
+
+.cart__image {
+    width: 100%;
+    aspect-ratio: 1/1;
+}
+
+.cart__info {
+    flex: 2;
+}
+
+.cart__name {
+    font-size: var(--med-font);
+    color: var(--text-color);
+    font-weight: normal;
+}
+
+.cart__price {
+    font-size: var(--tiny-font);
+    color: var(--text-light);
+}
+
+.cart__price::before {
+    content: "$";
+}
+
+.cart__price::after {
+    content: " c/u"
+}
+
+.cart__quantity {
+    font-size: var(--small-font);
+    color: var(--text-color);
+}
+
+.cart__quantity::before {
+    content: "Cantidad: "
+}
+
+.cart__subtotal {
+    font-size: var(--small-font);
+    color: var(--text-dark);
+}
+
+.cart__subtotal::before {
+    content: "Subtotal: $"
+}
+
+.cart__buttons {
+    display: flex;
+    gap: .5rem;
+    align-items: flex-start;
+}
+
+#cart__add, #cart__remove {
+    font-size: var(--big-font);
+    color: var(--secondary-color);
+    cursor: pointer;
+}
+
+.cart__order-info {
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.order__title {
+    font-size: var(--med-font);
+    font-weight: 500;
+    color: var(--secondary-color)
+}
+
+.order__size, .order__price {
+    font-size: var(--small-font);
+    color: var(--text-color);
+}
+
+#total-products, #total-price {
+    font-size: inherit;
+    color: inherit;
+}
+
+.order__btn {
+    margin-top: 1rem;
+    padding: 1rem 2rem;
+    background-color: var(--complementary-color);
+    border: none;
+    border-radius: 5px;
+    font-size: var(--tiny-font);
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.order__btn:hover {
+    opacity: 0.8;
+}
+
+@media screen and (min-width: 768px) {
+    .cart-wrapper {
+        flex-direction: row;
+        gap: 5rem;
+        align-items: flex-start;
+    }
+
+    .cart__container {
+        flex: 3;
+    }
+
+    .cart__order-info {
+        flex: 2;
+    }
+}
