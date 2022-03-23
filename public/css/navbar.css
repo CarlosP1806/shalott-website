@@ -130,10 +130,10 @@ i.menu {
     .nav__items--desktop {
         display: flex;
         list-style: none;
-        gap: 2rem;
+        gap: 2.5rem;
         flex: 1;
         display: flex;
-        justify-content: center;
+        justify-content: end;
     }
 
     .nav__item--desktop {
@@ -167,6 +167,7 @@ i.menu {
 
     .nav__items--desktop {
         gap: 4rem;
+        justify-content: center;
     }
 
     .header__social-media--desktop {
