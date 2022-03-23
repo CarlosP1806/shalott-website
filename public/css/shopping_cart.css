@@ -116,6 +116,7 @@
 }
 
 .order__btn {
+    display: inline-block;
     margin-top: 1rem;
     padding: 1rem 2rem;
     background-color: var(--complementary-color);

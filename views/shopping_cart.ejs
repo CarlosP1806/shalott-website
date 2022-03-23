@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,61 +21,62 @@
   <!-- Glider css -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.css">
 </head>
+
 <body>
-  <%- include("partials/navbar.ejs") %>  
-  <main>
-    <section class="section section--cart">
-      <div class="section__content">
-        <header class="section__title">
-          <h1 class="title__text">Carrito de Compras</h1>
-          <div class="title__line"></div>
-        </header>
-        <div class="cart-wrapper">
-          <div class="cart__container">
-            <!-- Cart items go here -->
-          </div>
-          <aside class="cart__order-info">
-            <h2 class="order__title">Información de Orden</h2>
-            <div class="order__size">Cantidad de productos:
-              <span id="total-products"></span>
+  <%- include("partials/navbar.ejs") %>
+    <main>
+      <section class="section section--cart">
+        <div class="section__content">
+          <header class="section__title">
+            <h1 class="title__text">Carrito de Compras</h1>
+            <div class="title__line"></div>
+          </header>
+          <div class="cart-wrapper">
+            <div class="cart__container">
+              <!-- Cart items go here -->
             </div>
-            <div class="order__price">Total:
-               $<span id="total-price"></span>
+            <aside class="cart__order-info">
+              <h2 class="order__title">Información de Orden</h2>
+              <div class="order__size">Cantidad de productos:
+                <span id="total-products"></span>
               </div>
-            <button class="order__btn">Continuar Compra</button>
-          </aside>
+              <div class="order__price">Total:
+                $<span id="total-price"></span>
+              </div>
+              <a href="/carrito/checkout" class="order__btn">Continuar Compra</a>
+            </aside>
+          </div>
         </div>
-      </div>
-    </section>
-  </main>
-  <%- include("partials/footer.ejs") %>
+      </section>
+    </main>
+    <%- include("partials/footer.ejs") %>
 
-  <template id="cart-card-template">
-    <article class="cart-card">
-      <figure class="cart__figure">
-        <a class="cart__link">
-          <img class="cart__image">
-        </a>
-      </figure>
-      <div class="cart__info">
-        <div class="cart__product">
-          <h3 class="cart__name"></h3>
-          <p class="cart__price"></p>
-        </div>
-        <div class="cart__details">
-          <p class="cart__quantity"></p> 
-          <p class="cart__subtotal"></p>
-        </div>
-      </div>
-      <div class="cart__buttons">
-        <i class='bx bx-plus cart__button' id="cart__add"></i>
-        <i class='bx bx-minus cart__button' id="cart__remove"></i>
-      </div>
-    </article>
-  </template>
+      <template id="cart-card-template">
+        <article class="cart-card">
+          <figure class="cart__figure">
+            <a class="cart__link">
+              <img class="cart__image">
+            </a>
+          </figure>
+          <div class="cart__info">
+            <div class="cart__product">
+              <h3 class="cart__name"></h3>
+              <p class="cart__price"></p>
+            </div>
+            <div class="cart__details">
+              <p class="cart__quantity"></p>
+              <p class="cart__subtotal"></p>
+            </div>
+          </div>
+          <div class="cart__buttons">
+            <i class='bx bx-plus cart__button' id="cart__add"></i>
+            <i class='bx bx-minus cart__button' id="cart__remove"></i>
+          </div>
+        </article>
+      </template>
 
-  <script src="/js/navbar.js"></script>
-  <script src="/js/shopping_cart.js"></script>
+      <script src="/js/navbar.js"></script>
+      <script src="/js/shopping_cart.js"></script>
 </body>
 
 </html>
