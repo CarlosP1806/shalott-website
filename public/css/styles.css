@@ -135,6 +135,7 @@ a {
     font-size: var(--tiny-font);
     transition: .2s ease-in-out;
     text-align: center;
+    color: var(--text-color);
 }
 
 .btn:hover {

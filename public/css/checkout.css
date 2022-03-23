@@ -1,0 +1,69 @@
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.checkout__form {
+    flex: 1;
+}
+
+.checkout-summary {
+    flex: 2;
+}
+
+.summary__title {
+    font-size: var(--med-font);
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.summary-card {
+    display: flex;
+    gap: .5rem;
+    border-top: 1px solid var(--secondary-color);
+    padding: 1rem 0;
+    justify-content: space-between;
+}
+
+.summary-card:last-child {
+    border-bottom: 1px solid var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.summary-card p, .summary-card div {
+    font-size: var(--small-font);
+    color: var(--text-color);
+}
+
+.summary__price, #total-price {
+    font-size: var(--med-font);
+    color: var(--text-dark);
+    font-style: italic;
+}
+
+.summary__details {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.summary__container {
+    display: flex;
+}
+
+.quantity-container {
+    font-weight: 500;
+}
+
+.subtotal-container {
+    font-style: italic;
+}
+
+@media screen and (min-width: 768px) {
+    .form-wrapper {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}
