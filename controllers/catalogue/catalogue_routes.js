@@ -5,14 +5,17 @@ const Collection = require('../../models/Collection');
 
 // GET all products
 router.get('/', async (req, res) => {
-  const sorted = req.query.sort; // TODO: ADD VALIDATION TO SORT
+  let sorted = req.query.sort; 
+  if (sorted && sorted !== "asc" && sorted !== "desc") sorted = null;
   let products;
   if(!sorted) products = await Product.find({});
   else products = await Product.find({}).sort({ productPrice: sorted });
 
   const selectCategories = await Category.find({});
   const selectCollections = await Collection.find({});
-  const page = req.query.page; // TODO: ADD VALIDATION TO PAGES
+  
+  let page = req.query.page; 
+  if (page && !isNaN(page) && page <= 0) page = 1;
 
   res.render('catalogue', { 
     page: page ? page : 1,
@@ -30,7 +33,8 @@ router.get('/categorias', async (req, res) => {
   const selectCategories = await Category.find({});
   const selectCollections = await Collection.find({});
 
-  const page = req.query.page;
+  let page = req.query.page; 
+  if (page && !isNaN(page) && page <= 0) page = 1;
 
   res.render('catalogue', { 
     page: page ? page : 1,
@@ -44,7 +48,8 @@ router.get('/categorias', async (req, res) => {
 
 // GET products from given category
 router.get('/categorias/:categoria', async (req, res) => {
-  const sorted = req.query.sort;
+  let sorted = req.query.sort; 
+  if (sorted && (sorted !== "asc" && sorted !== "desc")) sorted = null;
   let products;
   if(!sorted) products = await Product.find({ productCategory: req.params.categoria });
   else products = 
@@ -52,7 +57,9 @@ router.get('/categorias/:categoria', async (req, res) => {
   
   const selectCategories = await Category.find({});
   const selectCollections = await Collection.find({});
-  const page = req.query.page;
+
+  let page = req.query.page; 
+  if (page && !isNaN(page) && page <= 0) page = 1;
 
   res.render('catalogue', { 
     page: page ? page : 1,
@@ -69,7 +76,9 @@ router.get('/colecciones', async (req, res) => {
   const collections = await Collection.find({});
   const selectCategories = await Category.find({});
   const selectCollections = await Collection.find({});
-  const page = req.query.page;
+
+  let page = req.query.page; 
+  if (page && !isNaN(page) && page <= 0) page = 1;
 
   res.render('catalogue', {
     page: page ? page : 1,
@@ -83,7 +92,8 @@ router.get('/colecciones', async (req, res) => {
 
 // GET products from given collection
 router.get('/colecciones/:coleccion', async (req, res) => {
-  const sorted = req.query.sort;
+  let sorted = req.query.sort; 
+  if (sorted && (sorted !== "asc" && sorted !== "desc")) sorted = null;
   let products;
   if(!sorted) products = await Product.find({ productCollection: req.params.coleccion });
   else products = 
@@ -91,7 +101,9 @@ router.get('/colecciones/:coleccion', async (req, res) => {
   
   const selectCategories = await Category.find({});
   const selectCollections = await Collection.find({});
-  const page = req.query.page;  
+
+  let page = req.query.page; 
+  if (page && !isNaN(page) && page <= 0) page = 1;
 
   res.render('catalogue', { 
     page: page ? page : 1,
