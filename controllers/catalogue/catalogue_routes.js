@@ -118,6 +118,10 @@ router.get('/colecciones/:coleccion', async (req, res) => {
 // GET given product
 router.get('/producto/:slug', async (req, res) => {
   const product = await Product.findOne({ slug: req.params.slug });
+  if(!product) {
+    res.render('404');
+    return;
+  }
   res.render('product', { product: product });
 });
 
