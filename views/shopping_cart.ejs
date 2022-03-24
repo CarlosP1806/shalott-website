@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shalott | Carrito de Compras</title>
+
+  <meta name="robots" content="noindex">
+
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/shopping_cart.css">
+  <link rel="stylesheet" href="/css/navbar.css">
+  <link rel="stylesheet" href="/css/footer.css">
+
+  <!-- Font awesome link-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Box icons -->
+  <link href='https://unpkg.com/boxicons@2.0.8/css/boxicons.min.css' rel='stylesheet'>
+  <!-- Glider css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.css">
+</head>
+
+<body>
+  <%- include("partials/navbar.ejs") %>
+    <main>
+      <section class="section section--cart">
+        <div class="section__content">
+          <header class="section__title">
+            <h1 class="title__text">Carrito de Compras</h1>
+            <div class="title__line"></div>
+          </header>
+          <div class="cart-wrapper">
+            <div class="cart__container">
+              <!-- Cart items go here -->
+            </div>
+            <aside class="cart__order-info">
+              <h2 class="order__title">Información de Orden</h2>
+              <div class="order__size">Cantidad de productos:
+                <span id="total-products"></span>
+              </div>
+              <div class="order__price">Total:
+                $<span id="total-price"></span>
+              </div>
+              <a href="/carrito/checkout" class="order__btn btn">Comprar</a>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+    <%- include("partials/footer.ejs") %>
+
+      <template id="cart-card-template">
+        <article class="cart-card">
+          <figure class="cart__figure">
+            <a class="cart__link">
+              <img class="cart__image">
+            </a>
+          </figure>
+          <div class="cart__info">
+            <div class="cart__product">
+              <h3 class="cart__name"></h3>
+              <p class="cart__price"></p>
+            </div>
+            <div class="cart__details">
+              <p class="cart__quantity"></p>
+              <p class="cart__subtotal"></p>
+            </div>
+          </div>
+          <div class="cart__buttons">
+            <i class='bx bx-plus cart__button' id="cart__add"></i>
+            <i class='bx bx-minus cart__button' id="cart__remove"></i>
+          </div>
+        </article>
+      </template>
+
+      <script src="/js/navbar.js"></script>
+      <script src="/js/shopping_cart.js"></script>
+</body>
+
+</html>

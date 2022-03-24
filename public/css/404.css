@@ -1,0 +1,9 @@
+.message-404 {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10rem;
+    font-size: var(--med-font);
+    max-width: 600px;
+    text-align: center;
+}

@@ -5,14 +5,14 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shalott</title>
-
-  <meta name="robots" content="noindex">
+  <title>Shalott | Página no encontrada</title>
 
   <link rel="stylesheet" href="/css/styles.css" />
-  <link rel="stylesheet" href="/css/admin.css">
+  <link rel="stylesheet" href="/css/404.css">
   <link rel="stylesheet" href="/css/navbar.css">
   <link rel="stylesheet" href="/css/footer.css">
+
+  <meta name="robots" content="noindex">
 
   <!-- Font awesome link-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -24,21 +24,17 @@
 
 <body>
   <%- include("partials/navbar.ejs") %>
-  <main class="login-view">
-    <form class="login__form form">
-      <div class="form-row">
-        <label for="admin-username">Usuario:</label>
-        <input type="text" id="admin-username" value="">
+    <main>
+      <div class="message-404">
+        <p class="text text--med mb-1">
+          Lo sentimos, la página que usted busca no se encuentra en el servidor
+        </p>
+        <a href="/" class="btn">Volver a Inicio</a>
       </div>
-      <div class="form-row">
-        <label for="admin-password">Contraseña:</label>
-        <input type="password" id="admin-password" value="">
-      </div>
-      <button class="btn">Login</button>
-    </form>
-  </main>
+    </main>
   <%- include("partials/footer.ejs") %>
 
-  <script src="/js/navbar.js"></script>
-  <script src="/js/admin_login.js"></script>
+      <script src="/js/navbar.js"></script>
 </body>
+
+</html>

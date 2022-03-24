@@ -1,18 +1,18 @@
 <article class="card card--product" id="<%= productData.slug %>">
   <figure class="card__image-container">
-    <img class="card__image" loading="lazy" src="<%= productData.productImage %>"
+    <img class="card__image image image--square" loading="lazy" src="<%= productData.productImage %>"
       alt="<%= productData.productName %>">
   </figure>
   <div class="card__body">
-    <div class="card__description">
+    <div class="card__description text text--tiny">
       <%= productData.productCollection %>
     </div>
-    <div class="card__title">
+    <div class="card__title text text--dark text--med">
       <%= productData.productName %>
     </div>
     <div class="card__price">
       $<%= productData.productPrice.toFixed(2) %>
     </div>
   </div>
-  <a class="card__btn" href="/catalogo/producto/<%= productData.slug %>">Ver más</a>
+  <a class="card__btn btn btn--small" href="/catalogo/producto/<%= productData.slug %>">Ver más</a>
 </article>
