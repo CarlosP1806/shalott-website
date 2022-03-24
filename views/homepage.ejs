@@ -98,10 +98,9 @@
           <div class="title__line"></div>
         </header>
         <div class="card-container">
-          <%- include("partials/category_card.ejs", {category: categories[0]}) %>
-          <%- include("partials/category_card.ejs", {category: categories[1]}) %>
-          <%- include("partials/category_card.ejs", {category: categories[2]}) %>
-          <%- include("partials/category_card.ejs", {category: categories[3]}) %>
+          <% for(let i = 0; i < categories.length; i++) { %>
+            <%- include("partials/category_card.ejs", {category: categories[i]}) %>
+          <% } %>
         </div>
       </div>
     </section>
