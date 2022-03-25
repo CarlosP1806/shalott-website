@@ -253,6 +253,12 @@ section {
     color: var(--text-color);
 }
 
+#product-highlight label {
+    font-size: var(--small-font);
+    color: var(--text-color);
+    margin-right: .6rem;
+}
+
 /* ======= CARD STYLES ======= */
 .card-container {
     display: grid;
@@ -299,7 +305,7 @@ section {
     color: var(--text-color);
     font-size: 1.6rem;
     margin-bottom: .4rem;
-    margin-top: -.5rem;
+    margin-top: -.3rem;
 }
 
 .category {

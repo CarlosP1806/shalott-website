@@ -160,7 +160,7 @@
             <label for="edit-product__image">Imagen del producto:</label>
             <input type="text" id="edit-product__image" required>
           </div>
-          <div>
+          <div id="product-highlight">
             <label for="edit-product__highlight">Destacado:</label>
             <input type="checkbox" id="edit-product__highlight">
           </div>
@@ -252,6 +252,12 @@
   </main>
 
   <%- include("partials/footer.ejs") %>
+
+  <article class="admin__modal">
+    <p class="admin__modal-message"></p>
+    <p class="btn mt-1-5" id="admin__close-modal">Cerrar</p>
+  </article>
+  <div class="admin__modal-overlay"></div>
 
   <script src="/js/navbar.js"></script>
   <script src="/js/admin.js"></script>
