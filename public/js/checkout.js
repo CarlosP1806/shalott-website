@@ -26,7 +26,7 @@ function renderItems() {
     cardContainer.appendChild(summaryItem);
   });
 
-  document.querySelector('#total-price').textContent = totalPrice;
+  document.querySelector('#total-price').textContent = totalPrice.toFixed(2);
 
 }
 
