@@ -8,6 +8,7 @@
     font-family: "Arimo", sans-serif;
     line-height: 1.6;
     scroll-behavior: smooth;
+    -webkit-appearance: menulist;
 }
 
 :root {
@@ -297,6 +298,7 @@ section {
     color: var(--text-color);
     font-size: 1.6rem;
     margin-bottom: .4rem;
+    margin-top: -.5rem;
 }
 
 .category {
