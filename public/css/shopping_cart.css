@@ -88,7 +88,7 @@
 }
 
 #cart__add, #cart__remove {
-    font-size: var(--big-font);
+    font-size: 2.8rem;
     color: var(--secondary-color);
     cursor: pointer;
 }
