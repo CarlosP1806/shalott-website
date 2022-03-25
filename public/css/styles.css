@@ -8,7 +8,6 @@
     font-family: "Arimo", sans-serif;
     line-height: 1.6;
     scroll-behavior: smooth;
-    -webkit-appearance: menulist;
 }
 
 :root {
@@ -244,12 +243,14 @@ section {
 
 .form-row select {
     padding: .6rem 0;
+    -webkit-appearance: menulist;
 }
 
 .form-row select:focus,
 .form-row input:focus {
     border: 2px solid var(--secondary-color);
     outline: none;
+    -webkit-appearance: menulist;
 }
 
 /* ======= CARD STYLES ======= */
