@@ -243,12 +243,14 @@ section {
 
 .form-row select {
     padding: .6rem 0;
+    color: var(--text-color);
 }
 
 .form-row select:focus,
 .form-row input:focus {
     border: 2px solid var(--secondary-color);
     outline: none;
+    color: var(--text-color);
 }
 
 /* ======= CARD STYLES ======= */
