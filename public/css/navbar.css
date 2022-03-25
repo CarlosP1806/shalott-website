@@ -71,6 +71,7 @@ i.menu {
     color: var(--text-color);
     transition: .2s ease-in-out;
     margin: 1rem 0;
+    display: block;
 }
 
 .nav__item--mobile a:hover {
