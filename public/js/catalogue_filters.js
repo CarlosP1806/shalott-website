@@ -16,18 +16,21 @@ searchForm.addEventListener('change', (event) => {
   }
 });
 
-const sortForm = document.querySelector('#sort-form');
-const sortSelect = document.querySelector('#sort-select');
-sortForm.addEventListener('change', (event) => {
-  event.preventDefault();
+const isGroup = document.querySelector("main").dataset.groups === "true";
+if (!isGroup) {
+  const sortForm = document.querySelector('#sort-form');
+  const sortSelect = document.querySelector('#sort-select');
+  sortForm.addEventListener('change', (event) => {
+    event.preventDefault();
 
-  if (sortSelect.value === "") return;
-  else {
-    let url = new URL(window.location.href);
-    url.searchParams.set('sort', sortSelect.value);
-    window.location.href=url;
-  }
-});
+    if (sortSelect.value === "") return;
+    else {
+      let url = new URL(window.location.href);
+      url.searchParams.set('sort', sortSelect.value);
+      window.location.href = url;
+    }
+  });
+}
 
 const nextPageArrow = document.querySelector('#next-page');
 const prevPageArrow = document.querySelector('#prev-page');
@@ -40,7 +43,7 @@ nextPageArrow.addEventListener('click', () => {
   if (!page) {
     url.searchParams.set('page', 2)
   } else {
-    url.searchParams.set('page', parseInt(page)+1);
+    url.searchParams.set('page', parseInt(page) + 1);
   }
   window.location.href = url;
 });
@@ -50,7 +53,7 @@ prevPageArrow.addEventListener('click', () => {
 
   const page = getParameterByName("page");
   let url = new URL(window.location.href);
-  url.searchParams.set('page', parseInt(page)-1);
+  url.searchParams.set('page', parseInt(page) - 1);
   window.location.href = url;
 });
 
