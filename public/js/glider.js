@@ -1,3 +1,6 @@
+const numberCollections = 
+  parseInt(document.querySelector('.section--collections').dataset.numberCollections);
+
 window.addEventListener("load", () => {
   new Glider(document.querySelector('.carousel__list'), {
     slidesToShow: 1,
@@ -18,8 +21,8 @@ window.addEventListener("load", () => {
       {
         breakpoint: 1200,
         settings: {
-          slidesToShow: 4,
-          slidesToScroll: 4
+          slidesToShow: numberCollections >= 4 ? 4 : numberCollections,
+          slidesToScroll: numberCollections >= 4 ? 4 : numberCollections
         }
       }
     ]
