@@ -18,7 +18,7 @@ function renderItems() {
     itemQuantity.textContent = item.productQuantity;
 
     const subtotal = summaryItem.querySelector('.summary__subtotal');
-    subtotal.textContent = 
+    subtotal.textContent =
       parseFloat(item.productQuantity * item.productPrice).toFixed(2);
 
     totalPrice += item.productQuantity * item.productPrice;
@@ -29,5 +29,40 @@ function renderItems() {
   document.querySelector('#total-price').textContent = totalPrice.toFixed(2);
 
 }
+
+const checkoutForm = document.querySelector('.checkout__form');
+checkoutForm.addEventListener('submit', event => {
+  event.preventDefault();
+
+  // Get cart items
+  const items = [];
+  cartItems.forEach(item => {
+    items.push({
+      id: item.productId,
+      quantity: item.productQuantity
+    });
+  });
+
+  fetch('/carrito/create-checkout-session', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      items: items
+    })
+  })
+    .then(res => {
+      if (res.ok) return res.json();
+      return res.json().then(json => Promise.reject(json));
+    })
+    .then(({ url }) => {
+      // window.location = url
+      console.log(url);
+    })
+    .catch(e => {
+      console.error(e.error);
+    });
+});
 
 renderItems();
