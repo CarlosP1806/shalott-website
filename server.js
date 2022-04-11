@@ -27,7 +27,9 @@ app.set('view engine', 'ejs');
 app.use(routes);
 
 app.get('*', (req, res) => {
-    res.render('404');
+    res.render('404', {
+        message: "Lo sentimos, la página que usted busca no se encuentra en el servidor"
+    });
 });
 
 db.once('open', () => {
