@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
-const bodyParser = require('body-parser');
 const Product = require('../../models/Product');
 require('dotenv').config();
 
@@ -12,20 +11,13 @@ router.get('/checkout', (req, res) => {
   res.render('checkout');
 });
 
-const fulfillOrder = async(req, res, next) => {
-  console.log(req.body);
-  res.status(200).json({ message: "succesfully handled" });
-}
-
-router.post('/webhook', fulfillOrder);
-
 router.post('/create-checkout-session', async (req, res) => {
   try {
     // Find all items with id in request
     const ids = req.body.items.map(item => {
-      return item.id ;
+      return item.id;
     });
-    const products = await Product.find({ '_id': { $in: ids }});
+    const products = await Product.find({ '_id': { $in: ids } });
     const lineItems = products.map(item => {
       const quantity = req.body.items.find(reqItem => reqItem.id = item.id).quantity;
       return {
@@ -42,9 +34,15 @@ router.post('/create-checkout-session', async (req, res) => {
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
+      shipping_address_collection: {
+        allowed_countries: ['MX'],
+      },
+      phone_number_collection: {
+        enabled: true,
+      },
       mode: 'payment',
       line_items: lineItems,
-      success_url: `${process.env.SERVER_URL}/success`,
+      success_url: `${process.env.SERVER_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.SERVER_URL}/cancel`
     });
     res.json({ url: session.url });
