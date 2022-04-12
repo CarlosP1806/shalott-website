@@ -94,5 +94,38 @@ cardContainer.addEventListener('click', event => {
   renderItems();
 });
 
+const checkoutForm = document.querySelector('.order__btn');
+checkoutForm.addEventListener('click', event => {
+  event.preventDefault();
+
+  // Get cart items
+  const items = [];
+  cartItems.forEach(item => {
+    items.push({
+      id: item.productId,
+      quantity: item.productQuantity
+    });
+  });
+
+  fetch('/carrito/create-checkout-session', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      items: items
+    })
+  })
+    .then(res => {
+      if (res.ok) return res.json();
+      return res.json().then(json => Promise.reject(json));
+    })
+    .then(({ url }) => {
+      window.location = url
+    })
+    .catch(e => {
+      console.error(e.error);
+    });
+});
 
 renderItems();
