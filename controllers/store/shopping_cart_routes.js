@@ -12,6 +12,13 @@ router.get('/checkout', (req, res) => {
   res.render('checkout');
 });
 
+const fulfillOrder = async(req, res, next) => {
+  console.log(req.body);
+  res.status(200).json({ message: "succesfully handled" });
+}
+
+router.post('/webhook', fulfillOrder);
+
 router.post('/create-checkout-session', async (req, res) => {
   try {
     // Find all items with id in request
@@ -46,32 +53,5 @@ router.post('/create-checkout-session', async (req, res) => {
   }
 });
 
-const fulfillOrder = (session) => {
-  // TODO: fill me in
-  console.log("Fulfilling order", session);
-}
-
-router.post('/webhook', bodyParser.raw({type: 'application/json'}), (request, response) => {
-  const payload = request.body;
-  const sig = request.headers['stripe-signature'];
-
-  let event;
-
-  try {
-    event = stripe.webhooks.constructEvent(payload, sig, endpointSecret);
-  } catch (err) {
-    return response.status(400).send(`Webhook Error: ${err.message}`);
-  }
-
-  // Handle the checkout.session.completed event
-  if (event.type === 'checkout.session.completed') {
-    const session = event.data.object;
-
-    // Fulfill the purchase...
-    fulfillOrder(session);
-  }
-
-  response.status(200);
-});
 
 module.exports = router;
