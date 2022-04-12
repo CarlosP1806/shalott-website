@@ -16,4 +16,12 @@ router.get('/', async (req, res) => {
   });
 });
 
+router.get('/success', (req, res) => {
+  res.render('404', { message: "¡Pedido realizado exitosamente!" });
+});
+
+router.get('/cancel', (req, res) => {
+  res.render('404', { message: "La transacción ha sido cancelada" });
+});
+
 module.exports = router;

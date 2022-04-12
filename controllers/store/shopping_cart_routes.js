@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
+const bodyParser = require('body-parser');
 const Product = require('../../models/Product');
 require('dotenv').config();
 
@@ -11,9 +12,15 @@ router.get('/checkout', (req, res) => {
   res.render('checkout');
 });
 
+const fulfillOrder = async(req, res, next) => {
+  console.log(req.body);
+  res.status(200).json({ message: "succesfully handled" });
+}
+
+router.post('/webhook', fulfillOrder);
+
 router.post('/create-checkout-session', async (req, res) => {
   try {
-
     // Find all items with id in request
     const ids = req.body.items.map(item => {
       return item.id ;
@@ -45,5 +52,6 @@ router.post('/create-checkout-session', async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+
 
 module.exports = router;
