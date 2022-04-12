@@ -1,8 +1,13 @@
+.message__main {
+    position: relative;
+    min-height: 50vh;
+}
+
 .message-404 {
-    position: fixed;
+    position: absolute;
     left: 50%;
-    transform: translateX(-50%);
-    margin-top: 10rem;
+    top: 50%;
+    transform: translate(-50%, -50%);
     font-size: var(--med-font);
     max-width: 600px;
     text-align: center;
