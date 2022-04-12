@@ -19,7 +19,7 @@ router.post('/create-checkout-session', async (req, res) => {
     });
     const products = await Product.find({ '_id': { $in: ids } });
     const lineItems = products.map(item => {
-      const quantity = req.body.items.find(reqItem => reqItem.id = item.id).quantity;
+      const quantity = req.body.items.find(reqItem => reqItem.id === item.id).quantity;
       return {
         price_data: {
           currency: 'mxn',
