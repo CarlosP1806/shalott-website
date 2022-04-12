@@ -24,10 +24,10 @@
 
 <body>
   <%- include("partials/navbar.ejs") %>
-    <main>
+    <main class="message__main">
       <div class="message-404">
         <p class="text text--med mb-1">
-          Lo sentimos, la página que usted busca no se encuentra en el servidor
+          <%= message %>
         </p>
         <a href="/" class="btn">Volver a Inicio</a>
       </div>

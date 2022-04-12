@@ -30,15 +30,18 @@ addToCartForm.addEventListener('submit', event => {
     cartItems.push(newItem);
   } else {
     const cartItemIndex = cartItems.findIndex(item => item.productId === productId);
-    cartItems[cartItemIndex].productQuantity = 
+    cartItems[cartItemIndex].productQuantity =
       parseInt(cartItems[cartItemIndex].productQuantity) + parseInt(itemQuantity);
+
+    if (cartItems[cartItemIndex].productQuantity > 5)
+      cartItems[cartItemIndex].productQuantity = 5;
   }
 
   saveCart();
 
   const successModal = document.querySelector('.add-cart-modal');
   const modalOverlay = document.querySelector('.modal__overlay');
-  
+
   successModal.classList.add('active');
   modalOverlay.classList.add('active');
   modalOverlay.addEventListener('click', () => {
