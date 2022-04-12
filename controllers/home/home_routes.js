@@ -23,16 +23,18 @@ router.get('/success', async (req, res) => {
     const customer = await stripe.customers.retrieve(session.customer);
     console.log(customer);
   } catch (e) {
-    res.render('404', {
-      message: "lo sentimos, la página que usted busca no se encuentra en el servidor"
+    res.render('message', {
+      message: "Lo sentimos, la página que usted busca no se encuentra en el servidor"
     });
     return;
   }
-  res.render('404', { message: "¡Pedido realizado exitosamente!" });
+  res.render('message', {
+    message: "¡Gracias por tu compra! En breve recibirás un correo con los detalles de tu pedido."
+  });
 });
 
 router.get('/cancel', (req, res) => {
-  res.render('404', { message: "La transacción ha sido cancelada" });
+  res.render('message', { message: "La transacción ha sido cancelada." });
 });
 
 module.exports = router;
