@@ -145,10 +145,27 @@ i.menu {
         font-size: 1.6rem;
         cursor: pointer;
         transition: .2s ease-in-out;
+        position: relative;
+    }
+
+    .nav__item--desktop a::after {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: -.5rem;
+        content: "";
+        background-color: var(--secondary-color);
+        height: 2px;
+        transform: scale(0);
+        transition: .2s ease-in-out;
+    }
+
+    .nav__item--desktop a:hover::after {
+        transform: scale(1);
     }
 
     .nav-desktop a:hover {
-        color: var(--text-light);
+        color: var(--secondary-color)
     }
 
     .header__social-media--desktop {

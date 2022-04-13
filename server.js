@@ -27,8 +27,8 @@ app.set('view engine', 'ejs');
 app.use(routes);
 
 app.get('*', (req, res) => {
-  res.render('404', {
-    message: "lo sentimos, la página que usted busca no se encuentra en el servidor"
+  res.render('message', {
+    message: "Lo sentimos, la página que usted busca no se encuentra en el servidor"
   });
 });
 

@@ -18,6 +18,7 @@ router.get('/', async (req, res) => {
   if (page && !isNaN(page) && page <= 0) page = 1;
 
   res.render('catalogue', { 
+    sort: sorted,
     page: page ? page : 1,
     products: products, 
     title: "Todos los productos", 
@@ -62,6 +63,8 @@ router.get('/categorias/:categoria', async (req, res) => {
   if (page && !isNaN(page) && page <= 0) page = 1;
 
   res.render('catalogue', { 
+    category: req.params.categoria,
+    sort: sorted,
     page: page ? page : 1,
     products: products, 
     title: req.params.categoria, 
@@ -106,6 +109,8 @@ router.get('/colecciones/:coleccion', async (req, res) => {
   if (page && !isNaN(page) && page <= 0) page = 1;
 
   res.render('catalogue', { 
+    collection: req.params.coleccion,
+    sort: sorted,
     page: page ? page : 1,
     products: products, 
     title: req.params.coleccion, 

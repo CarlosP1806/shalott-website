@@ -40,18 +40,32 @@
                 <option class="filter__option" value="todo">Todos</option>
                 <optgroup class="filter__option" label="Categorias">
                   <% for(let i = 0; i < selectCategories.length; i++) { %>
-                    <option class="filter__option" 
-                      value="categoria <%= selectCategories[i].name %>">
-                      <%= selectCategories[i].name.charAt(0).toUpperCase() + selectCategories[i].name.slice(1) %>
-                    </option>
+                    <% if (locals.category === selectCategories[i].name) { %>
+                      <option class="filter__option" selected 
+                        value="categoria <%= selectCategories[i].name %>">
+                        <%= selectCategories[i].name.charAt(0).toUpperCase() + selectCategories[i].name.slice(1) %>
+                      </option>
+                    <% } else { %>
+                      <option class="filter__option" 
+                        value="categoria <%= selectCategories[i].name %>">
+                        <%= selectCategories[i].name.charAt(0).toUpperCase() + selectCategories[i].name.slice(1) %>
+                      </option>
+                    <% } %>
                   <% } %>
                 </optgroup>
                 <optgroup class="filter__option" label="Colecciones">
                   <% for(let i = 0; i < selectCollections.length; i++) { %>
-                    <option class="filter__option" 
+                    <% if (locals.collection === selectCollections[i].name) { %>
+                    <option class="filter__option" selected 
                       value="coleccion <%= selectCollections[i].name %>">
                       <%= selectCollections[i].name.charAt(0).toUpperCase() + selectCollections[i].name.slice(1) %>
                     </option>
+                    <% } else { %>
+                      <option class="filter__option" 
+                        value="coleccion <%= selectCollections[i].name %>">
+                        <%= selectCollections[i].name.charAt(0).toUpperCase() + selectCollections[i].name.slice(1) %>
+                      </option>
+                    <% } %>
                   <% } %>
                 </optgroup>
               </select>
@@ -60,9 +74,19 @@
             <form class="filter-form" id="sort-form">
               <label class="filter__label filter__label--right">Ordenar por:</label>
               <select class="filter__select" id="sort-select">
-                <option class="filter__option" value="" selected>-- Selecciona orden --</option>
-                <option class="filter__option" value="asc">Precio - Ascendente</option>
-                <option class="filter__option" value="desc">Precio - Descendente</option>
+                <% if (!locals.sort) { %>
+                  <option class="filter__option" value="" selected>-- Selecciona orden --</option>
+                <% } %>
+                <% if(locals.sort == "asc") { %>
+                  <option class="filter__option" value="asc" selected>Precio - Ascendente</option>
+                <% } else { %>
+                  <option class="filter__option" value="asc">Precio - Ascendente</option>
+                <% } %>
+                <% if(locals.sort == "desc") { %>
+                  <option class="filter__option" value="desc" selected>Precio - Descendente</option>
+                <% } else { %>
+                  <option class="filter__option" value="desc">Precio - Descendente</option>
+                <% } %>
               </select>
             </form>
             <% } %>
@@ -70,14 +94,14 @@
         </div>
         <% if(groups === false) { %>
           <div class="card-container">
-            <% for(let i = 4*(page-1); i < products.length && i < 4*page; i++) { %>
+            <% for(let i = 8*(page-1); i < products.length && i < 8*page; i++) { %>
               <%- include("partials/product_card.ejs", { productData: products[i]}) %>
             <% } %>
           </div>
         <% } %>
         <% if(groups === true) { %>
           <div class="card-container">
-            <% for(let i = 4*(page-1); i < products.length && i < 4*page; i++) { %>
+            <% for(let i = 8*(page-1); i < products.length && i < 8*page; i++) { %>
               <% if(collections === false) { %>
                 <%- include("partials/category_card.ejs", { category: products[i]}) %>
               <% } %>
@@ -91,7 +115,7 @@
         <div class="catalogue__nav">
           <i class='bx bxs-left-arrow catalogue__arrow <%= page <= 1 ? "inactive" : "" %>' 
             id="prev-page"></i>
-          <i class='bx bxs-right-arrow catalogue__arrow <%= page>=products.length / 4 ? "inactive" : "" %>' 
+          <i class='bx bxs-right-arrow catalogue__arrow <%= page>=products.length / 8 ? "inactive" : "" %>' 
             id="next-page"></i>
         </div>
       </div>
