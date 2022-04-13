@@ -37,3 +37,7 @@ window.addEventListener("load", () => {
     }
   }
 });
+
+document.querySelector('.carousel__next').addEventListener('click', () => {
+  alert("click");
+})
