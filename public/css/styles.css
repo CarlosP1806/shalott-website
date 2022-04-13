@@ -293,7 +293,6 @@ section {
 
 .card__description {
     font-style: italic;
-    margin-bottom: .1rem;
     text-transform: capitalize;
 }
 
