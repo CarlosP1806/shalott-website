@@ -29,6 +29,7 @@ window.addEventListener("load", () => {
   });
 
   glider.refresh(true);
+  glider.removeItem(0);
 });
 
 if (window.matchMedia('(min-width: 1200px)').matches) {
