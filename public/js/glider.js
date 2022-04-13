@@ -2,6 +2,7 @@ const numberCollections =
   parseInt(document.querySelector('.section--collections').dataset.numberCollections);
 
 window.addEventListener("load", () => {
+  console.log("hi");
   const glider = new Glider(document.querySelector('.carousel__list'), {
     slidesToShow: 1,
     slidesToScroll: 1,
