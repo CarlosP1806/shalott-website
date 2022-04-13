@@ -32,9 +32,13 @@
         <a href="/" class="btn">Volver a Inicio</a>
       </div>
     </main>
-  <%- include("partials/footer.ejs") %>
+    <%- include("partials/footer.ejs") %>
 
-      <script src="/js/navbar.js"></script>
+    <script src="/js/navbar.js"></script>
+
+    <% if (locals.success === true) { %>
+      <script src="/js/message_success.js"></script>
+    <% } %>
 </body>
 
 </html>

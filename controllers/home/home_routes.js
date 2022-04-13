@@ -62,7 +62,8 @@ router.get('/success', async (req, res) => {
     return;
   }
   res.render('message', {
-    message: "¡Gracias por tu compra! En breve recibirás un correo con los detalles de tu pedido."
+    message: "¡Gracias por tu compra! En breve recibirás un correo con los detalles de tu pedido.",
+    success: true
   });
 });
 
