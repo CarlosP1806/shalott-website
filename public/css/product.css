@@ -41,11 +41,13 @@
 
 .modal__text {
     font-size: var(--med-font);
-    color: var(--text-color)
+    color: var(--text-color);
+    text-align: center;
 }
 
 .modal__buttons {
     display: flex;
+    justify-content: space-around;
     gap: 1rem;
     margin-top: 1rem;
 }
