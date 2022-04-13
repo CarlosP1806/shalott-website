@@ -216,25 +216,8 @@
     overflow: hidden;
 }
 
-.collections__carousel .slick-dots {
-    position: relative;
-    display: flex;
-    bottom: 1.5rem;
-    justify-content: center;
-}
-
-.collections__carousel .slick-dots li button::before {
-    font-size: 1.5rem;
-}   
-
-.collections__carousel .slick-dots li.slick-active button::before {
-    color: var(--secondary-color);
-    opacity: 1;
-}
-
-.collections__carousel .slick-dots li:hover button::before {
-    color: var(--secondary-color);
-    opacity: 1;
+.carousel__indicators .glider-dot.active {
+    background: var(--secondary-color);
 }
 
 .carousel__item {
@@ -255,7 +238,7 @@
     position: absolute;
     display: inline-block;
     padding: 1rem 1.2rem;
-    bottom: -0.5rem;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
