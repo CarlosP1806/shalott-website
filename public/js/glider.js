@@ -21,8 +21,8 @@ window.addEventListener("load", () => {
       {
         breakpoint: 1200,
         settings: {
-          slidesToShow: numberCollections >= 4 ? 4 : numberCollections,
-          slidesToScroll: numberCollections >= 4 ? 4 : numberCollections
+          slidesToShow: 4,
+          slidesToScroll: 4
         }
       }
     ]
