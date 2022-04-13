@@ -2,8 +2,7 @@ const numberCollections =
   parseInt(document.querySelector('.section--collections').dataset.numberCollections);
 
 window.addEventListener("load", () => {
-  alert("loaded");
-  new Glider(document.querySelector('.carousel__list'), {
+  const glider = new Glider(document.querySelector('.carousel__list'), {
     slidesToShow: 1,
     slidesToScroll: 1,
     dots: '.carousel__indicators',
@@ -28,6 +27,8 @@ window.addEventListener("load", () => {
       }
     ]
   });
+
+  glider.refresh(true);
 });
 
 if (window.matchMedia('(min-width: 1200px)').matches) {
