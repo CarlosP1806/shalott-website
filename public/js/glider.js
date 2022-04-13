@@ -37,4 +37,5 @@ window.addEventListener("load", () => {
       carouselPrev.style.display = "none";
     }
   }
+  console.log("glider set");
 });
