@@ -5,7 +5,6 @@ window.addEventListener("load", () => {
   $('.carousel__list').slick({
     dots: true,
     infinite: true,
-    speed: 300,
     prevArrow: '.carousel__prev',
     nextArrow: '.carousel__next',
     appendDots: '.carousel__indicators',
