@@ -26,7 +26,7 @@ router.get('/success', async (req, res) => {
 
     // Send verification email
     let transporter = nodemailer.createTransport({
-      service: "gmail",
+      service: "outlook",
       auth: {
         user: process.env.DB_SERVER_EMAIL,
         pass: process.env.DB_SERVER_PASSWORD
