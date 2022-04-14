@@ -74,13 +74,19 @@
     transition: .5s ease-in-out;
 }
 
-.banner__text {
-    color: white;   
-    text-align: center;
+.banner__content {
     position: absolute;
     top: 50%;
     left: 50vw;
     transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.banner__text {
+    color: white;   
+    text-align: center;
     max-width: 80vw;
     font-size: var(--med-font);
     text-transform: uppercase;
@@ -89,10 +95,7 @@
 }
 
 .banner__btn {
-    position: absolute;
-    top: 70%;
-    left: 50vw;
-    transform: translate(-50%, -50%);
+    margin-top: 1.5rem;
     background-color: white;
     color: var(--text-color);
     font-weight: bold;
