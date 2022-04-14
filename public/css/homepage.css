@@ -216,7 +216,23 @@
     overflow: hidden;
 }
 
-.carousel__indicators .glider-dot.active {
+.glide__bullets {
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    margin-top: .5rem;
+}
+
+.glide__bullet {
+    cursor: pointer;
+    width: 1.4rem;
+    height: 1.4rem;
+    background: #EEE;
+    border-radius: 50%;
+    border: 1px solid #AAA;
+}
+
+.glide__bullet--active {
     background: var(--secondary-color);
 }
 
