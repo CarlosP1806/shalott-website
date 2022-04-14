@@ -38,6 +38,10 @@
     margin-top: 1.2rem;
 }
 
+.contact-form {
+    margin-top: 3rem;
+}
+
 #message {
     background: none;
     resize: none;
@@ -126,6 +130,10 @@
 @media screen and (min-width: 768px) {
     .contact__container {
         flex-direction: row;
+    }
+
+    .contact-form {
+        margin-top: 0;
     }
 
     .contact__left, .contact__right {
