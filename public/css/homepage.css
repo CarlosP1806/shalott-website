@@ -227,9 +227,9 @@
     cursor: pointer;
     width: 1.4rem;
     height: 1.4rem;
-    background: #EEE;
+    background: rgb(244, 244, 244);
     border-radius: 50%;
-    border: 1px solid #AAA;
+    border: 1px solid #BBB;
 }
 
 .glide__bullet--active {
