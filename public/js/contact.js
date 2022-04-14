@@ -26,6 +26,9 @@ contactForm.addEventListener('submit', async (event) => {
     document.getElementById("email").value = "";
     document.getElementById("phone").value = "";
     document.getElementById("message").value = "";
+
+    document.querySelector('.email-modal').classList.add('active');
+    document.querySelector('.modal__overlay').classList.add('active');
   } else {
     console.log("error");
   }
