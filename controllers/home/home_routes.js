@@ -18,6 +18,49 @@ router.get('/', async (req, res) => {
   });
 });
 
+router.get('/sobre-nosotros', (req, res) => {
+  res.render('about_us');
+});
+
+router.get('/contacto', (req, res) => {
+  res.render('contact');
+});
+
+router.post('/contacto/solicitud', (req, res) => {
+  const { name, email, phone, message } = req.body;
+  let transporter = nodemailer.createTransport({
+    service: "outlook",
+    auth: {
+      user: process.env.DB_SERVER_EMAIL,
+      pass: process.env.DB_SERVER_PASSWORD
+    }
+  });
+
+  const html = `
+    <p>El cliente ${name} ha solicitado contacto. Estos son sus datos:</p>
+    <p>Email: ${email}</p>
+    <p>Teléfono: ${phone}</p>
+    <p>Ha dejado el siguiente mensaje:</p>
+    <p>${message}</p>
+  `;
+
+  let mailOptions = {
+    from: process.env.DB_SERVER_EMAIL,
+    to: process.env.DB_SERVER_EMAIL,
+    subject: "Nueva solicitud de contacto",
+    html: html
+  };
+
+  transporter.sendMail(mailOptions, function (err, data) {
+    if (err) {
+      console.log(err);
+      res.status(500).json("Error enviando correo");
+    } else {
+      res.status(200).json("Email enviado correctamente");
+    }
+  });
+});
+
 router.get('/success', async (req, res) => {
   try {
     const session = await stripe.checkout.sessions.retrieve(req.query.session_id);

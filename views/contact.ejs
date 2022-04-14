@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shalott | Contacto</title>
+
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/contact.css" />
+  <link rel="stylesheet" href="/css/navbar.css">
+  <link rel="stylesheet" href="/css/footer.css">
+
+  <meta name="theme-color" content="e1d3cf">
+  <link rel="icon" type="image/x-icon" href="/images/ShalottFavIcon.png">
+
+  <!-- Font awesome link-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Box icons -->
+  <link href='https://unpkg.com/boxicons@2.0.8/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+  <%- include("partials/navbar.ejs") %>
+  <main>
+    <section class="section section--contact">
+      <div class="section__content">
+        <div class="contact__container">
+          <div class="contact__left">
+            <h1 class="contact__title text text--med">Contáctanos</h1>
+            <p class="contact__text text text--small">
+              Si tienes alguna pregunta sobre nuestros productos, entregas
+              o servicios, no dudes en dejarnos un mensaje. Trataremos de ponernos en 
+              contacto contigo en un máximo de 5 días laborales. 
+            </p>
+            <p class="contact__text text text--small">
+              Además, puedes contactarnos a través de los siguientes medios:
+            </p>
+            <ul class="contact__list">
+              <li class="contact__item text text--small">Email: shalottjoyerias@gmail.com</li>
+              <li class="contact__item text text--small">Teléfono: 442 123 4567</li>
+            </ul>
+          </div>
+          <div class="contact__right">
+            <form class="form contact-form">
+              <div class="form-row">
+                <label for="name">Nombre completo:</label>
+                <input type="text" id="name" required>
+              </div>
+              <div class="form-row">
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+              </div>
+              <div class="form-row">
+                <label for="phone">Teléfono:</label>
+                <input type="text" id="phone" required>
+              </div>
+              <div class="form-row">
+                <label for="message">Deja tu mensaje:</label>
+                <textarea id="message" cols="30" rows="6" required></textarea>
+              </div>
+              <button class="btn contact-btn">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <%- include("partials/footer.ejs") %>
+
+
+  <div class="email-modal">
+    <div class="modal__text">
+      ¡Mensaje enviado correctamente!
+    </div>
+    <div class="modal__buttons">
+      <a href="/" class="modal__btn btn--primary">Volver a Inicio</a>
+    </div>
+  </div>
+  <div class="modal__overlay"></div>
+
+
+  <script src="/js/navbar.js"></script>
+  <script src="/js/contact.js"></script>
+</body>
+
+</html>

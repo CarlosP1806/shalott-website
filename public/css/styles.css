@@ -140,6 +140,18 @@ a {
     color: var(--text-dark);
 }
 
+.btn--outline {
+    background-color: none;
+    color: var(--text-color);
+    border: 2px solid var(--secondary-color);
+}
+
+.btn--outline:hover {
+    opacity: 1;
+    background-color: white;
+    color: black;
+}
+
 .btn:hover {
     opacity: .8;
 }
