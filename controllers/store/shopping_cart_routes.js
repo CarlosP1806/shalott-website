@@ -7,10 +7,6 @@ router.get('/', (req, res) => {
   res.render('shopping_cart');
 });
 
-router.get('/checkout', (req, res) => {
-  res.render('checkout');
-});
-
 router.post('/create-checkout-session', async (req, res) => {
   try {
     // Find all items with id in request
