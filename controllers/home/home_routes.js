@@ -18,6 +18,10 @@ router.get('/', async (req, res) => {
   });
 });
 
+router.get('/sobre-nosotros', (req, res) => {
+  res.render('about_us');
+});
+
 router.get('/success', async (req, res) => {
   try {
     const session = await stripe.checkout.sessions.retrieve(req.query.session_id);
