@@ -146,6 +146,12 @@ a {
     border: 2px solid var(--secondary-color);
 }
 
+.btn--white {
+    background-color: white;
+    color: var(--text-color);
+    border: 2px solid var(--secondary-color);
+}
+
 .btn--outline:hover {
     opacity: 1;
     background-color: white;
