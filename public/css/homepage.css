@@ -112,28 +112,28 @@
 
 #banner-1 {
     background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), 
-    url("/images/ShalottBanner1.webp");
+    url("/images/ShalottBannerDesktop1.jpg");
     background-position: center;
     background-size: cover;
 }
 
 #banner-2 {
     background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), 
-    url("/images/ShalottBanner2.webp");
+    url("/images/ShalottBannerDesktop2.jpg");
     background-position: center;
     background-size: cover;
 }
 
 #banner-3 {
     background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), 
-    url("/images/ShalottBanner3.webp");
+    url("/images/ShalottBannerDesktop3.jpg");
     background-position: center;
     background-size: cover;
 }
 
 #banner-4 {
     background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), 
-    url("/images/ShalottBanner4.webp");
+    url("/images/ShalottBannerDesktop4.jpg");
     background-position: center;
     background-size: cover;
 }
@@ -146,6 +146,13 @@
     .banner__text {
         font-size: 3rem;
         letter-spacing: 4px;
+    }
+
+    #banner-2 {
+        background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), 
+        url("/images/ShalottBannerDesktop2.jpg");
+        background-position: center;
+        background-size: cover;
     }
 
     .banner__btn {
