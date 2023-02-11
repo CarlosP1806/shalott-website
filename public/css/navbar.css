@@ -144,7 +144,6 @@ i.menu {
     .nav__item--desktop a {
         font-size: 1.6rem;
         cursor: pointer;
-        transition: .2s ease-in-out;
         position: relative;
     }
 
