@@ -87,7 +87,7 @@ createForm.addEventListener("submit", async event => {
   const collectionInputElement = document.querySelector('#create-product__collection');
   const imageInputElement = document.querySelector('#create-product__image');
 
-  const response = await fetch('/admin/create', {
+  const response = await fetch('/admin/product', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -122,7 +122,7 @@ deleteForm.addEventListener("submit", async event => {
 
   const idInputElement = document.querySelector('#delete-product__id');
 
-  const response = await fetch("/admin/delete", {
+  const response = await fetch("/admin/product", {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json"
@@ -152,7 +152,7 @@ editForm.addEventListener('submit', async event => {
   const imageInputElement = document.querySelector('#edit-product__image');
   const checkedInputElement = document.querySelector('#edit-product__highlight');
 
-  const response = await fetch('/admin/update', {
+  const response = await fetch('/admin/product', {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
