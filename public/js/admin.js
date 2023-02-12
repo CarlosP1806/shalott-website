@@ -196,7 +196,7 @@ createCollectionForm.addEventListener('submit', async event => {
     image: imageInputElement.value
   }
 
-  const response = await fetch('/admin/create/collection', {
+  const response = await fetch('/admin/collection', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -221,7 +221,7 @@ deleteCollectionForm.addEventListener('submit', async event => {
 
   if (!nameInputElement.value) return;
 
-  const response = await fetch("/admin/delete/collection", {
+  const response = await fetch("/admin/collection", {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json"
@@ -251,7 +251,7 @@ createCategoryForm.addEventListener('submit', async event => {
     image: imageInputElement.value
   }
 
-  const response = await fetch('/admin/create/category', {
+  const response = await fetch('/admin/category', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -276,7 +276,7 @@ deleteCategoryForm.addEventListener('submit', async event => {
 
   if (!nameInputElement.value) return;
 
-  const response = await fetch("/admin/delete/category", {
+  const response = await fetch("/admin/category", {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json"

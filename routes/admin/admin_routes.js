@@ -22,10 +22,13 @@ router.route('/product')
   .delete(deleteProduct)
   .put(updateProduct);
 
-router.route('/create/collection').post(createCollection);
-router.route('/delete/collection').delete(deleteCollection);
 
-router.route('/create/category').post(createCategory);
-router.route('/delete/category').delete(deleteCategory);
+router.route('/collection')
+  .post(createCollection)
+  .delete(deleteCollection);
+
+router.route('/category')
+  .post(createCategory)
+  .delete(deleteCategory);
 
 module.exports = router;
