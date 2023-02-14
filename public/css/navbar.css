@@ -145,6 +145,7 @@ i.menu {
         font-size: 1.6rem;
         cursor: pointer;
         position: relative;
+        transition: .2s ease-in-out;
     }
 
     .nav__item--desktop a::after {
