@@ -58,7 +58,7 @@ const productSeed =
     {
       "productId": "0001",
       "productName": "Aretes Bonitos 1",
-      "productImage": "https://res.cloudinary.com/df816mhgy/image/upload/v1647901163/shalott/Product1_d0webg.webp",
+      "productImage": "https://res.cloudinary.com/df816mhgy/image/upload/v1653522648/shalott/AretesCorazonSimetrico_whbimf.jpg",
       "productPrice": 250,
       "productCollection": "coleccion 1",
       "productCategory": "aretes",
@@ -129,30 +129,22 @@ const productSeed =
     }
   ];
 
-Admin.deleteMany({})
-  .then(() => Admin.insertMany(adminSeed))
-  .then(() => {
-    console.log('Records inserted');
-  })
-  .catch(err => console.log(err));
 
-Product.deleteMany({})
-  .then(() => Product.insertMany(productSeed))
-  .then(() => {
-    console.log('Records inserted');
-  })
-  .catch(err => console.log(err));
+async function seeder() {
+  await Admin.deleteMany({});
+  await Admin.insertMany(adminSeed);
 
-Category.deleteMany({})
-  .then(() => Category.insertMany(categorySeed))
-  .then(() => {
-    console.log('Records inserted');
-  })
-  .catch(err => console.log(err));
+  await Product.deleteMany({});
+  await Product.insertMany(productSeed);
 
-Collection.deleteMany({})
-  .then(() => Collection.insertMany(collectionSeed))
-  .then(() => {
-    console.log('Records inserted');
-  })
-  .catch(err => console.log(err));
+  await Category.deleteMany({})
+  await Category.insertMany(categorySeed);
+
+  await Collection.deleteMany({});
+  await Collection.insertMany(collectionSeed);
+
+  console.log('Records inserted');
+  process.exit(0);
+}
+
+seeder();
