@@ -49,7 +49,7 @@ footer {
     font-size: 3rem;
     color: var(--secondary-color);
     cursor: pointer;
-    transition: .2s ease-in-out;
+    transition: transform .2s ease-in-out;
 }
 
 .footer__copyright {

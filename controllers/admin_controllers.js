@@ -1,21 +1,19 @@
-const router = require('express').Router();
-const Admin = require('../../models/Admin');
-const Product = require('../../models/Product');
-const Category = require('../../models/Category');
-const Collection = require('../../models/Collection');
+const Admin = require('../models/Admin');
+const Product = require('../models/Product');
+const Category = require('../models/Category');
+const Collection = require('../models/Collection');
 
-router.get('/', async (req, res) => {
-  if (req.session.userId) {
-    const categories = await Category.find({});
-    const collections = await Collection.find({});
-    res.render('admin_dashboard', { categories, collections });
-  } else {
-    res.render('admin_login');
-  }
-});
+async function renderDashboard(req, res) {
+    if (req.session.userId) {
+        const categories = await Category.find({});
+        const collections = await Collection.find({});
+        res.render('admin_dashboard', { categories, collections });
+    } else {
+        res.render('admin_login');
+    }
+}
 
-router.post('/login', async (req, res) => {
-
+async function login(req, res) {
   const admin = await Admin.findOne({ username: req.body.username });
   if (!admin) {
     res.status(500).json('Invalid username');
@@ -29,9 +27,9 @@ router.post('/login', async (req, res) => {
   } else {
     res.status(500).json('Invalid credentials');
   }
-});
+};
 
-router.get('/search/:id', async (req, res) => {
+async function searchById(req, res) {
   try {
     const product = await Product.findOne({ productId: req.params.id });
     if (!product) {
@@ -42,18 +40,18 @@ router.get('/search/:id', async (req, res) => {
   } catch(err) {
     res.status(500).json(err);
   }
-});
+}
 
-router.post('/create/', async (req, res) => {
+async function createProduct(req, res) {
   try {
     const product = await Product.create(req.body);
     res.status(200).json(product);
   } catch (err) {
     res.status(500).json(err);
   }
-});
+}
 
-router.delete('/delete/', async (req, res) => {
+async function deleteProduct(req, res) {
   try {
     const product = await Product.findOneAndDelete({ productId: req.body.id });
     if(!product) {
@@ -64,9 +62,9 @@ router.delete('/delete/', async (req, res) => {
   } catch(err) {
     res.status(500).json(err);
   }
-});
+}
 
-router.put('/update/', async (req, res) => {
+async function updateProduct(req, res) {
   try {
     const product = await Product.findOneAndUpdate({ productId: req.body.id }, req.body )
     if(!product) {
@@ -75,20 +73,21 @@ router.put('/update/', async (req, res) => {
     }
     res.status(200).json(product);
   } catch(err) {
+    console.log(err);
     res.status(500).json(err);
   }
-});
+}
 
-router.post('/create/collection/', async (req, res) => {
+async function createCollection(req, res) {
   try {
     const collection = await Collection.create(req.body);
     res.status(200).json(collection);
   } catch(err) {
     res.status(500).json(err);
   } 
-});
+}
 
-router.delete('/delete/collection/', async (req, res) => {
+async function deleteCollection(req, res) {
   try {
     const collection = await Collection.findOneAndDelete({ name: req.body.name });
     if(!collection) {
@@ -100,18 +99,18 @@ router.delete('/delete/collection/', async (req, res) => {
   } catch(err) {
     res.status(500).json(err);
   }
-});
+}
 
-router.post('/create/category/', async (req, res) => {
+async function createCategory(req, res) {
   try {
     const category = await Category.create(req.body);
     res.status(200).json(category);
   } catch(err) {
     res.status(500).json(err);
   } 
-});
+}
 
-router.delete('/delete/category/', async (req, res) => {
+async function deleteCategory(req, res) {
   try {
     const category = await Category.findOneAndDelete({ name: req.body.name });
     if(!category) {
@@ -122,6 +121,17 @@ router.delete('/delete/category/', async (req, res) => {
   } catch(err) {
     res.status(500).json(err);
   }
-});
+}
 
-module.exports = router;
+module.exports = {
+    renderDashboard,
+    login,
+    searchById,
+    createProduct,
+    deleteProduct,
+    updateProduct,
+    createCategory,
+    deleteCategory,
+    createCollection,
+    deleteCollection
+};

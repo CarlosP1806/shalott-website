@@ -1,13 +1,12 @@
-const router = require('express').Router();
 const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
-const Product = require('../../models/Product');
+const Product = require('../models/Product');
 require('dotenv').config();
 
-router.get('/', (req, res) => {
+async function renderShoppingCart(req, res) {
   res.render('shopping_cart');
-});
+}
 
-router.post('/create-checkout-session', async (req, res) => {
+async function createCheckoutSession(req, res) {
   try {
     // Find all items with id in request
     const ids = req.body.items.map(item => {
@@ -45,7 +44,9 @@ router.post('/create-checkout-session', async (req, res) => {
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
-});
+}
 
-
-module.exports = router;
+module.exports = {
+    renderShoppingCart,
+    createCheckoutSession
+}

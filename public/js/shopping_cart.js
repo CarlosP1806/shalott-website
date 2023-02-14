@@ -1,11 +1,62 @@
 const LOCAL_STORAGE_CART_KEY = 'shalott.cart';
+const MAX_CART_ITEMS = 5;
+
 const cartItems = JSON.parse(localStorage.getItem(LOCAL_STORAGE_CART_KEY)) || [];
+
+const cardContainer = document.querySelector('.cart__container');
+const checkoutForm = document.querySelector('.order__btn');
 
 function saveCart() {
   localStorage.setItem(LOCAL_STORAGE_CART_KEY, JSON.stringify(cartItems));
 }
 
-const cardContainer = document.querySelector('.cart__container');
+function createItemCard(template, item) {
+  const cardElement = template.querySelector('.cart-card');
+  cardElement.id = item.productId;
+
+  const cartImage = template.querySelector('.cart__image');
+  cartImage.src = item.productImage;
+
+  const cartLink = template.querySelector('.cart__link');
+  cartLink.href = `/catalogo/producto/${item.productSlug}`;
+
+  const cartName = template.querySelector('.cart__name');
+  cartName.textContent = item.productName;
+
+  const cartPrice = template.querySelector('.cart__price');
+  cartPrice.textContent = parseFloat(item.productPrice).toFixed(2);
+
+  const cartQuantity = template.querySelector('.cart__quantity');
+  cartQuantity.textContent = item.productQuantity;
+
+  const cartSubtotal = template.querySelector('.cart__subtotal');
+  cartSubtotal.textContent =
+    parseFloat(item.productQuantity * item.productPrice).toFixed(2);
+
+  cardContainer.append(template);
+}
+
+function renderEmptyMessage() {
+  const cartWrapper = document.querySelector('.cart-wrapper');
+  cartWrapper.innerHTML = "";
+
+  const emptyMessageContainer = document.createElement('div');
+  emptyMessageContainer.classList.add('cart-empty-message');
+  const message = document.createElement('p');
+  message.textContent = 'El carrito está vacío';
+  message.classList.add('text');
+  message.classList.add('text--med');
+  emptyMessageContainer.appendChild(message);
+  const button = document.createElement('a');
+  button.classList.add('btn');
+  button.classList.add('mt-1');
+  button.textContent = "Ir a tienda";
+  button.href = "/catalogo";
+  emptyMessageContainer.appendChild(button);
+
+  cartWrapper.appendChild(emptyMessageContainer);
+}
+
 function renderItems() {
   cardContainer.innerHTML = "";
   const cartCardTemplate = document.querySelector('#cart-card-template');
@@ -15,55 +66,15 @@ function renderItems() {
 
   cartItems.forEach(item => {
     const cartItem = document.importNode(cartCardTemplate.content, true);
-
-    const cardElement = cartItem.querySelector('.cart-card');
-    cardElement.id = item.productId;
-
-    const cartImage = cartItem.querySelector('.cart__image');
-    cartImage.src = item.productImage;
-
-    const cartLink = cartItem.querySelector('.cart__link');
-    cartLink.href = `/catalogo/producto/${item.productSlug}`;
-
-    const cartName = cartItem.querySelector('.cart__name');
-    cartName.textContent = item.productName;
-
-    const cartPrice = cartItem.querySelector('.cart__price');
-    cartPrice.textContent = parseFloat(item.productPrice).toFixed(2);
-
-    const cartQuantity = cartItem.querySelector('.cart__quantity');
-    cartQuantity.textContent = item.productQuantity;
-
-    const cartSubtotal = cartItem.querySelector('.cart__subtotal');
-    cartSubtotal.textContent =
-      parseFloat(item.productQuantity * item.productPrice).toFixed(2);
-
-    cardContainer.append(cartItem);
+    
+    createItemCard(cartItem, item);
 
     totalProducts += parseInt(item.productQuantity);
     totalPrice += item.productQuantity * item.productPrice;
   });
 
   if (totalProducts == 0) {
-    const cartWrapper = document.querySelector('.cart-wrapper');
-    cartWrapper.innerHTML = "";
-
-    // Show cart empty message
-    const emptyMessageContainer = document.createElement('div');
-    emptyMessageContainer.classList.add('cart-empty-message');
-    const message = document.createElement('p');
-    message.textContent = 'El carrito está vacío';
-    message.classList.add('text');
-    message.classList.add('text--med');
-    emptyMessageContainer.appendChild(message);
-    const button = document.createElement('a');
-    button.classList.add('btn');
-    button.classList.add('mt-1');
-    button.textContent = "Ir a tienda";
-    button.href = "/catalogo";
-    emptyMessageContainer.appendChild(button);
-
-    cartWrapper.appendChild(emptyMessageContainer);
+    renderEmptyMessage();
   }
 
   document.querySelector('#total-products').textContent = totalProducts;
@@ -71,22 +82,21 @@ function renderItems() {
 }
 
 cardContainer.addEventListener('click', event => {
-  if (event.target.classList.contains('cart__button')) {
-    const card = event.target.closest('.cart-card ');
+  if (!event.target.classList.contains('cart__button')) {
+    return
+  }
 
-    const itemIndex = cartItems.findIndex(item => item.productId === card.id);
-    if (event.target.id === 'cart__add') {
-      if (cartItems[itemIndex].productQuantity < 5) {
-        cartItems[itemIndex].productQuantity =
-          parseInt(cartItems[itemIndex].productQuantity) + 1;
-      }
+  const card = event.target.closest('.cart-card ');
+  const itemIndex = cartItems.findIndex(item => item.productId === card.id);
+  const item = cartItems[itemIndex];
+
+  if (event.target.id === 'cart__add') {
+    item.productQuantity = Math.min(parseInt(item.productQuantity)+1, MAX_CART_ITEMS);
+  } else {
+    if (item.productQuantity == 1) {
+      cartItems.splice(itemIndex, 1);
     } else {
-      if (cartItems[itemIndex].productQuantity == 1) {
-        cartItems.splice(itemIndex, 1);
-      } else {
-        cartItems[itemIndex].productQuantity =
-          parseInt(cartItems[itemIndex].productQuantity) - 1;
-      }
+      item.productQuantity--;
     }
   }
 
@@ -94,8 +104,7 @@ cardContainer.addEventListener('click', event => {
   renderItems();
 });
 
-const checkoutForm = document.querySelector('.order__btn');
-checkoutForm.addEventListener('click', event => {
+function handleCheckoutSubmission(event) {
   event.preventDefault();
 
   // Get cart items
@@ -126,6 +135,8 @@ checkoutForm.addEventListener('click', event => {
     .catch(e => {
       console.error(e.error);
     });
-});
+}
+
+checkoutForm.addEventListener('click', handleCheckoutSubmission);
 
 renderItems();

@@ -1,10 +1,8 @@
-const router = require('express').Router();
-const Product = require('../../models/Product');
-const Category = require('../../models/Category');
-const Collection = require('../../models/Collection');
+const Product = require('../models/Product');
+const Category = require('../models/Category');
+const Collection = require('../models/Collection');
 
-// GET all products
-router.get('/', async (req, res) => {
+async function getProducts(req, res) {
   let sorted = req.query.sort; 
   if (sorted && sorted !== "asc" && sorted !== "desc") sorted = null;
   let products;
@@ -26,10 +24,9 @@ router.get('/', async (req, res) => {
     collections: false,
     selectCategories,
     selectCollections });
-});
+}
 
-// GET all categories
-router.get('/categorias', async (req, res) => {
+async function getCategories(req, res) {
   const categories = await Category.find({});
   const selectCategories = await Category.find({});
   const selectCollections = await Collection.find({});
@@ -45,10 +42,9 @@ router.get('/categorias', async (req, res) => {
     collections : false,
     selectCategories,
     selectCollections });
-});
+}
 
-// GET products from given category
-router.get('/categorias/:categoria', async (req, res) => {
+async function getCategoryProducts(req, res) {
   let sorted = req.query.sort; 
   if (sorted && (sorted !== "asc" && sorted !== "desc")) sorted = null;
   let products;
@@ -72,10 +68,9 @@ router.get('/categorias/:categoria', async (req, res) => {
     collections: false,
     selectCategories,
     selectCollections });
-});
+}
 
-// GET all collections
-router.get('/colecciones', async (req, res) => {
+async function getCollections(req, res) {
   const collections = await Collection.find({});
   const selectCategories = await Category.find({});
   const selectCollections = await Collection.find({});
@@ -91,10 +86,9 @@ router.get('/colecciones', async (req, res) => {
     collections: true,
     selectCategories,
     selectCollections });
-});
+}
 
-// GET products from given collection
-router.get('/colecciones/:coleccion', async (req, res) => {
+async function getCollectionProducts(req, res) {
   let sorted = req.query.sort; 
   if (sorted && (sorted !== "asc" && sorted !== "desc")) sorted = null;
   let products;
@@ -118,16 +112,22 @@ router.get('/colecciones/:coleccion', async (req, res) => {
     collections: false,
     selectCategories,
     selectCollections });
-});
+}
 
-// GET given product
-router.get('/producto/:slug', async (req, res) => {
+async function getProduct(req, res) {
   const product = await Product.findOne({ slug: req.params.slug });
   if(!product) {
     res.render('404');
     return;
   }
   res.render('product', { product: product });
-});
+}
 
-module.exports = router;
+module.exports = {
+  getProducts,
+  getCategories,
+  getCategoryProducts,
+  getCollections,
+  getCollectionProducts,
+  getProduct
+}

@@ -1,13 +1,15 @@
-const router = require('express').Router();
+// TODO: FIX CONTACT BUG 
+
 const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
 const nodemailer = require('nodemailer');
-const { createEmailMessage } = require('../../utils/email_utils');
 
-const Product = require('../../models/Product.js');
-const Category = require('../../models/Category.js');
-const Collection = require('../../models/Collection.js');
+const Product = require('../models/Product.js');
+const Category = require('../models/Category.js');
+const Collection = require('../models/Collection.js');
 
-router.get('/', async (req, res) => {
+const { createEmailMessage } = require('../utils/email_utils');
+
+async function renderHomepage(req, res) {
   const featuredProducts = await Product.find({ featured: true });
   const categories = await Category.find({});
   const collections = await Collection.find({});
@@ -17,17 +19,17 @@ router.get('/', async (req, res) => {
     categories: categories,
     collections: collections
   });
-});
+}
 
-router.get('/sobre-nosotros', (req, res) => {
+async function renderAbout(req, res) {
   res.render('about_us');
-});
+}
 
-router.get('/contacto', (req, res) => {
+async function renderContact(req, res) {
   res.render('contact');
-});
+}
 
-router.post('/contacto/solicitud', (req, res) => {
+async function handleContactRequest(req, res) {
   const { name, email, phone, message } = req.body;
   let transporter = nodemailer.createTransport({
     service: "outlook",
@@ -60,9 +62,9 @@ router.post('/contacto/solicitud', (req, res) => {
       res.status(200).json("Email enviado correctamente");
     }
   });
-});
+}
 
-router.get('/success', async (req, res) => {
+async function handleSuccessfulPayment(req, res) {
   try {
     const session = await stripe.checkout.sessions.retrieve(req.query.session_id);
     const customer = await stripe.customers.retrieve(session.customer);
@@ -109,10 +111,17 @@ router.get('/success', async (req, res) => {
     message: "¡Gracias por tu compra! En breve recibirás un correo con los detalles de tu pedido.",
     success: true
   });
-});
+}
 
-router.get('/cancel', (req, res) => {
+async function handleCancelPayment(req, res) {
   res.render('message', { message: "La transacción ha sido cancelada." });
-});
+}
 
-module.exports = router;
+module.exports = {
+  renderHomepage,
+  renderAbout,
+  renderContact,
+  handleContactRequest,
+  handleSuccessfulPayment,
+  handleCancelPayment
+}
