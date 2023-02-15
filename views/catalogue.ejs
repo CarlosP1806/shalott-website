@@ -38,10 +38,7 @@
             <form class="filter-form" id="search-form">
               <label class="filter__label">Buscar por:</label>
               <select class="filter__select" id="search-select">
-                <option class="filter__option" value="" selected>
-                   Selecciona filtro 
-                </option>
-                <option class="filter__option" value="todo">Todos</option>
+                <option class="filter__option" value="todo" selected>Todos</option>
                 <optgroup class="filter__option" label="Categorias">
                   <% for(let i = 0; i < selectCategories.length; i++) { %>
                     <% if (locals.category === selectCategories[i].name) { %>
