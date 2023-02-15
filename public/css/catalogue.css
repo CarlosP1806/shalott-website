@@ -68,13 +68,18 @@
     -moz-appearance: none; 
     -webkit-appearance: none; 
     appearance: none;
-    /* and then whatever styles you want*/
     height: 30px; 
-    min-width: 120px;
+    min-width: 140px;
 }
 
 .filter__option {
     font-size: var(--tiny-font);
+}
+
+@media screen and (min-width: 450px) {
+    .filter__select {
+        min-width: 160px;
+    }
 }
 
 @media screen and (min-width: 768px) {
@@ -84,9 +89,5 @@
 
     .catalogue__arrow {
         font-size: 4rem;
-    }
-
-    .filter__select {
-        min-width: 130px;
     }
 }
